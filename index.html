@@ -1088,6 +1088,106 @@ a {
 }
 
 /* ========================================
+   INTAKE FORM
+   ======================================== */
+.intake-form {
+  max-width: 680px;
+  margin: 2.5rem auto 0;
+  text-align: left;
+}
+.form-group {
+  margin-bottom: 2rem;
+}
+.form-group label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 0.6rem;
+}
+.form-hint {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 1rem;
+  margin-top: -0.3rem;
+}
+.form-group input[type="text"],
+.form-group input[type="email"] {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 4px;
+  color: #fff;
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+  transition: border-color 0.3s;
+  outline: none;
+}
+.form-group input::placeholder { color: rgba(255,255,255,0.25); }
+.form-group input:focus { border-color: var(--clay); }
+
+.feature-category { margin-bottom: 1.5rem; }
+.feature-cat-label {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.feature-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.feature-chip {
+  cursor: pointer;
+  margin: 0 !important;
+}
+.feature-chip input { display: none; }
+.feature-chip span {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.55);
+  transition: all 0.2s;
+  user-select: none;
+}
+.feature-chip span:hover {
+  border-color: rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.75);
+}
+.feature-chip input:checked + span {
+  background: var(--sage);
+  border-color: var(--sage);
+  color: #fff;
+  font-weight: 500;
+}
+.form-success {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: rgba(90,107,74,0.15);
+  border: 1px solid rgba(90,107,74,0.3);
+  border-radius: 4px;
+}
+.form-success p {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.8);
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .feature-chip span { font-size: 0.75rem; padding: 0.4rem 0.8rem; }
+}
+
+/* ========================================
    FOOTER
    ======================================== */
 .footer {
@@ -1493,13 +1593,13 @@ a {
 <section class="section case-study" id="project">
   <div class="section-narrow">
     <div class="case-study-header">
-      <span class="t-section-tag">Signature Project</span>
+      <span class="t-section-tag">Featured Project</span>
       <div class="case-study-location">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
         <span>300 Village Lane, Polo Ranch, Scotts Valley</span>
       </div>
       <h2 class="t-display-lg">From blank canvas<br>to living ecosystem.</h2>
-      <p>A newly constructed home in the redwood foothills of Scotts Valley. Beautiful architecture. Thoughtful interiors. And a yard of nothing but compacted dirt. This is the story of its transformation.</p>
+      <p>Every project begins with the same question: what does this land want to become? Here's how we answered it for one family at Polo Ranch &mdash; a newly constructed home in the redwood foothills of Scotts Valley with a yard of nothing but compacted dirt.</p>
     </div>
   </div>
 
@@ -1682,13 +1782,77 @@ a {
 
 
 <!-- ==========================================
-     FINAL CTA
+     INTAKE FORM
      ========================================== -->
-<section class="final-cta" id="contact">
+<section class="final-cta" id="contact" style="padding-bottom:5rem;">
   <h2>Your backyard is waiting<br>to come alive.</h2>
-  <p>Every landscape begins with a conversation. Tell us about your home, your land, and the life you want to live in it.</p>
-  <a href="mailto:hello@livingground.studio" class="btn-primary">Schedule a Consultation</a>
-  <div class="final-cta-email">
+  <p>Tell us where your property is and what you're dreaming of. We'll take it from there.</p>
+
+  <form id="intakeForm" class="intake-form" onsubmit="submitIntake(event)">
+    <!-- Address -->
+    <div class="form-group address-group">
+      <label for="address">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="vertical-align:-2px;margin-right:6px;opacity:.5;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        Property Address
+      </label>
+      <input type="text" id="address" name="address" placeholder="Start typing your address..." required autocomplete="street-address">
+    </div>
+
+    <!-- Feature selection -->
+    <div class="form-group">
+      <label>What are you envisioning?</label>
+      <p class="form-hint">Select everything that interests you &mdash; we'll design around your priorities.</p>
+
+      <div class="feature-category">
+        <h4 class="feature-cat-label">Living Systems</h4>
+        <div class="feature-grid">
+          <label class="feature-chip"><input type="checkbox" name="features" value="food-forest"><span>Food Forest</span></label>
+          <label class="feature-chip"><input type="checkbox" name="features" value="edible-gardens"><span>Edible Gardens</span></label>
+          <label class="feature-chip"><input type="checkbox" name="features" value="native-habitat"><span>Native Habitat</span></label>
+          <label class="feature-chip"><input type="checkbox" name="features" value="pollinator-garden"><span>Pollinator Garden</span></label>
+          <label class="feature-chip"><input type="checkbox" name="features" value="rainwater-harvesting"><span>Rainwater Harvesting</span></label>
+          <label class="feature-chip"><input type="checkbox" name="features" value="swales-drainage"><span>Swales &amp; Drainage</span></label>
+          <label class="feature-chip"><input type="checkbox" name="features" value="greywater"><span>Greywater Recycling</span></label>
+          <label class="feature-chip"><input type="checkbox" name="features" value="composting"><span>Composting Systems</span></label>
+          <label class="feature-chip"><input type="checkbox" name="features" value="drought-tolerant"><span>Drought-Tolerant Natives</span></label>
+          <label class="feature-chip"><input type="checkbox" name="features" value="fruit-trees"><span>Fruit &amp; Nut Trees</span></label>
+          <label class="feature-chip"><input type="checkbox" name="features" value="ground-cover"><span>Living Ground Cover</span></label>
+          <label class="feature-chip"><input type="checkbox" name="features" value="soil-restoration"><span>Soil Restoration</span></label>
+        </div>
+      </div>
+
+      <div class="feature-category">
+        <h4 class="feature-cat-label">Hardscape &amp; Structures</h4>
+        <div class="feature-grid">
+          <label class="feature-chip"><input type="checkbox" name="features" value="outdoor-kitchen"><span>Outdoor Kitchen</span></label>
+          <label class="feature-chip"><input type="checkbox" name="features" value="fire-pit"><span>Fire Pit</span></label>
+          <label class="feature-chip"><input type="checkbox" name="features" value="hot-tub"><span>Hot Tub</span></label>
+          <label class="feature-chip"><input type="checkbox" name="features" value="pergola"><span>Pergola / Shade Structure</span></label>
+          <label class="feature-chip"><input type="checkbox" name="features" value="stone-pathways"><span>Stone Pathways</span></label>
+          <label class="feature-chip"><input type="checkbox" name="features" value="outdoor-lighting"><span>Outdoor Lighting</span></label>
+          <label class="feature-chip"><input type="checkbox" name="features" value="retaining-walls"><span>Retaining Walls</span></label>
+          <label class="feature-chip"><input type="checkbox" name="features" value="water-feature"><span>Water Feature</span></label>
+          <label class="feature-chip"><input type="checkbox" name="features" value="seating-areas"><span>Seating Areas</span></label>
+          <label class="feature-chip"><input type="checkbox" name="features" value="play-area"><span>Children's Play Area</span></label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div class="form-group" style="max-width:480px;">
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required>
+    </div>
+
+    <button type="submit" class="btn-primary" style="margin-top:1rem;cursor:pointer;border:none;font-family:var(--font-body);">Begin Your Transformation</button>
+
+    <div id="formSuccess" class="form-success" style="display:none;">
+      <p>Thank you. We'll be in touch within 24 hours to schedule your discovery walk.</p>
+    </div>
+  </form>
+
+  <div class="final-cta-email" style="margin-top:2rem;">
+    <span style="color:rgba(255,255,255,.35);font-size:.8rem;">Prefer to reach out directly?</span>
     <a href="mailto:hello@livingground.studio" target="_blank" rel="noopener noreferrer">hello@livingground.studio</a>
   </div>
 </section>
@@ -1867,6 +2031,30 @@ a {
   phaseBlocks.forEach(function(block) {
     phaseObserver.observe(block);
   });
+
+  // ── INTAKE FORM SUBMISSION ──
+  window.submitIntake = function(e) {
+    e.preventDefault();
+    var form = document.getElementById('intakeForm');
+    var address = document.getElementById('address').value;
+    var email = document.getElementById('email').value;
+    var checks = form.querySelectorAll('input[name="features"]:checked');
+    var features = [];
+    checks.forEach(function(c) { features.push(c.parentElement.querySelector('span').textContent); });
+
+    var subject = encodeURIComponent('New Landscape Inquiry — ' + address);
+    var body = encodeURIComponent(
+      'Property Address: ' + address + '\n' +
+      'Email: ' + email + '\n\n' +
+      'Interested in:\n' + features.map(function(f) { return '• ' + f; }).join('\n') + '\n\n' +
+      'Sent from livingground.studio'
+    );
+
+    window.location.href = 'mailto:hello@livingground.studio?subject=' + subject + '&body=' + body;
+
+    document.getElementById('formSuccess').style.display = 'block';
+    form.querySelector('button[type="submit"]').style.display = 'none';
+  };
 })();
 </script>
 
