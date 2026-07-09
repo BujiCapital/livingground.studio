@@ -4,403 +4,1871 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Living Ground Studio — Landscape Design, Build & Stewardship</title>
-<meta name="description" content="Living Ground Studio designs, builds, and stewards living landscapes for modern homes in Santa Cruz, Scotts Valley, and Silicon Valley.">
+<meta name="description" content="Living Ground Studio designs, builds, and stewards regenerative landscapes for modern homes in Santa Cruz, Scotts Valley, and Silicon Valley.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --bg:#FAFAF8;--white:#FFFFFF;--charcoal:#1A1A1A;--text:#3A3A3A;
-  --muted:#7A7A72;--sage:#5A6B4A;--sage-light:#7A8E68;
-  --clay:#B8634D;--clay-light:#C97A65;--sand:#F0EDE6;
-  --warm:#F5F2ED;--border:rgba(0,0,0,0.06);
+/* ========================================
+   RESET & BASE
+   ======================================== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;color:var(--text);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
 
-/* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.5rem 6%;background:rgba(250,250,248,0.9);backdrop-filter:blur(16px);transition:all .3s}
-nav.scrolled{padding:1rem 6%;box-shadow:0 1px 0 var(--border)}
-.nav-links{display:flex;gap:2.2rem;align-items:center}
-.nav-links a{font-size:.78rem;font-weight:500;color:var(--charcoal);text-decoration:none;letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
-.nav-links a:hover{color:var(--sage)}
-.nav-cta{background:var(--sage)!important;color:var(--white)!important;padding:.55rem 1.3rem!important;border-radius:3px;transition:background .2s!important}
-.nav-cta:hover{background:var(--sage-light)!important}
-.mobile-toggle{display:none;background:none;border:none;cursor:pointer}
-.mobile-toggle span{display:block;width:20px;height:1.5px;background:var(--charcoal);margin:5px 0}
-
-/* ── ANIMATED LOGO ── */
-.logo-wrap{display:flex;align-items:center;gap:.5rem;position:relative}
-.logo-text{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;color:var(--charcoal);letter-spacing:.01em;position:relative}
-.logo-text .word-living{color:var(--sage)}
-/* Leaf sprout from the 'd' */
-.logo-leaf{position:absolute;right:-14px;top:-6px;width:16px;height:16px;animation:leafGrow 3s ease-out forwards,leafSway 4s ease-in-out 3s infinite}
-.logo-leaf path{fill:var(--sage);opacity:0;animation:leafFadeIn 1s ease-out 2s forwards}
-@keyframes leafGrow{0%{transform:scale(0) rotate(-30deg)}60%{transform:scale(1.1) rotate(5deg)}100%{transform:scale(1) rotate(0deg)}}
-@keyframes leafSway{0%,100%{transform:rotate(0deg)}50%{transform:rotate(6deg)}}
-@keyframes leafFadeIn{to{opacity:1}}
-
-/* Hummingbird */
-.hummingbird{position:absolute;width:18px;height:18px;opacity:0;animation:birdAppear .6s ease-out 3.5s forwards,birdFly 12s linear 4s infinite}
-.hummingbird svg{width:100%;height:100%}
-@keyframes birdAppear{to{opacity:.7}}
-@keyframes birdFly{
-  0%{top:-20px;left:60px;transform:scaleX(1) rotate(-5deg)}
-  15%{top:-14px;left:120px;transform:scaleX(1) rotate(0deg)}
-  30%{top:2px;left:140px;transform:scaleX(-1) rotate(5deg)}
-  45%{top:8px;left:80px;transform:scaleX(-1) rotate(0deg)}
-  60%{top:-4px;left:20px;transform:scaleX(-1) rotate(-5deg)}
-  75%{top:-18px;left:0px;transform:scaleX(1) rotate(-3deg)}
-  100%{top:-20px;left:60px;transform:scaleX(1) rotate(-5deg)}
+:root {
+  --charcoal: #1a1a1a;
+  --charcoal-light: #2a2a2a;
+  --off-white: #f5f3f0;
+  --warm-white: #faf8f5;
+  --sage: #5A6B4A;
+  --sage-light: #6d7f5c;
+  --sage-muted: rgba(90, 107, 74, 0.08);
+  --clay: #B8634D;
+  --clay-hover: #a3553f;
+  --text-primary: #1a1a1a;
+  --text-secondary: #555;
+  --text-tertiary: #888;
+  --border-light: rgba(0,0,0,0.06);
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
 }
-.wing{animation:wingFlap .12s ease-in-out infinite alternate}
-@keyframes wingFlap{0%{transform:rotate(0deg)}100%{transform:rotate(-25deg)}}
 
-/* ── HERO ── */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:url('https://foxterradesign.com/wp-content/uploads/2025/12/Foxterra-Luxury-Modern-Hacienda-Yard-Design-Family-Friendly-14-scaled.webp') center/cover no-repeat}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(15,15,12,.75) 0%,rgba(15,15,12,.35) 50%,rgba(15,15,12,.15) 100%)}
-.hero-content{position:relative;z-index:2;padding:0 8%;max-width:720px}
-.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,5vw,4.2rem);font-weight:300;line-height:1.12;color:var(--white);margin-bottom:1.5rem;letter-spacing:-.01em}
-.hero h1 em{font-style:italic;font-weight:400}
-.hero-sub{font-size:1rem;color:rgba(255,255,255,.7);max-width:480px;line-height:1.75;margin-bottom:2.5rem;font-weight:300}
-.btn-primary{display:inline-block;padding:.95rem 2.4rem;background:var(--clay);color:var(--white);text-decoration:none;font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border-radius:3px;transition:all .3s}
-.btn-primary:hover{background:var(--clay-light);transform:translateY(-1px)}
-
-/* ── SHARED ── */
-section{padding:7rem 8%}
-.tag{font-size:.68rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);margin-bottom:1rem}
-.heading{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,3.2vw,2.8rem);font-weight:400;line-height:1.15;color:var(--charcoal);margin-bottom:1rem;letter-spacing:-.01em}
-.subtext{font-size:.95rem;color:var(--muted);max-width:520px;line-height:1.75;font-weight:300}
-
-/* ── THE PROBLEM ── */
-.problem{background:var(--white)}
-.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;margin-top:3.5rem}
-.problem-img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:4px;filter:saturate(.85)}
-.problem-text h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:var(--charcoal);margin-bottom:1rem;line-height:1.3}
-.problem-list{list-style:none;margin:1.5rem 0}
-.problem-list li{font-size:.9rem;color:var(--muted);padding:.4rem 0;padding-left:1.2rem;position:relative;line-height:1.6}
-.problem-list li::before{content:'';position:absolute;left:0;top:.7rem;width:6px;height:6px;background:var(--sage);border-radius:50%}
-.problem-list.empty li::before{background:var(--clay);opacity:.5}
-.problem-punchline{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-style:italic;color:var(--sage);margin-top:1.5rem;line-height:1.5}
-
-/* ── CASE STUDY ── */
-.case-study{background:var(--charcoal);color:var(--white)}
-.case-study .tag{color:var(--clay-light)}
-.case-study .heading{color:var(--white)}
-.case-study .subtext{color:rgba(255,255,255,.5)}
-.cs-timeline{margin-top:4rem}
-.cs-phase{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;padding:3rem 0;border-top:1px solid rgba(255,255,255,.06)}
-.cs-phase:first-child{border-top:none;padding-top:0}
-.cs-phase-img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:4px}
-.cs-phase-text .phase-label{font-size:.68rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--clay-light);margin-bottom:.8rem}
-.cs-phase-text h3{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;margin-bottom:.8rem;line-height:1.3}
-.cs-phase-text p{font-size:.9rem;color:rgba(255,255,255,.55);line-height:1.75}
-.cs-phase:nth-child(even){direction:rtl}
-.cs-phase:nth-child(even) > *{direction:ltr}
-
-/* ── SERVICES ── */
-.services{background:var(--warm)}
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;margin-top:3.5rem}
-.svc{padding:2.5rem 2rem;background:var(--white);border-radius:6px;border:1px solid var(--border);transition:transform .3s,box-shadow .3s}
-.svc:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.04)}
-.svc-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;color:var(--clay);line-height:1;margin-bottom:1rem}
-.svc h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;color:var(--charcoal);margin-bottom:.5rem}
-.svc-tagline{font-size:.85rem;color:var(--sage);font-style:italic;margin-bottom:1rem}
-.svc ul{list-style:none}
-.svc li{font-size:.85rem;color:var(--muted);padding:.3rem 0;padding-left:1rem;position:relative;line-height:1.6}
-.svc li::before{content:'';position:absolute;left:0;top:.65rem;width:4px;height:4px;background:var(--sage);border-radius:50%}
-
-/* ── PHILOSOPHY ── */
-.philosophy{background:var(--bg);text-align:center;padding:8rem 8%}
-.philosophy .heading{max-width:600px;margin:0 auto 1.5rem}
-.philosophy .subtext{max-width:600px;margin:0 auto;text-align:center}
-.phil-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1.5rem;margin-top:4rem;text-align:center}
-.phil-item h4{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:500;color:var(--charcoal);margin-top:.8rem}
-.phil-icon{font-size:1.8rem;color:var(--sage)}
-.phil-item p{font-size:.78rem;color:var(--muted);margin-top:.4rem;line-height:1.5}
-
-/* ── DEVELOPMENTS ── */
-.developments{background:var(--white)}
-.dev-cards{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;margin-top:3rem}
-.dev-card{padding:2.5rem;border:1px solid var(--border);border-radius:6px;transition:border-color .3s}
-.dev-card:hover{border-color:var(--sage)}
-.dev-card h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;margin-bottom:.3rem;color:var(--charcoal)}
-.dev-card .dev-loc{font-size:.78rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:1rem}
-.dev-card p{font-size:.88rem;color:var(--muted);line-height:1.7}
-
-/* ── CTA ── */
-.cta{background:var(--sage);text-align:center;padding:7rem 8%}
-.cta .tag{color:rgba(255,255,255,.45)}
-.cta h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:300;color:var(--white);margin-bottom:1rem}
-.cta p{color:rgba(255,255,255,.6);margin-bottom:2.5rem;max-width:460px;margin-left:auto;margin-right:auto;font-weight:300}
-.btn-light{display:inline-block;padding:1rem 2.5rem;background:var(--white);color:var(--sage);text-decoration:none;font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border-radius:3px;transition:all .3s}
-.btn-light:hover{background:var(--sand);transform:translateY(-1px)}
-
-/* ── FOOTER ── */
-footer{padding:3.5rem 8%;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border)}
-.footer-brand{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:500;color:var(--charcoal)}
-.footer-brand span{color:var(--muted);font-family:'Inter',sans-serif;font-size:.75rem;font-weight:400;display:block;margin-top:.3rem}
-.footer-links{display:flex;gap:2rem}
-.footer-links a{font-size:.75rem;color:var(--muted);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
-.footer-links a:hover{color:var(--sage)}
-
-/* ── RESPONSIVE ── */
-@media(max-width:900px){
-  .nav-links{display:none}.mobile-toggle{display:block}
-  nav.open .nav-links{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--bg);padding:1.5rem 6%;border-bottom:1px solid var(--border)}
-  .problem-grid,.cs-phase,.dev-cards{grid-template-columns:1fr;gap:2rem}
-  .cs-phase:nth-child(even){direction:ltr}
-  .services-grid{grid-template-columns:1fr}
-  .phil-grid{grid-template-columns:repeat(3,1fr)}
-  .hero-content{padding:0 6%}
-  footer{flex-direction:column;gap:1.5rem;text-align:center}
-  .footer-links{flex-wrap:wrap;justify-content:center}
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-@media(max-width:600px){
-  section{padding:4rem 5%}
-  .phil-grid{grid-template-columns:1fr 1fr}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--text-primary);
+  background: var(--warm-white);
+  line-height: 1.7;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ========================================
+   TYPOGRAPHY SCALE
+   ======================================== */
+.t-display-xl {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.t-display-lg {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.2rem, 4.5vw, 4rem);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+}
+
+.t-display-md {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.6rem, 3vw, 2.5rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.t-section-tag {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sage);
+}
+
+.t-body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.t-body-sm {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.t-caption {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  letter-spacing: 0.02em;
+}
+
+/* ========================================
+   NAVIGATION
+   ======================================== */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1.5rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav.scrolled {
+  background: rgba(26, 26, 26, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 1rem 3rem;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  position: relative;
+}
+
+.nav-logo-text {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: #fff;
+  letter-spacing: -0.01em;
+  position: relative;
+}
+
+/* Animated leaf sprouting from the 'G' */
+.nav-leaf {
+  position: absolute;
+  right: -14px;
+  top: -6px;
+  width: 16px;
+  height: 16px;
+  animation: leafSprout 3s ease-out forwards, leafSway 4s ease-in-out 3s infinite;
+  transform-origin: bottom center;
+  opacity: 0;
+}
+
+.nav-leaf svg {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes leafSprout {
+  0% { transform: scale(0) rotate(-30deg); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+@keyframes leafSway {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(4deg); }
+}
+
+/* Hummingbird SVG animation */
+.nav-hummingbird {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  animation: hummingbirdFly 12s ease-in-out infinite;
+  opacity: 0;
+  animation-delay: 2s;
+  pointer-events: none;
+}
+
+.nav-hummingbird svg {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes hummingbirdFly {
+  0% { top: -4px; left: -30px; opacity: 0; transform: scaleX(1) rotate(-5deg); }
+  5% { opacity: 0.7; }
+  15% { top: -16px; left: 20px; transform: scaleX(1) rotate(3deg); }
+  30% { top: -8px; left: 80px; transform: scaleX(1) rotate(-2deg); }
+  45% { top: -20px; left: 120px; transform: scaleX(-1) rotate(5deg); }
+  60% { top: -6px; left: 60px; transform: scaleX(-1) rotate(-3deg); }
+  75% { top: -18px; left: 10px; transform: scaleX(-1) rotate(2deg); }
+  85% { top: -10px; left: -20px; transform: scaleX(1) rotate(-4deg); }
+  95% { opacity: 0.7; }
+  100% { top: -4px; left: -30px; opacity: 0; transform: scaleX(1) rotate(-5deg); }
+}
+
+/* Hummingbird wing flap */
+.hb-wing {
+  animation: wingFlap 0.08s ease-in-out infinite alternate;
+  transform-origin: 60% 50%;
+}
+
+@keyframes wingFlap {
+  0% { transform: scaleY(1); }
+  100% { transform: scaleY(-0.6); }
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.nav-links a {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 0.05em;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #fff;
+}
+
+.nav-cta {
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase;
+  color: var(--clay) !important;
+  border: 1px solid rgba(184, 99, 77, 0.4);
+  padding: 0.6rem 1.4rem;
+  border-radius: 2px;
+  transition: all 0.3s !important;
+}
+
+.nav-cta:hover {
+  background: var(--clay);
+  color: #fff !important;
+  border-color: var(--clay);
+}
+
+.nav-mobile-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nav-mobile-toggle span {
+  width: 24px;
+  height: 1.5px;
+  background: #fff;
+  transition: all 0.3s;
+}
+
+/* ========================================
+   HERO
+   ======================================== */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 700px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 10, 10, 0.3) 0%,
+    rgba(10, 10, 10, 0.15) 40%,
+    rgba(10, 10, 10, 0.5) 70%,
+    rgba(10, 10, 10, 0.85) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 0 6% 8vh;
+  max-width: 900px;
+}
+
+.hero-content h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 5.5vw, 4.8rem);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+
+.hero-content h1 em {
+  font-style: italic;
+  color: rgba(255,255,255,0.85);
+}
+
+.hero-sub {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: clamp(0.95rem, 1.3vw, 1.15rem);
+  color: rgba(255,255,255,0.6);
+  line-height: 1.7;
+  max-width: 560px;
+  margin-bottom: 2.5rem;
+}
+
+.btn-primary {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--clay);
+  padding: 1rem 2.4rem;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-primary:hover {
+  background: var(--clay-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 30px rgba(184, 99, 77, 0.25);
+}
+
+.hero-scroll-hint {
+  position: absolute;
+  bottom: 2.5rem;
+  right: 6%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hero-scroll-hint span {
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  writing-mode: vertical-rl;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 50px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.7); }
+  50% { opacity: 1; transform: scaleY(1); }
+}
+
+/* ========================================
+   SECTION SPACING
+   ======================================== */
+.section {
+  padding: 10rem 6%;
+}
+
+.section-narrow {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ========================================
+   THE PROBLEM
+   ======================================== */
+.problem {
+  background: var(--warm-white);
+}
+
+.problem-intro {
+  max-width: 680px;
+  margin-bottom: 4rem;
+}
+
+.problem-intro .t-section-tag {
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.problem-intro h2 {
+  margin-bottom: 1.5rem;
+}
+
+.problem-intro p {
+  max-width: 560px;
+}
+
+/* Money shot — full width through-glass photo */
+.problem-hero-photo {
+  margin: 0 -6%;
+  position: relative;
+  overflow: hidden;
+}
+
+.problem-hero-photo img {
+  width: 100%;
+  height: 75vh;
+  min-height: 500px;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.85) contrast(1.05);
+}
+
+.problem-hero-photo .photo-caption {
+  position: absolute;
+  bottom: 2rem;
+  left: 6%;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  padding: 0.6rem 1.2rem;
+  border-radius: 2px;
+}
+
+.problem-hero-photo .photo-caption span {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.8);
+  letter-spacing: 0.03em;
+  font-weight: 400;
+}
+
+/* Before photos grid */
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3px;
+  margin-top: 3px;
+  margin-left: -6%;
+  margin-right: -6%;
+}
+
+.problem-grid-item {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+
+.problem-grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.85) contrast(1.05);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.problem-grid-item:hover img {
+  transform: scale(1.03);
+}
+
+.problem-takeaway {
+  text-align: center;
+  margin-top: 5rem;
+  padding-top: 3rem;
+}
+
+.problem-takeaway p {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  color: var(--text-primary);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* ========================================
+   CASE STUDY
+   ======================================== */
+.case-study {
+  background: var(--charcoal);
+  color: #fff;
+}
+
+.case-study .t-section-tag {
+  color: var(--sage-light);
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.case-study-header {
+  max-width: 800px;
+  margin-bottom: 6rem;
+}
+
+.case-study-header h2 {
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+
+.case-study-header p {
+  color: rgba(255,255,255,0.5);
+  font-weight: 300;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  max-width: 560px;
+}
+
+.case-study-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 2px;
+}
+
+.case-study-location span {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.02em;
+}
+
+/* Phase blocks */
+.phase-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin-bottom: 1px;
+  min-height: 500px;
+}
+
+.phase-block.reverse {
+  direction: rtl;
+}
+
+.phase-block.reverse > * {
+  direction: ltr;
+}
+
+.phase-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.phase-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.phase-image.before-filter img {
+  filter: saturate(0.85) contrast(1.05);
+}
+
+.phase-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 5rem;
+  background: var(--charcoal-light);
+}
+
+.phase-label {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--sage-light);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.phase-label::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--sage);
+}
+
+.phase-content h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  line-height: 1.2;
+  color: #fff;
+  margin-bottom: 1.25rem;
+}
+
+.phase-content p {
+  font-weight: 300;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.5);
+  max-width: 420px;
+}
+
+/* Matterport placeholder */
+.matterport-placeholder {
+  margin-top: 2rem;
+  border: 1px dashed rgba(255,255,255,0.12);
+  border-radius: 2px;
+  padding: 2rem;
+  text-align: center;
+  max-width: 420px;
+}
+
+.matterport-placeholder span {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.25);
+  letter-spacing: 0.05em;
+}
+
+/* After placeholder */
+.phase-image-placeholder {
+  background: var(--charcoal);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.phase-image-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+}
+
+.phase-image-placeholder .placeholder-badge {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  padding: 0.5rem 1rem;
+  border-radius: 2px;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.05em;
+}
+
+.case-study-coda {
+  text-align: center;
+  margin-top: 5rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.case-study-coda p {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  color: rgba(255,255,255,0.45);
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ========================================
+   URGENCY — WHAT HAPPENS WHEN YOU WAIT
+   ======================================== */
+.urgency {
+  background: #1c1410;
+  color: #fff;
+  overflow: hidden;
+}
+.urgency .t-section-tag { color: #d44; }
+.urgency-intro {
+  max-width: 680px;
+  margin-bottom: 3.5rem;
+}
+.urgency-intro h2 {
+  color: #fff;
+  margin-bottom: 1rem;
+}
+.urgency-intro p {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+.flood-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 3.5rem;
+}
+.flood-grid img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  border-radius: 4px;
+  filter: saturate(0.8) contrast(1.1);
+}
+.flood-caption {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.35);
+  text-align: center;
+  margin-top: -0.5rem;
+  margin-bottom: 3rem;
+  font-style: italic;
+}
+
+/* ── SANDRAYA OFFER ── */
+.sandraya-offer {
+  background: linear-gradient(135deg, var(--sage) 0%, #3d5230 100%);
+  border-radius: 8px;
+  padding: 3.5rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3rem;
+  align-items: center;
+}
+.offer-content h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 0.8rem;
+  line-height: 1.2;
+}
+.offer-content p {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.7;
+  max-width: 520px;
+}
+.offer-content .offer-detail {
+  margin-top: 1rem;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.45);
+  font-style: italic;
+}
+.offer-amount {
+  text-align: center;
+  flex-shrink: 0;
+}
+.offer-amount .amount {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 400;
+  color: #fff;
+  line-height: 1;
+}
+.offer-amount .label {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-top: 0.5rem;
+}
+.offer-deadline {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.5rem 1.2rem;
+  background: rgba(255,255,255,0.1);
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+}
+.offer-cta {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.9rem 2rem;
+  background: #fff;
+  color: var(--sage);
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 3px;
+  transition: all 0.3s;
+}
+.offer-cta:hover {
+  background: var(--off-white);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .flood-grid { grid-template-columns: 1fr 1fr; }
+  .flood-grid img:nth-child(3) { grid-column: 1 / -1; aspect-ratio: 16/9; }
+  .sandraya-offer { grid-template-columns: 1fr; text-align: center; padding: 2.5rem 2rem; }
+  .offer-amount { margin-top: 1rem; }
+}
+
+/* ========================================
+   SERVICES
+   ======================================== */
+.services {
+  background: var(--warm-white);
+}
+
+.services-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.services-header .t-section-tag {
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.services-header h2 {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border-light);
+  border: 1px solid var(--border-light);
+}
+
+.service-card {
+  background: var(--warm-white);
+  padding: 3.5rem 3rem;
+}
+
+.service-number {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  color: rgba(0,0,0,0.04);
+  line-height: 1;
+  margin-bottom: 1.5rem;
+}
+
+.service-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.service-tagline {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--sage);
+  font-weight: 400;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.service-list {
+  list-style: none;
+}
+
+.service-list li {
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: var(--text-secondary);
+  padding: 0.55rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.service-list li:last-child {
+  border-bottom: none;
+}
+
+.service-list li::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  background: var(--sage);
+  border-radius: 50%;
+  flex-shrink: 0;
+  position: relative;
+  top: -1px;
+}
+
+/* ========================================
+   PHILOSOPHY
+   ======================================== */
+.philosophy {
+  position: relative;
+  padding: 12rem 6%;
+  background: var(--charcoal);
+  overflow: hidden;
+}
+
+.philosophy-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+}
+
+.philosophy-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.philosophy-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.philosophy-content .t-section-tag {
+  color: var(--sage-light);
+  margin-bottom: 2.5rem;
+  display: block;
+}
+
+.philosophy-content blockquote {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  line-height: 1.25;
+  color: #fff;
+  letter-spacing: -0.015em;
+  margin-bottom: 2rem;
+}
+
+.philosophy-content blockquote em {
+  font-style: italic;
+  color: rgba(255,255,255,0.7);
+}
+
+.philosophy-content p {
+  font-weight: 300;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.4);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* ========================================
+   WHERE WE WORK
+   ======================================== */
+.where {
+  background: var(--warm-white);
+}
+
+.where-header {
+  margin-bottom: 4rem;
+}
+
+.where-header .t-section-tag {
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.where-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border-light);
+  border: 1px solid var(--border-light);
+}
+
+.where-card {
+  background: var(--warm-white);
+  padding: 3rem;
+}
+
+.where-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-bottom: 0.4rem;
+}
+
+.where-card .where-meta {
+  font-size: 0.75rem;
+  color: var(--sage);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.where-card p {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ========================================
+   FINAL CTA
+   ======================================== */
+.final-cta {
+  background: var(--charcoal);
+  padding: 10rem 6%;
+  text-align: center;
+}
+
+.final-cta h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  line-height: 1.1;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.final-cta p {
+  font-weight: 300;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.4);
+  max-width: 480px;
+  margin: 0 auto 3rem;
+  line-height: 1.7;
+}
+
+.final-cta .btn-primary {
+  margin-bottom: 2rem;
+}
+
+.final-cta-email {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.3);
+}
+
+.final-cta-email a {
+  color: rgba(255,255,255,0.5);
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  transition: all 0.3s;
+}
+
+.final-cta-email a:hover {
+  color: #fff;
+  border-color: rgba(255,255,255,0.4);
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+.footer {
+  background: #111;
+  padding: 4rem 6% 3rem;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem;
+}
+
+.footer-brand h4 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.footer-brand p {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.3);
+  font-weight: 300;
+  line-height: 1.6;
+  max-width: 300px;
+}
+
+.footer-col h5 {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 1rem;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-col ul li a {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.35);
+  font-weight: 300;
+  transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: rgba(255,255,255,0.7);
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 3rem auto 0;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-bottom span {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.2);
+}
+
+/* ========================================
+   MOBILE NAV
+   ======================================== */
+.mobile-nav-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(10,10,10,0.97);
+  backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s;
+}
+
+.mobile-nav-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mobile-nav-overlay a {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: rgba(255,255,255,0.7);
+  transition: color 0.3s;
+}
+
+.mobile-nav-overlay a:hover {
+  color: #fff;
+}
+
+.mobile-nav-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.5);
+  font-size: 2rem;
+  cursor: pointer;
+  font-weight: 200;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 1024px) {
+  .section {
+    padding: 7rem 5%;
+  }
+
+  .phase-block {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .phase-block.reverse {
+    direction: ltr;
+  }
+
+  .phase-image {
+    aspect-ratio: 16/10;
+  }
+
+  .phase-content {
+    padding: 3rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    padding: 1.2rem 5%;
+  }
+
+  .nav.scrolled {
+    padding: 0.8rem 5%;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-mobile-toggle {
+    display: flex;
+  }
+
+  .hero-content {
+    padding: 0 5% 6vh;
+  }
+
+  .hero-scroll-hint {
+    display: none;
+  }
+
+  .section {
+    padding: 5rem 5%;
+  }
+
+  .problem-hero-photo {
+    margin: 0 -5%;
+  }
+
+  .problem-hero-photo img {
+    height: 55vh;
+    min-height: 350px;
+  }
+
+  .problem-grid {
+    grid-template-columns: 1fr 1fr;
+    margin-left: -5%;
+    margin-right: -5%;
+  }
+
+  .where-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .philosophy {
+    padding: 7rem 5%;
+  }
+}
+
+@media (max-width: 480px) {
+  .problem-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .final-cta h2 {
+    font-size: 2rem;
+  }
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav id="nav">
-  <div class="logo-wrap">
-    <div class="logo-text">
-      <span class="word-living">Living</span> Ground <span style="font-weight:300;font-size:.85em;letter-spacing:.08em;text-transform:uppercase;font-family:Inter,sans-serif;color:var(--muted)">Studio</span>
-      <svg class="logo-leaf" viewBox="0 0 16 16"><path d="M8 14C8 14 4 10 4 6c0-3 2-5 4-5 0 2-1 4-1 6s1 5 1 7z" fill="var(--sage)"/><path d="M8 14c0 0 4-4 4-8 0-3-2-5-4-5 0 2 1 4 1 6s-1 5-1 7z" fill="var(--sage-light)"/></svg>
-    </div>
-    <div class="hummingbird">
-      <svg viewBox="0 0 24 24" fill="none">
-        <path d="M12 8c-1-3-4-5-7-4 3-1 5 0 7 2" fill="var(--sage)" opacity=".8"/>
-        <path d="M12 8c-2 1-3 4-2 7 0-3 1-5 3-6" fill="var(--sage-light)" opacity=".8"/>
-        <g class="wing"><path d="M12 8c1-3 3-5 6-4-2 0-4 1-5 3" fill="var(--sage)" opacity=".6"/></g>
-        <circle cx="9" cy="6" r=".8" fill="var(--charcoal)"/>
-        <path d="M7 7l-4 1" stroke="var(--sage)" stroke-width=".8" stroke-linecap="round"/>
+<!-- ==========================================
+     NAVIGATION
+     ========================================== -->
+<nav class="nav" id="mainNav">
+  <a href="#" class="nav-logo">
+    <span class="nav-logo-text">Living Ground</span>
+    <span class="nav-leaf">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17 8C17 8 13 10 11 14C9 18 9 20 9 20" stroke="#5A6B4A" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M17 8C17 8 14 7 11 8C8 9 6 12 6 12C6 12 9 11 12 10C15 9 17 8 17 8Z" fill="#5A6B4A" opacity="0.7"/>
       </svg>
-    </div>
-  </div>
+    </span>
+    <span class="nav-hummingbird">
+      <svg viewBox="0 0 28 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 11L2 8.5C2 8.5 1 8 2 7.5L8 5" stroke="rgba(255,255,255,0.5)" stroke-width="0.8" stroke-linecap="round"/>
+        <ellipse cx="11" cy="9" rx="4" ry="3" fill="rgba(255,255,255,0.4)"/>
+        <path class="hb-wing" d="M10 7C10 7 7 3 4 2C4 2 7 5 10 7Z" fill="rgba(255,255,255,0.35)"/>
+        <path d="M15 9C15 9 19 8 22 9.5" stroke="rgba(255,255,255,0.3)" stroke-width="0.7" stroke-linecap="round"/>
+        <circle cx="8.5" cy="8" r="0.7" fill="rgba(255,255,255,0.6)"/>
+      </svg>
+    </span>
+  </a>
+
   <div class="nav-links">
-    <a href="#story">Story</a>
+    <a href="#project">Project</a>
     <a href="#services">Services</a>
     <a href="#philosophy">Philosophy</a>
-    <a href="#contact" class="nav-cta">Begin</a>
+    <a href="#contact" class="nav-cta">Get Started</a>
   </div>
-  <button class="mobile-toggle" onclick="document.getElementById('nav').classList.toggle('open')"><span></span><span></span><span></span></button>
+
+  <div class="nav-mobile-toggle" id="mobileToggle" aria-label="Open menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 </nav>
 
-<!-- HERO -->
+<!-- Mobile Nav Overlay -->
+<div class="mobile-nav-overlay" id="mobileNav">
+  <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">&times;</button>
+  <a href="#problem" onclick="closeMobileNav()">The Story</a>
+  <a href="#project" onclick="closeMobileNav()">Project</a>
+  <a href="#services" onclick="closeMobileNav()">Services</a>
+  <a href="#philosophy" onclick="closeMobileNav()">Philosophy</a>
+  <a href="#contact" onclick="closeMobileNav()">Get Started</a>
+</div>
+
+
+<!-- ==========================================
+     HERO
+     ========================================== -->
 <section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
+  <div class="hero-bg">
+    <img src="https://pub.hyperagent.com/api/published/pbf01KX4JKJHM_908QKDHSA76AEB4A/IMG_2025.jpg"
+         alt="Lush arbor pathway through a transformed permaculture garden at Polo Ranch"
+         loading="eager">
+  </div>
   <div class="hero-content">
-    <h1>Your home is complete<br>when the landscape<br><em>comes alive</em></h1>
-    <p class="hero-sub">Living Ground Studio designs, builds, and stewards regenerative landscapes that bring beauty, food, and habitat to your home.</p>
+    <h1>Your home is complete<br>when the landscape<br><em>comes alive.</em></h1>
+    <p class="hero-sub">Living Ground Studio designs, builds, and stewards regenerative landscapes for modern homes.</p>
     <a href="#contact" class="btn-primary">Begin Your Landscape Transformation</a>
   </div>
+  <div class="hero-scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
 </section>
 
-<!-- THE PROBLEM -->
-<section class="problem" id="problem">
-  <div class="tag">The Missing Piece</div>
-  <h2 class="heading">A beautiful new home.<br>An unfinished story.</h2>
+
+<!-- ==========================================
+     THE PROBLEM
+     ========================================== -->
+<section class="section problem" id="problem">
+  <div class="section-narrow">
+    <div class="problem-intro">
+      <span class="t-section-tag">The Missing Piece</span>
+      <h2 class="t-display-lg">You built everything. Except the place where life actually happens.</h2>
+      <p class="t-body">Luxury homes are delivered with bespoke kitchens, radiant floors, and smart-home systems. But the landscape -- the place where your family will gather, your children will play, where meals will be shared under open sky -- arrives as bare dirt. We change that.</p>
+    </div>
+  </div>
+
+  <!-- Full-width money shot -->
+  <div class="problem-hero-photo">
+    <img src="https://pub.hyperagent.com/api/published/pbf01KX4HBY8P_G2C696VFVHHN7NER/IMG_3263.jpg"
+         alt="View through glass door showing bare dirt backyard of a newly built luxury home"
+         loading="lazy">
+    <div class="photo-caption">
+      <span>Polo Ranch, Scotts Valley -- as delivered</span>
+    </div>
+  </div>
+
+  <!-- Before photos grid -->
   <div class="problem-grid">
-    <img class="problem-img" src="https://preview.redd.it/new-home-with-empty-backyard-v0-563a8rdy2fia1.jpg?width=640&crop=smart&auto=webp&s=9718bd48c98ed577eba0a3773f744b6a98f7e554" alt="Empty new construction backyard — blank canvas" loading="lazy">
-    <div class="problem-text">
-      <h3>Most new homes are delivered with everything — except the place where life actually happens.</h3>
-      <ul class="problem-list">
-        <li>Beautiful architecture</li>
-        <li>Premium interiors</li>
-        <li>Finished kitchens</li>
-        <li>Thoughtful details</li>
-      </ul>
-      <h3 style="margin-top:2rem">But outside?</h3>
-      <ul class="problem-list empty">
-        <li>A blank canvas</li>
-        <li>Bare soil and construction debris</li>
-        <li>No shade, no life, no place to gather</li>
-      </ul>
-      <p class="problem-punchline">A backyard should not be the last thing completed.<br>It should be where life happens.</p>
+    <div class="problem-grid-item">
+      <img src="https://pub.hyperagent.com/api/published/pbf01KX4HBZ5X_67BC2FEBSQ5GPCZS/IMG_2103.jpg"
+           alt="Wide shot of new-build home with bare dirt yard"
+           loading="lazy">
+    </div>
+    <div class="problem-grid-item">
+      <img src="https://pub.hyperagent.com/api/published/pbf01KX4HC0K6_BV7504JYDX3R4CGN/IMG_2105.jpg"
+           alt="Side yard with bare dirt and cedar fence, redwood hills in background"
+           loading="lazy">
+    </div>
+    <div class="problem-grid-item">
+      <img src="https://pub.hyperagent.com/api/published/pbf01KX4HC1E1_3SXKC1SVBSA7KBDG/IMG_2106.jpg"
+           alt="Back yard of new home showing bare dirt between neighbors"
+           loading="lazy">
+    </div>
+    <div class="problem-grid-item">
+      <img src="https://pub.hyperagent.com/api/published/pbf01KX4HC1XA_35RNMZT8HFEX5CM6/IMG_2117.jpg"
+           alt="Cedar fence and bare dirt with redwood-covered hills behind"
+           loading="lazy">
+    </div>
+  </div>
+
+  <div class="section-narrow">
+    <div class="problem-takeaway">
+      <p>"A backyard should not be the last thing completed."</p>
     </div>
   </div>
 </section>
 
-<!-- CASE STUDY: POLO RANCH -->
-<section class="case-study" id="story">
-  <div class="tag">Case Study</div>
-  <h2 class="heading">The Transformation of Polo Ranch</h2>
-  <p class="subtext">300 Village Lane &mdash; from unfinished lot to living ecosystem.</p>
 
-  <div class="cs-timeline">
-    <div class="cs-phase">
-      <img class="cs-phase-img" src="https://preview.redd.it/new-blank-slate-backyard-need-advice-recommendations-v0-zma7phjw434e1.jpg?width=640&crop=smart&auto=webp&s=5e2ffc78026acc72536947cfbb3d274bfb19de37" alt="Polo Ranch before — empty landscape" loading="lazy">
-      <div class="cs-phase-text">
-        <div class="phase-label">Before</div>
-        <h3>A blank canvas waiting to become a living ecosystem</h3>
-        <p>The property began as an unfinished landscape — bare soil, no shade, no habitat. Beautiful home, incomplete experience. The homeowners wanted an outdoor space that matched the intention of their interior: designed, living, purposeful.</p>
-      </div>
+<!-- ==========================================
+     URGENCY — WHAT HAPPENS WHEN YOU WAIT
+     ========================================== -->
+<section class="section urgency">
+  <div class="section-narrow">
+    <div class="urgency-intro">
+      <span class="t-section-tag">Why This Can't Wait</span>
+      <h2 class="t-display">The first rain turns neglect<br>into damage</h2>
+      <p>An unfinished backyard isn't just an eyesore. Without proper grading, drainage, and ground cover, the first winter rains turn bare soil into standing water — pooling against your foundation, flooding side yards, and creating conditions for structural damage that costs far more to fix than the landscape itself.</p>
     </div>
+  </div>
 
-    <div class="cs-phase">
-      <img class="cs-phase-img" src="https://www.contemporist.com/wp-content/uploads/2023/07/modern-landscaping-dining-outdoor-living-room-240723-1143-01.jpg" alt="Landscape design concept — outdoor living" loading="lazy">
-      <div class="cs-phase-text">
-        <div class="phase-label">Design</div>
-        <h3>Reading the land, mapping the vision</h3>
-        <p>We mapped sun patterns, wind corridors, soil composition, and drainage. Then we designed zones: an outdoor kitchen for gathering, a food forest for the family, native habitat corridors for wildlife, and a shaded terrace for morning coffee.</p>
-      </div>
+  <div class="section-narrow">
+    <div class="flood-grid">
+      <img src="https://pub.hyperagent.com/api/published/pbf01KX4HY35S_HZ7RTP5E9WM68NS5/IMG_4275.jpg" alt="Standing water and mud flooding backyard side yard" loading="lazy">
+      <img src="https://pub.hyperagent.com/api/published/pbf01KX4HY3WF_1BYQBW3MC44T05PN/IMG_4315.jpg" alt="Flooded backyard with water reaching back door" loading="lazy">
+      <img src="https://pub.hyperagent.com/api/published/pbf01KX4HY4VJ_XCD8CQP36FMKXCWK/IMG_4346.jpg" alt="Water pooling against foundation near HVAC unit" loading="lazy">
     </div>
+    <p class="flood-caption">Polo Ranch development — first winter without landscape intervention</p>
 
-    <div class="cs-phase">
-      <img class="cs-phase-img" src="https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2024/6/26/0/DOTY24_Outdoor-Oasis_Living-Gardens-Landscape-Design_California-Mediterranean-1.jpg.rend.hgtvcom.1280.1920.85.suffix/1719419189976.webp" alt="Landscape build — planting and hardscape" loading="lazy">
-      <div class="cs-phase-text">
-        <div class="phase-label">Build</div>
-        <h3>Soil, stone, water, and 200 plants</h3>
-        <p>Our crews restored the soil biology, laid natural stone pathways, installed drip irrigation, planted fruit trees, native perennials, edible ground covers, and built the outdoor kitchen. Eight weeks from breaking ground to first harvest.</p>
+    <div class="sandraya-offer">
+      <div class="offer-content">
+        <h3>Sandraya Heights homeowners:<br>start before you move in</h3>
+        <p>We're offering Sandraya Heights buyers an exclusive early-start program. We begin the landscape transformation while your home is being completed — so the day you move in, your backyard is already alive. No mud season. No waiting. No flood risk.</p>
+        <p class="offer-detail">Available for all 9 Sandraya Heights lots in Scotts Valley. Contact us to reserve your build slot.</p>
+        <a href="#contact" class="offer-cta">Claim Your Discount</a>
       </div>
-    </div>
-
-    <div class="cs-phase">
-      <img class="cs-phase-img" src="https://foxterradesign.com/wp-content/uploads/2024/12/Foxterra-Organic-Modern-Luxury-Yard-Design-24-scaled.webp" alt="Finished landscape — living ecosystem" loading="lazy">
-      <div class="cs-phase-text">
-        <div class="phase-label">After</div>
-        <h3>This is what happens when a backyard comes alive</h3>
-        <p>Eighteen months later: citrus trees bearing fruit, hummingbirds nesting in the native sage, dinners under the pergola three nights a week, and a landscape that requires less water than the lawn it replaced. The homeowners' only regret: not starting sooner.</p>
+      <div class="offer-amount">
+        <div class="amount">$10K</div>
+        <div class="label">Landscape Credit</div>
+        <div class="offer-deadline">Book before Jan 2027</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section class="services" id="services">
-  <div class="tag">One Partner, Three Phases</div>
-  <h2 class="heading">From vision to stewardship</h2>
-  <p class="subtext">You don't need to coordinate five contractors. Living Ground handles everything — design through decades of care.</p>
+<!-- ==========================================
+     CASE STUDY -- POLO RANCH
+     ========================================== -->
+<section class="section case-study" id="project">
+  <div class="section-narrow">
+    <div class="case-study-header">
+      <span class="t-section-tag">Signature Project</span>
+      <div class="case-study-location">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <span>300 Village Lane, Polo Ranch, Scotts Valley</span>
+      </div>
+      <h2 class="t-display-lg">From blank canvas<br>to living ecosystem.</h2>
+      <p>A newly constructed home in the redwood foothills of Scotts Valley. Beautiful architecture. Thoughtful interiors. And a yard of nothing but compacted dirt. This is the story of its transformation.</p>
+    </div>
+  </div>
 
-  <div class="services-grid">
-    <div class="svc">
-      <div class="svc-num">01</div>
-      <h3>Design</h3>
-      <p class="svc-tagline">Create your living landscape</p>
-      <ul>
-        <li>Landscape master planning</li>
-        <li>Ecological site assessment</li>
-        <li>Food forest design</li>
-        <li>Native habitat design</li>
-        <li>Outdoor living architecture</li>
-        <li>Water systems planning</li>
-      </ul>
+  <!-- Phase 1: BEFORE -->
+  <div class="phase-block">
+    <div class="phase-image before-filter">
+      <img src="https://pub.hyperagent.com/api/published/pbf01KX4HC2AT_279Q95K05DE5269Q/IMG_3279.jpg"
+           alt="Full back of house showing bare dirt yard before landscape design"
+           loading="lazy">
     </div>
-    <div class="svc">
-      <div class="svc-num">02</div>
-      <h3>Build</h3>
-      <p class="svc-tagline">Bring the vision to life</p>
-      <ul>
-        <li>Soil restoration</li>
-        <li>Planting & food gardens</li>
-        <li>Irrigation systems</li>
-        <li>Hardscape & pathways</li>
-        <li>Outdoor kitchens & structures</li>
-        <li>Tree establishment</li>
-      </ul>
+    <div class="phase-content">
+      <span class="phase-label">Phase 01 -- Before</span>
+      <h3>The starting point:<br>beautiful home, bare earth.</h3>
+      <p>Like many new-build luxury homes, this property was delivered with every interior detail perfected -- and an exterior of compacted fill dirt. No drainage plan. No outdoor living. No connection between the home and the stunning redwood hills surrounding it.</p>
+      <div class="matterport-embed" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:4px;margin-top:1.5rem;">
+        <iframe src="https://my.matterport.com/show/?m=iRyG9i38wvv" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allowfullscreen allow="xr-spatial-tracking"></iframe>
+      </div>
+      <p style="font-size:0.72rem;color:rgba(255,255,255,0.35);margin-top:0.5rem;font-style:italic;">Walk through the property as it was delivered &mdash; 360&deg; interactive tour</p>
     </div>
-    <div class="svc">
-      <div class="svc-num">03</div>
-      <h3>Steward</h3>
-      <p class="svc-tagline">Help your landscape mature</p>
-      <ul>
-        <li>Seasonal care programs</li>
-        <li>Pruning & succession planting</li>
-        <li>Soil health management</li>
-        <li>Garden harvesting</li>
-        <li>Ecological monitoring</li>
-        <li>Long-term evolution</li>
-      </ul>
+  </div>
+
+  <!-- Phase 2: DESIGN -->
+  <div class="phase-block reverse">
+    <div class="phase-image">
+      <img src="https://www.contemporist.com/wp-content/uploads/2023/07/modern-landscaping-dining-outdoor-living-room-240723-1143-01.jpg"
+           alt="Modern outdoor living design concept with dining area"
+           loading="lazy">
+    </div>
+    <div class="phase-content">
+      <span class="phase-label">Phase 02 -- Design</span>
+      <h3>Reading the land,<br>mapping the vision.</h3>
+      <p>We studied the property's microclimates, soil composition, drainage patterns, and sun exposure. We listened to the family's rhythms -- how they cook, gather, play. The design emerged from both: a landscape that serves the people and the place.</p>
+    </div>
+  </div>
+
+  <!-- Phase 3: BUILD -->
+  <div class="phase-block">
+    <div class="phase-image before-filter">
+      <img src="https://pub.hyperagent.com/api/published/pbf01KX4HC0K6_BV7504JYDX3R4CGN/IMG_2105.jpg"
+           alt="Construction phase - site preparation in progress"
+           loading="lazy">
+    </div>
+    <div class="phase-content">
+      <span class="phase-label">Phase 03 -- Build</span>
+      <h3>Shaping the ground,<br>placing every stone.</h3>
+      <p>Hardscape installation, grading and drainage infrastructure, irrigation systems, soil amendment, and strategic planting. Every element placed with purpose -- from the decomposed granite pathways to the native plantings along the fence line. Built to age beautifully.</p>
+    </div>
+  </div>
+
+  <!-- Phase 4: AFTER -->
+  <div class="phase-block reverse">
+    <div class="phase-image">
+      <img src="https://pub.hyperagent.com/api/published/pbf01KX4JKKEV_97H6TY4TSQK0F3EP/IMG_1621.jpg"
+           alt="Lush flowering side yard at Polo Ranch after Living Ground transformation"
+           loading="lazy">
+    </div>
+    <div class="phase-content">
+      <span class="phase-label">Phase 04 -- After</span>
+      <h3>A home that finally<br>meets its land.</h3>
+      <p>Where bare dirt once baked in the sun, a living ecosystem now thrives. Fruit trees bearing nectarines and passionfruit. Native flowers attracting pollinators. Mulched pathways under vine-covered arbors. A landscape that produces food, manages water, and looks more beautiful every season.</p>
+    </div>
+  </div>
+
+  <!-- After photo gallery -->
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.75rem;padding:0 clamp(1.5rem,5vw,4rem);margin-top:2rem;">
+    <img src="https://pub.hyperagent.com/api/published/pbf01KX4JKJHM_908QKDHSA76AEB4A/IMG_2025.jpg" alt="Arbor pathway through transformed garden" loading="lazy" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:4px;">
+    <img src="https://pub.hyperagent.com/api/published/pbf01KX4JKP5Y_320VBTWGQXDNYZEF/IMG_1728.jpg" alt="Passionfruit vine with fruit on cedar arbor" loading="lazy" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:4px;">
+    <img src="https://pub.hyperagent.com/api/published/pbf01KX4JKQEF_D4W8JJ6C76HK9GNT/IMG_1643.jpg" alt="Ripe nectarine on fruit tree" loading="lazy" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:4px;">
+    <img src="https://pub.hyperagent.com/api/published/pbf01KX4JKRSM_2V7CNJ2YEFD8832J/IMG_1847.jpg" alt="Backyard with turf area raised beds and established plantings" loading="lazy" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:4px;">
+  </div>
+  <p style="font-size:0.72rem;color:rgba(255,255,255,0.35);text-align:center;margin-top:0.75rem;font-style:italic;padding:0 2rem;">Polo Ranch &mdash; passionfruit on the arbor, nectarines ripening, native flowers blooming. Matterport after tour coming soon.</p>
+
+  <div class="section-narrow">
+    <div class="case-study-coda">
+      <p>This property is now listed for sale -- a testament to how the right landscape transforms not just a home, but its value.</p>
     </div>
   </div>
 </section>
 
-<!-- PHILOSOPHY -->
+
+<!-- ==========================================
+     SERVICES
+     ========================================== -->
+<section class="section services" id="services">
+  <div class="section-narrow">
+    <div class="services-header">
+      <span class="t-section-tag">Capabilities</span>
+      <h2 class="t-display-lg">One partner.<br>Three phases.</h2>
+    </div>
+
+    <div class="services-grid">
+      <!-- Design -->
+      <div class="service-card">
+        <div class="service-number">01</div>
+        <h3>Design</h3>
+        <p class="service-tagline">Seeing what the land wants to become</p>
+        <ul class="service-list">
+          <li>Site analysis &amp; soil assessment</li>
+          <li>Conceptual &amp; schematic design</li>
+          <li>3D visualization &amp; walkthroughs</li>
+          <li>Planting plans &amp; material selection</li>
+          <li>Permit coordination</li>
+        </ul>
+      </div>
+
+      <!-- Build -->
+      <div class="service-card">
+        <div class="service-number">02</div>
+        <h3>Build</h3>
+        <p class="service-tagline">Craft meeting earth</p>
+        <ul class="service-list">
+          <li>Hardscape &amp; grading</li>
+          <li>Drainage &amp; irrigation systems</li>
+          <li>Outdoor kitchens &amp; structures</li>
+          <li>Planting &amp; soil restoration</li>
+          <li>Lighting design &amp; installation</li>
+        </ul>
+      </div>
+
+      <!-- Steward -->
+      <div class="service-card">
+        <div class="service-number">03</div>
+        <h3>Steward</h3>
+        <p class="service-tagline">Landscapes grow. So does our care.</p>
+        <ul class="service-list">
+          <li>Seasonal pruning &amp; care</li>
+          <li>Irrigation management</li>
+          <li>Soil health monitoring</li>
+          <li>Evolving planting plans</li>
+          <li>Annual design reviews</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==========================================
+     PHILOSOPHY
+     ========================================== -->
 <section class="philosophy" id="philosophy">
-  <div class="tag">Our Philosophy</div>
-  <h2 class="heading">Humans are part of nature</h2>
-  <p class="subtext">The separation between human spaces and natural spaces is an illusion. A thriving landscape does not exclude people — it invites them in. The best landscapes provide:</p>
+  <div class="philosophy-bg">
+    <img src="https://foxterradesign.com/wp-content/uploads/2024/12/Foxterra-Organic-Modern-Luxury-Yard-Design-24-scaled.webp"
+         alt=""
+         loading="lazy"
+         aria-hidden="true">
+  </div>
+  <div class="philosophy-content">
+    <span class="t-section-tag">Philosophy</span>
+    <blockquote>The separation between human spaces and natural spaces is an illusion. A thriving landscape does not exclude people -- <em>it invites them in.</em></blockquote>
+    <p>We believe the ground beneath your home is alive. Our work is to listen to it, design with it, and build something that nourishes your family for generations.</p>
+  </div>
+</section>
 
-  <div class="phil-grid">
-    <div class="phil-item">
-      <div class="phil-icon">&#9750;</div>
-      <h4>Food</h4>
-      <p>For families to harvest and share</p>
+
+<!-- ==========================================
+     WHERE WE WORK
+     ========================================== -->
+<section class="section where" id="where">
+  <div class="section-narrow">
+    <div class="where-header">
+      <span class="t-section-tag">Service Area</span>
+      <h2 class="t-display-lg">Where we work.</h2>
     </div>
-    <div class="phil-item">
-      <div class="phil-icon">&#9656;</div>
-      <h4>Habitat</h4>
-      <p>For birds, bees, and soil life</p>
-    </div>
-    <div class="phil-item">
-      <div class="phil-icon">&#10022;</div>
-      <h4>Beauty</h4>
-      <p>For the senses, every season</p>
-    </div>
-    <div class="phil-item">
-      <div class="phil-icon">&#9673;</div>
-      <h4>Gathering</h4>
-      <p>Places to share meals and stories</p>
-    </div>
-    <div class="phil-item">
-      <div class="phil-icon">&#8734;</div>
-      <h4>Legacy</h4>
-      <p>Ecosystems that outlast us</p>
+
+    <div class="where-cards">
+      <div class="where-card">
+        <h3>Sandraya Heights</h3>
+        <div class="where-meta">Featured Development</div>
+        <p>Nine premium lots, each over 20,000 square feet, nestled in Scotts Valley. These properties -- set among redwoods with panoramic valley views -- represent the next chapter for Living Ground Studio. Purpose-built homes deserve purpose-built landscapes.</p>
+      </div>
+      <div class="where-card">
+        <h3>Santa Cruz &amp; Silicon Valley</h3>
+        <div class="where-meta">Service Corridor</div>
+        <p>From the coastal neighborhoods of Santa Cruz to the estates of Los Gatos and Saratoga, we serve homeowners across the Santa Cruz Mountains corridor. If you have a new home and bare dirt, we should talk.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- TARGET DEVELOPMENTS -->
-<section class="developments">
-  <div class="tag">Where We Work</div>
-  <h2 class="heading">Designed for the homes<br>being built right now</h2>
-  <p class="subtext">We specialize in new luxury developments where the architecture is beautiful but the landscape hasn't been imagined yet.</p>
 
-  <div class="dev-cards">
-    <div class="dev-card">
-      <h3>Sandraya Heights</h3>
-      <p class="dev-loc">Scotts Valley, CA</p>
-      <p>Nine premium lots on 5.88 acres, each over 20,000 sq ft. These properties are designed for families who value space, nature, and modern living. The landscape should match the intention of the home.</p>
-    </div>
-    <div class="dev-card">
-      <h3>New Developments</h3>
-      <p class="dev-loc">Santa Cruz &middot; Scotts Valley &middot; Silicon Valley</p>
-      <p>We work with homeowners across the Santa Cruz Mountains and Silicon Valley corridor — wherever a new home deserves a landscape that completes it.</p>
-    </div>
+<!-- ==========================================
+     FINAL CTA
+     ========================================== -->
+<section class="final-cta" id="contact">
+  <h2>Your backyard is waiting<br>to come alive.</h2>
+  <p>Every landscape begins with a conversation. Tell us about your home, your land, and the life you want to live in it.</p>
+  <a href="mailto:hello@livingground.studio" class="btn-primary">Schedule a Consultation</a>
+  <div class="final-cta-email">
+    <a href="mailto:hello@livingground.studio" target="_blank" rel="noopener noreferrer">hello@livingground.studio</a>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta" id="contact">
-  <div class="tag">Start Here</div>
-  <h2>Your backyard is waiting<br>to come alive</h2>
-  <p>Schedule a landscape consultation. We'll walk your property, understand your vision, and show you what's possible.</p>
-  <a href="mailto:hello@livingground.studio" class="btn-light">Schedule a Consultation</a>
-</section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-brand">
-    Living Ground Studio
-    <span>Landscape design, build & stewardship &mdash; Santa Cruz &middot; Scotts Valley &middot; Silicon Valley</span>
+<!-- ==========================================
+     FOOTER
+     ========================================== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h4>Living Ground Studio</h4>
+      <p>Landscape design, build, and stewardship for modern homes in the Santa Cruz Mountains corridor.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Navigation</h5>
+      <ul>
+        <li><a href="#problem">The Story</a></li>
+        <li><a href="#project">Polo Ranch</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#philosophy">Philosophy</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Service Areas</h5>
+      <ul>
+        <li><a href="#where">Scotts Valley</a></li>
+        <li><a href="#where">Santa Cruz</a></li>
+        <li><a href="#where">Los Gatos</a></li>
+        <li><a href="#where">Saratoga</a></li>
+        <li><a href="#where">Silicon Valley</a></li>
+      </ul>
+    </div>
   </div>
-  <div class="footer-links">
-    <a href="#story">Story</a>
-    <a href="#services">Services</a>
-    <a href="#philosophy">Philosophy</a>
-    <a href="mailto:hello@livingground.studio">Contact</a>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Living Ground Studio</span>
+    <span>Santa Cruz &amp; Silicon Valley, California</span>
   </div>
 </footer>
 
+
+<!-- ==========================================
+     JAVASCRIPT
+     ========================================== -->
 <script>
-window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60)});
+(function() {
+  // Nav scroll behavior
+  var nav = document.getElementById('mainNav');
+  var scrollThreshold = 80;
+
+  function handleScroll() {
+    if (window.scrollY > scrollThreshold) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  }
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll();
+
+  // Mobile nav
+  var mobileToggle = document.getElementById('mobileToggle');
+  var mobileNav = document.getElementById('mobileNav');
+  var mobileNavClose = document.getElementById('mobileNavClose');
+
+  mobileToggle.addEventListener('click', function() {
+    mobileNav.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  });
+
+  mobileNavClose.addEventListener('click', function() {
+    closeMobileNav();
+  });
+
+  window.closeMobileNav = function() {
+    mobileNav.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      var targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      var target = document.querySelector(targetId);
+      if (target) {
+        e.preventDefault();
+        var offset = nav.offsetHeight + 20;
+        var position = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top: position, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Intersection Observer for fade-in animations
+  var observerOptions = {
+    threshold: 0.15,
+    rootMargin: '0px 0px -60px 0px'
+  };
+
+  var fadeElements = document.querySelectorAll('.problem-intro, .urgency-intro, .sandraya-offer, .case-study-header, .services-header, .service-card, .where-card, .philosophy-content, .problem-takeaway, .case-study-coda');
+
+  fadeElements.forEach(function(el) {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+  });
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  fadeElements.forEach(function(el) {
+    observer.observe(el);
+  });
+
+  // Staggered fade for service cards
+  var serviceCards = document.querySelectorAll('.service-card');
+  serviceCards.forEach(function(card, index) {
+    card.style.transitionDelay = (index * 0.12) + 's';
+  });
+
+  // Staggered fade for problem grid items
+  var gridItems = document.querySelectorAll('.problem-grid-item');
+  gridItems.forEach(function(item, index) {
+    item.style.opacity = '0';
+    item.style.transform = 'translateY(20px)';
+    item.style.transition = 'opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+    item.style.transitionDelay = (index * 0.1) + 's';
+  });
+
+  var gridObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var items = entry.target.querySelectorAll('.problem-grid-item');
+        items.forEach(function(item) {
+          item.style.opacity = '1';
+          item.style.transform = 'translateY(0)';
+        });
+        gridObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  var grid = document.querySelector('.problem-grid');
+  if (grid) {
+    gridObserver.observe(grid);
+  }
+
+  // Phase blocks fade-in
+  var phaseBlocks = document.querySelectorAll('.phase-block');
+  phaseBlocks.forEach(function(block) {
+    block.style.opacity = '0';
+    block.style.transform = 'translateY(40px)';
+    block.style.transition = 'opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1)';
+  });
+
+  var phaseObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        phaseObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  phaseBlocks.forEach(function(block) {
+    phaseObserver.observe(block);
+  });
+})();
 </script>
+
 </body>
 </html>
