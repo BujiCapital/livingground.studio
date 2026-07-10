@@ -2032,6 +2032,23 @@ a {
     phaseObserver.observe(block);
   });
 
+  // ── GOOGLE PLACES AUTOCOMPLETE ──
+  window.initAutocomplete = function() {
+    var input = document.getElementById('address');
+    if (!input || !window.google || !google.maps || !google.maps.places) return;
+    var autocomplete = new google.maps.places.Autocomplete(input, {
+      types: ['address'],
+      componentRestrictions: { country: 'us' },
+      fields: ['formatted_address', 'geometry']
+    });
+    autocomplete.addListener('place_changed', function() {
+      var place = autocomplete.getPlace();
+      if (place && place.formatted_address) {
+        input.value = place.formatted_address;
+      }
+    });
+  };
+
   // ── INTAKE FORM SUBMISSION ──
   window.submitIntake = function(e) {
     e.preventDefault();
@@ -2058,5 +2075,35 @@ a {
 })();
 </script>
 
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCZdCYhQcL_rhcNPyIH-XGF1FFjpnEUL4&libraries=places&callback=initAutocomplete"></script>
+<style>
+/* Google Places autocomplete dropdown styling */
+.pac-container {
+  background: #1a1a1a;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 4px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  font-family: 'Inter', sans-serif;
+  margin-top: 4px;
+}
+.pac-item {
+  padding: 0.7rem 1rem;
+  color: rgba(255,255,255,0.7);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  cursor: pointer;
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+.pac-item:first-child { border-top: none; }
+.pac-item:hover, .pac-item-selected {
+  background: rgba(90,107,74,0.2);
+}
+.pac-item-query {
+  color: #fff;
+  font-weight: 500;
+}
+.pac-icon { display: none; }
+.pac-matched { font-weight: 600; color: #fff; }
+</style>
 </body>
 </html>
