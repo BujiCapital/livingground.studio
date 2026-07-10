@@ -4,10 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Philosophy — Living Ground Studio</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CjxwYXRoIGQ9Ik0yMCA4Yy0xLjUtMi00LTMtNi0ybC04IDRjMCAwIDMgMSA1IDBzNCAxIDUgM2MxIDIgMCA0LTEgNWwtMyAyYzAgMCAyIDEgNCAwczQtMiA1LTRjMS0yIDEtNS0xLTh6IiBmaWxsPSIjNUE2QjRBIi8+CjxwYXRoIGQ9Ik0xNCA2Yy0xLTEuNS0zLTItNS0xIDItMC41IDMuNSAwIDUgMXoiIGZpbGw9IiM1QTZCNEEiIG9wYWNpdHk9IjAuNyIvPgo8Y2lyY2xlIGN4PSIxOCIgY3k9IjkiIHI9IjEiIGZpbGw9IiNmZmYiLz4KPHBhdGggZD0iTTkgMTRsLTUgMiIgc3Ryb2tlPSIjNUE2QjRBIiBzdHJva2Utd2lkdGg9IjEuMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+Cjwvc3ZnPg==">
-<meta name="description" content="The design principles behind every Living Ground Studio landscape — twelve commitments that guide how we read the land and build for generations.">
+<meta name="description" content="Twelve design principles that guide how we read the land and build landscapes that last generations.">
 <meta property="og:title" content="Our Philosophy — Living Ground Studio">
-<meta property="og:description" content="Twelve design principles that guide how we read the land, place every plant, and build landscapes that last generations.">
+<meta property="og:description" content="Twelve design principles that guide how we read the land and build landscapes that last generations.">
 <meta property="og:image" content="https://pub.hyperagent.com/api/published/pbf01KX5A9YQJ_EGP4K2M4YQT1F2PR/49f1cd3f-1b20-4436-b4fe-072a1ff0db3d.png">
 <meta property="og:url" content="https://livingground.studio/philosophy.html">
 <meta property="og:type" content="website">
@@ -16,6 +15,7 @@
 <meta name="twitter:title" content="Our Philosophy — Living Ground Studio">
 <meta name="twitter:description" content="Twelve design principles that guide how we read the land and build landscapes that last generations.">
 <meta name="twitter:image" content="https://pub.hyperagent.com/api/published/pbf01KX5A9YQJ_EGP4K2M4YQT1F2PR/49f1cd3f-1b20-4436-b4fe-072a1ff0db3d.png">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmgiIHZpZXdCb3g9IjAgMCAzMiAzMiI+CjxwYXRoIGQ9Ik0yMCA4Yy0xLjUtMi00LTMtNi0ybC04IDRjMCAwIDMgMSA1IDBzNCAxIDUgM2MxIDIgMCA0LTEgNWwtMyAyYzAgMCAyIDEgNCAwczQtMiA1LTRjMS0yIDEtNS0xLTh6IiBmaWxsPSIjNUE2QjRBIi8+CjxwYXRoIGQ9Ik0xNCA2Yy0xLTEuNS0zLTItNS0xIDItMC41IDMuNSAwIDUgMXoiIGZpbGw9IiM1QTZCNEEiIG9wYWNpdHk9IjAuNyIvPgo8Y2lyY2xlIGN4PSIxOCIgY3k9IjkiIHI9IjEiIGZpbGw9IiNmZmYiLz4KPHBhdGggZD0iTTkgMTRsLTUgMiIgc3Ryb2tlPSIjNUE2QjRBIiBzdHJva2Utd2lkdGg9IjEuMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+Cjwvc3ZnPg==">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -24,76 +24,204 @@
 :root{
   --serif:'Instrument Serif',Georgia,serif;
   --sans:'Inter',-apple-system,sans-serif;
-  --black:#111;--white:#faf8f5;--sage:#5A6B4A;--clay:#B8634D;
-  --gray:#888;--light-gray:#e8e5e0;
+  --black:#1a1a1a;
+  --charcoal:#2C2C2C;
+  --cream:#FAF8F4;
+  --sand:#F5F0E8;
+  --sage:#5A6B4A;
+  --sage-light:#7A8B6A;
+  --clay:#B8634D;
+  --stone-fill:#e8e0d5;
+  --stone-dark:#d4cbbf;
+  --gray:#888;
+  --light-gray:#e8e5e0;
 }
-html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
-body{font-family:var(--sans);color:var(--black);background:var(--white);line-height:1.6}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--black);background:var(--cream);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
-/* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.5rem 6%;background:rgba(250,248,245,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.04)}
-.nav-brand{font-family:var(--serif);font-size:1.3rem;color:var(--black);text-decoration:none}
-.nav-brand span{font-family:var(--sans);font-size:.55rem;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--gray);display:block;margin-top:1px}
-.nav-right{display:flex;gap:2rem;align-items:center}
-.nav-right a{font-size:.75rem;font-weight:500;color:var(--gray);text-decoration:none;letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
+/* ======== NAV ======== */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.25rem 3rem;background:rgba(250,248,244,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(90,107,74,.06);transition:box-shadow .3s}
+nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,.06)}
+.nav-brand{font-family:var(--serif);font-size:1.3rem;color:var(--sage);text-decoration:none;letter-spacing:-.01em}
+.nav-brand span{color:var(--clay);margin-left:.2em}
+.nav-right{display:flex;align-items:center;gap:2rem}
+.nav-right a{font-size:.82rem;font-weight:400;color:var(--sage);text-decoration:none;letter-spacing:.02em;transition:color .2s}
 .nav-right a:hover{color:var(--black)}
-.nav-cta{background:var(--clay)!important;color:#fff!important;padding:.5rem 1.2rem!important;border-radius:3px}
-@media(max-width:768px){.nav-right a:not(.nav-cta){display:none}}
+.nav-cta{background:var(--sage)!important;color:#fff!important;padding:.55rem 1.4rem;border-radius:6px;font-weight:500!important;transition:background .2s,transform .2s!important}
+.nav-cta:hover{background:var(--sage-light)!important;transform:translateY(-1px)}
 
-/* ── HERO ── */
-.page-hero{padding:10rem 6% 5rem;max-width:800px}
-.page-hero h1{font-family:var(--serif);font-size:clamp(2.5rem,5vw,4rem);font-weight:400;line-height:1.1;margin-bottom:1.5rem}
-.page-hero h1 em{font-style:italic;color:var(--sage)}
-.page-hero p{font-size:1rem;color:var(--gray);max-width:560px;line-height:1.8;font-weight:300}
+/* ======== HERO ======== */
+.hero{min-height:85vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8rem 2rem 5rem;position:relative;background:linear-gradient(180deg,var(--cream) 0%,var(--sand) 100%);overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(90,107,74,.04) 0%,transparent 60%),radial-gradient(ellipse at 70% 60%,rgba(184,99,77,.03) 0%,transparent 60%);pointer-events:none}
+.hero-leaf{position:absolute;opacity:.06;pointer-events:none}
+.hero h1{font-family:var(--serif);font-size:clamp(2.4rem,5vw,4rem);line-height:1.12;color:var(--black);max-width:780px;margin-bottom:1.5rem;font-weight:400;position:relative}
+.hero h1 em{font-style:italic;color:var(--sage)}
+.hero-sub{font-size:clamp(1rem,1.8vw,1.12rem);color:var(--sage);max-width:540px;font-weight:300;line-height:1.75;position:relative}
+.hero-scroll{margin-top:3rem;display:flex;flex-direction:column;align-items:center;gap:.4rem;color:var(--sage);opacity:.45;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;animation:gentleBounce 2.5s ease-in-out infinite}
+@keyframes gentleBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
 
-/* ── ETHICS ── */
-.ethics{padding:5rem 6%;background:var(--black);color:#fff}
-.ethics-header{text-align:center;margin-bottom:4rem}
-.ethics-header h2{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:400;margin-bottom:.5rem}
-.ethics-header p{font-size:.85rem;color:rgba(255,255,255,.4);font-weight:300}
-.ethics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.06);max-width:960px;margin:0 auto}
-.ethic{background:var(--black);padding:3rem 2.5rem;text-align:center}
-.ethic-icon{font-size:1.6rem;margin-bottom:1.2rem;color:var(--sage);display:block}
-.ethic h3{font-family:var(--serif);font-size:1.4rem;font-weight:400;margin-bottom:.6rem}
-.ethic p{font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.7}
-@media(max-width:768px){.ethics-grid{grid-template-columns:1fr}}
+/* ======== ETHICS ======== */
+.ethics{background:var(--charcoal);padding:6rem 2rem}
+.ethics-inner{max-width:1100px;margin:0 auto}
+.ethics-label{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.35);text-align:center;margin-bottom:3rem}
+.ethics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.ethic-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:2.5rem 2rem;text-align:center;transition:background .3s,border-color .3s}
+.ethic-card:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.1)}
+.ethic-icon{width:44px;height:44px;margin:0 auto 1.5rem;opacity:.6}
+.ethic-card h3{font-family:var(--serif);font-size:1.35rem;color:#fff;margin-bottom:.7rem;font-weight:400}
+.ethic-card p{font-size:.88rem;color:rgba(255,255,255,.5);line-height:1.65;font-weight:300}
 
-/* ── PRINCIPLES ── */
-.principles{padding:6rem 6%}
-.principles-header{text-align:center;margin-bottom:1rem}
-.principles-header h2{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:400;margin-bottom:.5rem}
-.principles-header p{font-size:.85rem;color:var(--gray);max-width:520px;margin:0 auto;font-weight:300;line-height:1.7}
+/* ======== PHOTO BREAK ======== */
+.photo-break{width:100%;height:50vh;min-height:320px;max-height:500px;position:relative;overflow:hidden}
+.photo-break img{width:100%;height:100%;object-fit:cover;display:block}
+.photo-break::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(44,44,44,.12) 0%,transparent 30%,transparent 70%,rgba(245,240,232,.25) 100%);pointer-events:none}
 
-.principle-list{max-width:900px;margin:4rem auto 0;counter-reset:principle}
-.principle{display:grid;grid-template-columns:80px 1fr;gap:2rem;padding:2.5rem 0;border-bottom:1px solid var(--light-gray);align-items:start}
-.principle:first-child{border-top:1px solid var(--light-gray)}
-.p-num{font-family:var(--serif);font-size:2.5rem;color:var(--clay);line-height:1;text-align:right;padding-top:.2rem}
-.p-content h3{font-family:var(--serif);font-size:1.3rem;font-weight:400;margin-bottom:.4rem;line-height:1.3}
-.p-content p{font-size:.88rem;color:var(--gray);line-height:1.75;max-width:600px}
+/* ======== PATH SECTION ======== */
+.path-section{padding:6rem 2rem 4rem;position:relative;background:var(--cream);overflow:hidden}
+.path-header{text-align:center;max-width:680px;margin:0 auto 4rem}
+.path-header .section-tag{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--clay);margin-bottom:1rem;display:block}
+.path-header h2{font-family:var(--serif);font-size:clamp(2rem,4vw,2.8rem);color:var(--black);font-weight:400;margin-bottom:1rem}
+.path-header p{font-size:.95rem;color:var(--sage);font-weight:300;line-height:1.75}
 
-@media(max-width:600px){
-  .principle{grid-template-columns:50px 1fr;gap:1rem}
-  .p-num{font-size:2rem}
+.path-container{position:relative;max-width:900px;margin:0 auto;padding:2rem 0}
+.path-svg-bg{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0}
+
+/* Principle items */
+.principle{position:relative;z-index:2;display:flex;align-items:flex-start;margin-bottom:.5rem;opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.23,1,.32,1),transform .7s cubic-bezier(.23,1,.32,1)}
+.principle.visible{opacity:1;transform:translateY(0)}
+.principle:nth-child(odd) .stone-wrap{margin-right:auto;margin-left:10%}
+.principle:nth-child(even) .stone-wrap{margin-left:auto;margin-right:10%}
+
+/* Stepping stone */
+.stone-wrap{position:relative;cursor:pointer;padding:2rem 2.2rem;min-width:260px;max-width:380px;transition:transform .3s ease}
+.stone-wrap:hover{transform:scale(1.03)}
+.stone-svg{position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1;filter:drop-shadow(0 4px 14px rgba(0,0,0,.07));transition:filter .3s}
+.stone-wrap:hover .stone-svg{filter:drop-shadow(0 6px 22px rgba(0,0,0,.11))}
+.stone-number{font-family:var(--serif);font-size:.88rem;color:var(--clay);margin-bottom:.3rem}
+.stone-title{font-family:var(--serif);font-size:1.25rem;color:var(--black);line-height:1.3;font-weight:400}
+.stone-desc{font-size:.86rem;color:var(--sage);line-height:1.65;font-weight:300;max-height:0;overflow:hidden;opacity:0;margin-top:0;transition:max-height .5s ease,opacity .4s ease,margin-top .4s ease}
+.stone-wrap.expanded .stone-desc{max-height:200px;opacity:1;margin-top:.7rem}
+
+/* Path photos */
+.path-photo{position:relative;z-index:2;width:80%;max-width:700px;margin:2rem auto;border-radius:12px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.1);opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.path-photo.visible{opacity:1;transform:translateY(0)}
+.path-photo img{width:100%;height:280px;object-fit:cover;display:block}
+
+/* ======== WILDLIFE ANIMATIONS ======== */
+.monarch{position:absolute;z-index:5;pointer-events:none}
+.monarch svg{width:32px;height:28px}
+.monarch-1{top:6%;left:15%;animation:mF1 18s ease-in-out infinite}
+.monarch-2{top:38%;right:10%;animation:mF2 22s ease-in-out infinite;animation-delay:-5s}
+.monarch-3{top:72%;left:18%;animation:mF3 20s ease-in-out infinite;animation-delay:-9s}
+@keyframes mF1{0%{transform:translate(0,0) rotate(-5deg)}15%{transform:translate(40px,-28px) rotate(8deg)}30%{transform:translate(75px,-12px) rotate(-3deg)}50%{transform:translate(55px,-42px) rotate(10deg)}70%{transform:translate(18px,-22px) rotate(-8deg)}85%{transform:translate(-8px,-6px) rotate(5deg)}100%{transform:translate(0,0) rotate(-5deg)}}
+@keyframes mF2{0%{transform:translate(0,0) rotate(3deg)}20%{transform:translate(-48px,-32px) rotate(-6deg)}40%{transform:translate(-18px,-52px) rotate(5deg)}60%{transform:translate(-55px,-16px) rotate(-4deg)}80%{transform:translate(-28px,-38px) rotate(7deg)}100%{transform:translate(0,0) rotate(3deg)}}
+@keyframes mF3{0%{transform:translate(0,0) rotate(-2deg) scaleX(1)}25%{transform:translate(48px,-22px) rotate(6deg) scaleX(-1)}50%{transform:translate(28px,-48px) rotate(-4deg) scaleX(-1)}75%{transform:translate(-18px,-26px) rotate(3deg) scaleX(1)}100%{transform:translate(0,0) rotate(-2deg) scaleX(1)}}
+.wing-flutter{animation:flutter .3s ease-in-out infinite alternate;transform-origin:center}
+@keyframes flutter{0%{transform:scaleY(1)}100%{transform:scaleY(.82)}}
+
+.painted-lady{position:absolute;z-index:5;pointer-events:none;top:52%;right:14%;animation:plF 24s ease-in-out infinite;animation-delay:-3s}
+.painted-lady svg{width:28px;height:24px}
+@keyframes plF{0%{transform:translate(0,0) rotate(2deg)}20%{transform:translate(-28px,-42px) rotate(-5deg)}40%{transform:translate(18px,-58px) rotate(8deg)}60%{transform:translate(-12px,-28px) rotate(-3deg)}80%{transform:translate(14px,-14px) rotate(4deg)}100%{transform:translate(0,0) rotate(2deg)}}
+
+.hummingbird{position:absolute;z-index:5;pointer-events:none;top:20%;right:7%;animation:hbH 6s ease-in-out infinite}
+.hummingbird svg{width:36px;height:30px}
+@keyframes hbH{0%,100%{transform:translate(0,0)}25%{transform:translate(3px,-9px)}50%{transform:translate(-2px,-4px)}75%{transform:translate(4px,-11px)}}
+.hbird-wing{animation:hbW .08s ease-in-out infinite alternate;transform-origin:40% 50%}
+@keyframes hbW{0%{transform:rotate(-15deg) scaleY(1)}100%{transform:rotate(15deg) scaleY(.65)}}
+
+.ladybug{position:absolute;z-index:5;pointer-events:none}
+.ladybug svg{width:13px;height:13px}
+.ladybug-1{top:16%;left:44%;animation:lbC1 32s linear infinite}
+.ladybug-2{top:56%;left:50%;animation:lbC2 36s linear infinite;animation-delay:-12s}
+.ladybug-3{top:84%;left:46%;animation:lbC1 28s linear infinite;animation-delay:-16s}
+@keyframes lbC1{0%{transform:translate(0,0) rotate(0)}10%{transform:translate(7px,14px) rotate(15deg)}20%{transform:translate(2px,26px) rotate(-5deg)}30%{transform:translate(9px,38px) rotate(10deg)}40%{transform:translate(4px,52px) rotate(0)}50%{transform:translate(11px,62px) rotate(20deg)}60%{transform:translate(6px,50px) rotate(-10deg)}70%{transform:translate(1px,36px) rotate(5deg)}80%{transform:translate(8px,22px) rotate(-15deg)}90%{transform:translate(3px,10px) rotate(8deg)}100%{transform:translate(0,0) rotate(0)}}
+@keyframes lbC2{0%{transform:translate(0,0) rotate(5deg)}15%{transform:translate(-5px,16px) rotate(-10deg)}30%{transform:translate(-1px,32px) rotate(8deg)}50%{transform:translate(-7px,48px) rotate(-5deg)}70%{transform:translate(-2px,30px) rotate(12deg)}85%{transform:translate(-6px,14px) rotate(-8deg)}100%{transform:translate(0,0) rotate(5deg)}}
+
+.bee{position:absolute;z-index:5;pointer-events:none;top:62%;left:11%;animation:beeF 8s ease-in-out infinite}
+.bee svg{width:22px;height:20px}
+.bee-wing{animation:beeW .06s linear infinite alternate;transform-origin:50% 80%}
+@keyframes beeF{0%,100%{transform:translate(0,0) rotate(-2deg)}20%{transform:translate(12px,-16px) rotate(5deg)}40%{transform:translate(-8px,-9px) rotate(-3deg)}60%{transform:translate(14px,-22px) rotate(4deg)}80%{transform:translate(4px,-5px) rotate(-4deg)}}
+@keyframes beeW{0%{transform:rotate(-20deg)}100%{transform:rotate(20deg)}}
+
+.scrub-jay{position:absolute;z-index:5;pointer-events:none;top:44%;left:4%;animation:jayP 4s ease-in-out infinite}
+.scrub-jay svg{width:38px;height:32px}
+@keyframes jayP{0%,100%{transform:rotate(0)}30%{transform:rotate(-2deg)}60%{transform:rotate(1deg)}}
+.jay-head{animation:jayL 5s ease-in-out infinite;transform-origin:60% 70%}
+@keyframes jayL{0%,80%,100%{transform:rotate(0)}40%{transform:rotate(-8deg)}55%{transform:rotate(5deg)}}
+
+.dragonfly{position:absolute;z-index:5;pointer-events:none;top:78%;right:10%;animation:dfD 12s ease-in-out infinite}
+.dragonfly svg{width:34px;height:24px}
+.df-wing{animation:dfW .1s ease-in-out infinite alternate;transform-origin:50% 90%}
+@keyframes dfD{0%,100%{transform:translate(0,0) rotate(0)}15%{transform:translate(-28px,-22px) rotate(-10deg)}30%{transform:translate(-14px,-38px) rotate(5deg)}45%{transform:translate(-38px,-16px) rotate(-5deg)}60%{transform:translate(-18px,-32px) rotate(8deg)}75%{transform:translate(-4px,-10px) rotate(-3deg)}}
+@keyframes dfW{0%{transform:scaleY(1) rotate(-5deg)}100%{transform:scaleY(.55) rotate(5deg)}}
+
+/* ======== CLOSING ======== */
+.closing{background:var(--charcoal);padding:7rem 2rem;text-align:center}
+.closing blockquote{font-family:var(--serif);font-size:clamp(1.5rem,3.5vw,2.3rem);color:#fff;max-width:680px;margin:0 auto 2.5rem;line-height:1.35;font-weight:400;font-style:italic}
+.cta-btn{display:inline-block;background:var(--sage);color:#fff;padding:.9rem 2.4rem;border-radius:8px;font-size:.92rem;font-weight:500;text-decoration:none;letter-spacing:.02em;transition:background .2s,transform .2s}
+.cta-btn:hover{background:var(--sage-light);transform:translateY(-2px)}
+
+/* ======== FOOTER ======== */
+footer{display:flex;align-items:center;justify-content:space-between;padding:2rem 3rem;background:var(--black);border-top:1px solid rgba(255,255,255,.05)}
+.foot-brand{font-family:var(--serif);font-size:1rem;color:rgba(255,255,255,.7)}
+.foot-brand span{display:block;font-family:var(--sans);font-size:.72rem;color:rgba(255,255,255,.28);margin-top:.2rem;letter-spacing:.04em}
+.foot-links{display:flex;gap:1.8rem}
+.foot-links a{font-size:.8rem;color:rgba(255,255,255,.38);text-decoration:none;transition:color .2s}
+.foot-links a:hover{color:rgba(255,255,255,.8)}
+
+/* ======== REVEAL ======== */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:.1s}
+.reveal-d2{transition-delay:.2s}
+.reveal-d3{transition-delay:.3s}
+
+/* ======== RESPONSIVE ======== */
+@media(max-width:1024px){
+  .principle:nth-child(odd) .stone-wrap{margin-left:5%}
+  .principle:nth-child(even) .stone-wrap{margin-right:5%}
 }
-
-/* ── QUOTE ── */
-.closing{padding:6rem 6%;background:var(--black);text-align:center}
-.closing blockquote{font-family:var(--serif);font-size:clamp(1.3rem,2.5vw,1.8rem);font-style:italic;color:rgba(255,255,255,.6);max-width:600px;margin:0 auto 2rem;line-height:1.5}
-.closing .btn{display:inline-block;padding:.85rem 2rem;font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:3px;background:var(--clay);color:#fff;font-family:var(--sans);transition:opacity .3s}
-.closing .btn:hover{opacity:.9}
-
-/* ── FOOTER ── */
-footer{padding:3rem 6%;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--light-gray);flex-wrap:wrap;gap:1rem}
-.foot-brand{font-family:var(--serif);font-size:1rem;color:var(--black)}
-.foot-brand span{display:block;font-family:var(--sans);font-size:.7rem;color:var(--gray);font-weight:300;margin-top:.2rem}
-.foot-links{display:flex;gap:1.5rem}
-.foot-links a{font-size:.7rem;color:var(--gray);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
-.foot-links a:hover{color:var(--sage)}
-@media(max-width:600px){footer{flex-direction:column;text-align:center}.foot-links{flex-wrap:wrap;justify-content:center}}
+@media(max-width:768px){
+  nav{padding:1rem 1.5rem}
+  .nav-right{gap:1.2rem}
+  .nav-right a{font-size:.78rem}
+  .ethics-grid{grid-template-columns:1fr;gap:1.2rem}
+  .ethic-card{padding:2rem 1.5rem}
+  .principle:nth-child(odd) .stone-wrap,
+  .principle:nth-child(even) .stone-wrap{margin:0 auto}
+  .stone-wrap{min-width:220px;max-width:100%}
+  .stone-desc{max-height:none!important;opacity:1!important;margin-top:.7rem!important}
+  .path-photo{width:92%}
+  .path-photo img{height:200px}
+  .monarch svg{width:24px;height:20px}
+  .hummingbird svg{width:28px;height:22px}
+  .scrub-jay svg{width:30px;height:24px}
+  footer{flex-direction:column;gap:1rem;text-align:center}
+}
+@media(max-width:480px){
+  nav{padding:.8rem 1rem}
+  .nav-brand{font-size:1.12rem}
+  .nav-right{gap:.8rem}
+  .nav-right a{font-size:.72rem}
+  .nav-cta{padding:.45rem 1rem!important}
+  .hero{min-height:70vh;padding:7rem 1.5rem 3rem}
+  .ethics{padding:4rem 1.5rem}
+  .path-section{padding:4rem 1rem 2rem}
+  .stone-wrap{padding:1.5rem 1.6rem;min-width:200px}
+  .stone-title{font-size:1.12rem}
+  .closing{padding:5rem 1.5rem}
+  .monarch-1,.monarch-3,.ladybug-3,.painted-lady{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .monarch,.painted-lady,.hummingbird,.ladybug,.bee,.scrub-jay,.dragonfly,
+  .wing-flutter,.hbird-wing,.bee-wing,.df-wing,.jay-head{animation:none!important}
+  .hero-scroll{animation:none}
+}
 </style>
 </head>
 <body>
 
+<!-- ======================== NAV ======================== -->
 <nav>
   <a href="/" class="nav-brand">Living Ground<span>Studio</span></a>
   <div class="nav-right">
@@ -103,597 +231,388 @@ footer{padding:3rem 6%;display:flex;justify-content:space-between;align-items:ce
   </div>
 </nav>
 
-<!-- HERO -->
-<div class="page-hero">
-  <h1>We design landscapes the way <em>nature designs ecosystems</em></h1>
-  <p>Every Living Ground project is guided by twelve design principles — a framework for creating landscapes that are beautiful, productive, and built to last generations. Not rules. Intelligence.</p>
-</div>
-
-<!-- THREE ETHICS -->
-<section class="ethics">
-  <div class="ethics-header">
-    <h2>Three commitments before we draw a single line</h2>
-    <p>These aren't slogans. They're the foundation of every design decision we make.</p>
-  </div>
-  <div class="ethics-grid">
-    <div class="ethic">
-      <span class="ethic-icon">&#9826;</span>
-      <h3>Care for the land</h3>
-      <p>Every landscape we build improves the soil, conserves water, and creates habitat. Your backyard becomes part of the living ecosystem — not separate from it.</p>
-    </div>
-    <div class="ethic">
-      <span class="ethic-icon">&#9825;</span>
-      <h3>Care for the people</h3>
-      <p>A landscape should nourish the family that lives in it — fresh food, outdoor living, beauty, and a place to gather. We design for how you actually live.</p>
-    </div>
-    <div class="ethic">
-      <span class="ethic-icon">&#8734;</span>
-      <h3>Share the abundance</h3>
-      <p>A well-designed landscape produces more than any family needs. Share the harvest, return surplus to the soil, and let the system sustain itself.</p>
-    </div>
-  </div>
-</section>
-
-<!-- 12 PRINCIPLES -->
-<style>
-  /* ── Path Section Reset & Container ── */
-  .path-section {
-    position: relative;
-    padding: 6rem 1.5rem 8rem;
-    background: #faf8f5;
-    overflow: hidden;
-  }
-
-  .path-header {
-    text-align: center;
-    max-width: 620px;
-    margin: 0 auto 5rem;
-  }
-
-  .path-header h2 {
-    font-family: 'Instrument Serif', serif;
-    font-size: clamp(2rem, 4vw, 2.8rem);
-    color: #111;
-    font-weight: 400;
-    margin: 0 0 1rem;
-    letter-spacing: -0.01em;
-  }
-
-  .path-header p {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.95rem;
-    color: #888;
-    line-height: 1.7;
-    margin: 0;
-  }
-
-  /* ── SVG Path Canvas ── */
-  .path-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  .path-trail {
-    fill: none;
-    stroke-width: 1.5;
-    stroke-linecap: round;
-    stroke-dasharray: 8 4;
-  }
-
-  /* ── Stones Container ── */
-  .path-stones {
-    position: relative;
-    z-index: 1;
-    max-width: 880px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  /* ── Individual Stone ── */
-  .path-stone {
-    display: flex;
-    align-items: flex-start;
-    gap: 1.5rem;
-    opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1),
-                transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
-    padding: 1.25rem 0;
-  }
-
-  .path-stone.path-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* Alternating alignment — wider offset creates the winding S-curve */
-  .path-stone:nth-child(odd) {
-    margin-right: auto;
-    padding-left: 6%;
-  }
-
-  .path-stone:nth-child(even) {
-    margin-left: auto;
-    padding-right: 6%;
-    flex-direction: row-reverse;
-    text-align: right;
-  }
-
-  /* ── Circle / Stepping Stone ── */
-  .path-circle {
-    flex-shrink: 0;
-    width: 72px;
-    height: 72px;
-    border-radius: 50%;
-    background: #fff;
-    border: 1px solid #e0ddd8;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: inset 0 1px 3px rgba(0,0,0,0.03);
-    transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
-    cursor: default;
-    position: relative;
-  }
-
-  .path-stone:hover .path-circle,
-  .path-stone.path-active .path-circle {
-    border-color: #5A6B4A;
-    box-shadow: 0 0 0 4px rgba(90, 107, 74, 0.08), 0 4px 20px rgba(90, 107, 74, 0.1);
-    transform: scale(1.05);
-  }
-
-  .path-number {
-    font-family: 'Instrument Serif', serif;
-    font-size: 1.8rem;
-    color: #B8634D;
-    line-height: 1;
-    letter-spacing: -0.02em;
-  }
-
-  /* ── Text Content ── */
-  .path-content {
-    padding-top: 0.35rem;
-    max-width: 400px;
-  }
-
-  .path-title {
-    font-family: 'Instrument Serif', serif;
-    font-size: 1.1rem;
-    color: #111;
-    margin: 0 0 0.45rem;
-    font-weight: 400;
-    letter-spacing: -0.005em;
-    line-height: 1.3;
-  }
-
-  .path-desc {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.82rem;
-    color: #888;
-    line-height: 1.65;
-    margin: 0;
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 0.5s cubic-bezier(0.23, 1, 0.32, 1),
-                opacity 0.4s ease,
-                margin 0.4s ease;
-  }
-
-  .path-stone:hover .path-desc,
-  .path-stone.path-active .path-desc {
-    max-height: 120px;
-    opacity: 1;
-    margin-top: 0.1rem;
-  }
-
-  /* ── Botanical Accents ── */
-  .path-botanical {
-    position: absolute;
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0;
-    transition: opacity 0.8s ease 0.2s;
-  }
-
-  .path-botanical.path-visible {
-    opacity: 1;
-  }
-
-  .path-botanical svg {
-    display: block;
-  }
-
-  /* ── Responsive ── */
-  @media (max-width: 720px) {
-    .path-section {
-      padding: 4rem 1.25rem 5rem;
-    }
-
-    .path-header {
-      margin-bottom: 3rem;
-    }
-
-    .path-stones {
-      gap: 0.25rem;
-    }
-
-    .path-stone:nth-child(odd),
-    .path-stone:nth-child(even) {
-      margin-left: 0;
-      margin-right: 0;
-      padding-left: 0;
-      padding-right: 0;
-      flex-direction: row;
-      text-align: left;
-    }
-
-    .path-stone {
-      gap: 1.1rem;
-      padding: 1rem 0;
-    }
-
-    .path-circle {
-      width: 58px;
-      height: 58px;
-    }
-
-    .path-number {
-      font-size: 1.5rem;
-    }
-
-    .path-content {
-      max-width: none;
-    }
-
-    .path-title {
-      font-size: 1rem;
-    }
-
-    .path-desc {
-      font-size: 0.8rem;
-    }
-
-    .path-canvas {
-      display: none;
-    }
-
-    /* On mobile, show descriptions by default */
-    .path-desc {
-      max-height: 120px;
-      opacity: 1;
-      margin-top: 0.1rem;
-      color: #999;
-    }
-  }
-
-  /* ── Fine-tune for mid-range ── */
-  @media (min-width: 721px) and (max-width: 1024px) {
-    .path-stone:nth-child(odd) {
-      padding-left: 2%;
-    }
-    .path-stone:nth-child(even) {
-      padding-right: 2%;
-    }
-    .path-content {
-      max-width: 340px;
-    }
-  }
-</style>
-
-<section class="path-section">
-  <div class="path-header">
-    <h2>Twelve Principles for Living Ground</h2>
-    <p>Each project begins with the same foundation — a set of principles drawn from decades of observing how natural systems build resilience, beauty, and abundance.</p>
-  </div>
-
-  <!-- SVG winding path -->
-  <svg class="path-canvas" preserveAspectRatio="none" aria-hidden="true">
-    <defs>
-      <linearGradient id="pathGrad" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#e8e5e0" />
-        <stop offset="100%" stop-color="#5A6B4A" stop-opacity="0.5" />
-      </linearGradient>
-    </defs>
-    <path class="path-trail" stroke="url(#pathGrad)" d="" />
+<!-- ======================== HERO ======================== -->
+<section class="hero">
+  <svg class="hero-leaf" style="top:10%;left:7%;width:110px" viewBox="0 0 100 140" fill="none">
+    <path d="M50 5C20 30 5 60 10 100c5 20 20 35 40 35s35-15 40-35c5-40-10-70-40-95z" fill="var(--sage)" opacity=".5"/>
+    <path d="M50 15v110" stroke="var(--sage)" stroke-width="1" opacity=".3"/>
+    <path d="M50 40l-20 15M50 60l20 15M50 80l-22 12" stroke="var(--sage)" stroke-width=".7" opacity=".3"/>
+  </svg>
+  <svg class="hero-leaf" style="bottom:15%;right:5%;width:85px;transform:rotate(35deg)" viewBox="0 0 100 140" fill="none">
+    <path d="M50 5c-25 30-40 60-35 90 5 20 20 35 35 35s30-15 35-35c5-30-10-60-35-90z" fill="var(--clay)" opacity=".35"/>
+    <path d="M50 15v105" stroke="var(--clay)" stroke-width="1" opacity=".22"/>
+  </svg>
+  <svg class="hero-leaf" style="top:32%;right:10%;width:65px;transform:rotate(-20deg)" viewBox="0 0 100 140" fill="none">
+    <path d="M50 5C20 30 5 60 10 100c5 20 20 35 40 35s35-15 40-35c5-40-10-70-40-95z" fill="var(--sage)" opacity=".35"/>
   </svg>
 
-  <!-- Botanical accents container -->
-  <div class="path-botanicals" aria-hidden="true"></div>
+  <h1 class="reveal">We design landscapes the way <em>nature designs ecosystems</em></h1>
+  <p class="hero-sub reveal reveal-d1">Twelve principles rooted in permaculture ethics, ecological science, and decades of working California soil.</p>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M10 4v12M5 11l5 5 5-5"/></svg>
+  </div>
+</section>
 
-  <div class="path-stones">
+<!-- ======================== ETHICS ======================== -->
+<section class="ethics">
+  <div class="ethics-inner">
+    <div class="ethics-label reveal">Three Ethics That Ground Every Decision</div>
+    <div class="ethics-grid">
+      <div class="ethic-card reveal reveal-d1">
+        <svg class="ethic-icon" viewBox="0 0 44 44" fill="none">
+          <path d="M22 4c-8 0-14 8-14 16 0 10 14 20 14 20s14-10 14-20C36 12 30 4 22 4z" stroke="rgba(255,255,255,.45)" stroke-width="1.2" fill="none"/>
+          <path d="M15 20c0-4 3-8 7-8" stroke="rgba(255,255,255,.25)" stroke-width=".8" fill="none"/>
+          <circle cx="20" cy="17" r="1.2" fill="rgba(255,255,255,.35)"/>
+        </svg>
+        <h3>Care for the land</h3>
+        <p>Soil health, water cycles, and biodiversity come first. A landscape that harms its ecosystem is a failure, no matter how beautiful.</p>
+      </div>
+      <div class="ethic-card reveal reveal-d2">
+        <svg class="ethic-icon" viewBox="0 0 44 44" fill="none">
+          <circle cx="22" cy="13" r="6" stroke="rgba(255,255,255,.45)" stroke-width="1.2" fill="none"/>
+          <path d="M12 36c0-7 4-12 10-12s10 5 10 12" stroke="rgba(255,255,255,.45)" stroke-width="1.2" fill="none"/>
+        </svg>
+        <h3>Care for the people</h3>
+        <p>Landscapes serve the humans who live in them. Play spaces, gathering spots, quiet corners, and working gardens that nourish body and spirit.</p>
+      </div>
+      <div class="ethic-card reveal reveal-d3">
+        <svg class="ethic-icon" viewBox="0 0 44 44" fill="none">
+          <path d="M14 22c0-5 3-10 8-10s8 5 8 10c0 7-8 14-8 14s-8-7-8-14z" stroke="rgba(255,255,255,.45)" stroke-width="1.2" fill="none"/>
+          <path d="M22 15v10M19 20h6" stroke="rgba(255,255,255,.35)" stroke-width="1.2" fill="none"/>
+          <path d="M8 18l3 1.5M33 18l-3 1.5M8 26l3-1.5M33 26l-3-1.5" stroke="rgba(255,255,255,.2)" stroke-width=".8" stroke-linecap="round"/>
+        </svg>
+        <h3>Share the abundance</h3>
+        <p>When the system thrives, everyone benefits. Pollinators, neighbors, the water table, the next generation. Abundance is designed to overflow.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <div class="path-stone" data-index="1">
-      <div class="path-circle"><span class="path-number">01</span></div>
-      <div class="path-content">
-        <h3 class="path-title">Observe before you act</h3>
-        <p class="path-desc">We spend time on your land before drawing a single line. Sun patterns, wind, water flow, soil biology — the site tells us what it wants to become.</p>
+<!-- ======================== PHOTO BREAK ======================== -->
+<div class="photo-break reveal">
+  <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=1400&q=80" alt="California redwood forest with dappled sunlight filtering through ancient trees" loading="lazy">
+</div>
+
+<!-- ======================== THE PATH ======================== -->
+<section class="path-section" id="principles">
+  <div class="path-header">
+    <span class="section-tag reveal">The Path</span>
+    <h2 class="reveal">Twelve Principles for Living Landscapes</h2>
+    <p class="reveal reveal-d1">Each principle is a stepping stone. Together, they form a path that guides every decision we make on your land.</p>
+  </div>
+
+  <div class="path-container" id="pathContainer">
+    <!-- SVG path drawn by JS -->
+    <svg class="path-svg-bg" id="pathSvg" preserveAspectRatio="none" aria-hidden="true"></svg>
+
+    <!-- ====== WILDLIFE ====== -->
+    <!-- Monarch Butterflies -->
+    <div class="monarch monarch-1">
+      <svg viewBox="0 0 32 28" fill="none">
+        <g class="wing-flutter"><path d="M16 14C12 8 4 4 2 8c-2 4 4 10 8 12 2 1 4 0 6-2" fill="#E8720C" opacity=".88"/><path d="M6 10c1-1 3-1 4 1" stroke="#1a1a1a" stroke-width=".4" fill="none"/><circle cx="5" cy="9" r=".7" fill="#fff" opacity=".6"/><circle cx="8" cy="16" r=".5" fill="#fff" opacity=".4"/></g>
+        <g class="wing-flutter" style="animation-delay:-.15s"><path d="M16 14c4-6 12-10 14-6 2 4-4 10-8 12-2 1-4 0-6-2" fill="#E8720C" opacity=".88"/><circle cx="25" cy="9" r=".7" fill="#fff" opacity=".6"/><circle cx="22" cy="16" r=".5" fill="#fff" opacity=".4"/></g>
+        <ellipse cx="16" cy="15" rx="1" ry="5" fill="#1a1a1a"/><path d="M15 10c-1-3-2-4-1-5M17 10c1-3 2-4 1-5" stroke="#1a1a1a" stroke-width=".5" fill="none"/>
+      </svg>
+    </div>
+    <div class="monarch monarch-2">
+      <svg viewBox="0 0 32 28" fill="none">
+        <g class="wing-flutter" style="animation-delay:-.1s"><path d="M16 14C12 8 4 4 2 8c-2 4 4 10 8 12 2 1 4 0 6-2" fill="#D4650A" opacity=".82"/><circle cx="5" cy="9" r=".6" fill="#fff" opacity=".5"/></g>
+        <g class="wing-flutter" style="animation-delay:-.2s"><path d="M16 14c4-6 12-10 14-6 2 4-4 10-8 12-2 1-4 0-6-2" fill="#D4650A" opacity=".82"/><circle cx="25" cy="9" r=".6" fill="#fff" opacity=".5"/></g>
+        <ellipse cx="16" cy="15" rx="1" ry="4.5" fill="#1a1a1a"/><path d="M15 10.5c-1-2.5-1.5-4-.5-5M17 10.5c1-2.5 1.5-4 .5-5" stroke="#1a1a1a" stroke-width=".4" fill="none"/>
+      </svg>
+    </div>
+    <div class="monarch monarch-3">
+      <svg viewBox="0 0 32 28" fill="none">
+        <g class="wing-flutter" style="animation-delay:-.05s"><path d="M16 14C12 9 5 5 3 9c-2 3.5 3.5 9 7 11 2 1 4 0 6-2" fill="#E8720C" opacity=".85"/><circle cx="6" cy="10" r=".5" fill="#fff" opacity=".45"/></g>
+        <g class="wing-flutter" style="animation-delay:-.18s"><path d="M16 14c4-5 11-9 13-5 2 3.5-3.5 9-7 11-2 1-4 0-6-2" fill="#E8720C" opacity=".85"/><circle cx="24" cy="10" r=".5" fill="#fff" opacity=".45"/></g>
+        <ellipse cx="16" cy="15" rx=".9" ry="4.8" fill="#1a1a1a"/><path d="M15 10c-1-3-1.8-4-.8-5M17 10c1-3 1.8-4 .8-5" stroke="#1a1a1a" stroke-width=".4" fill="none"/>
+      </svg>
+    </div>
+
+    <!-- Painted Lady -->
+    <div class="painted-lady">
+      <svg viewBox="0 0 28 24" fill="none">
+        <g class="wing-flutter"><path d="M14 12C11 7 4 4 2 7c-1.5 3 3 8 7 10 1.5.8 3.5 0 5-1.5" fill="#CC7744" opacity=".75"/><circle cx="4" cy="8" r=".5" fill="#fff" opacity=".45"/><circle cx="7" cy="13" r=".35" fill="#fff" opacity=".35"/></g>
+        <g class="wing-flutter" style="animation-delay:-.12s"><path d="M14 12c3-5 10-8 12-5 1.5 3-3 8-7 10-1.5.8-3.5 0-5-1.5" fill="#CC7744" opacity=".75"/><circle cx="22" cy="8" r=".5" fill="#fff" opacity=".45"/></g>
+        <ellipse cx="14" cy="13" rx=".8" ry="4" fill="#2a2a2a"/><path d="M13.2 9c-.8-2.5-1-3.5-.3-4.5M14.8 9c.8-2.5 1-3.5.3-4.5" stroke="#2a2a2a" stroke-width=".4" fill="none"/>
+      </svg>
+    </div>
+
+    <!-- Anna's Hummingbird -->
+    <div class="hummingbird">
+      <svg viewBox="0 0 36 30" fill="none">
+        <g class="hbird-wing"><path d="M18 14c-6-2-14-1-16 2 3-1 8 0 12 2" fill="var(--sage)" opacity=".45"/><path d="M18 14c-5-4-10-8-12-4 3-1 7 1 10 4" fill="var(--sage)" opacity=".3"/></g>
+        <path d="M18 12c3-2 7-3 10-2 3 1 3 4 0 5-2 1-5 0-7-1l-3-2z" fill="#3D8C4F" opacity=".8"/>
+        <path d="M20 11c1-1 3-2 4-2" fill="#C44D6E" opacity=".65"/>
+        <circle cx="23" cy="12" r=".8" fill="#1a1a1a"/><circle cx="23.2" cy="11.8" r=".3" fill="#fff"/>
+        <path d="M26 14c1 .3 3 .8 5 .5" stroke="#666" stroke-width=".8" stroke-linecap="round" fill="none"/>
+        <path d="M17 16c-1 2-2 6-1 8 0 0 1-2 2-4 .5-1 0-3-1-4z" fill="#3D8C4F" opacity=".55"/>
+        <path d="M19 16c0 2 .5 6 1.5 8 0 0 0-2-.5-4-.3-1-.5-3-1-4z" fill="#3D8C4F" opacity=".45"/>
+      </svg>
+    </div>
+
+    <!-- Ladybugs -->
+    <div class="ladybug ladybug-1">
+      <svg viewBox="0 0 14 14" fill="none">
+        <ellipse cx="7" cy="8" rx="5" ry="5.5" fill="#CC3333"/><path d="M7 3v11" stroke="#1a1a1a" stroke-width=".6"/>
+        <circle cx="5" cy="6.5" r=".9" fill="#1a1a1a"/><circle cx="9" cy="6.5" r=".9" fill="#1a1a1a"/>
+        <circle cx="4.5" cy="9.5" r=".7" fill="#1a1a1a"/><circle cx="9.5" cy="9.5" r=".7" fill="#1a1a1a"/>
+        <circle cx="6" cy="12" r=".5" fill="#1a1a1a"/><circle cx="8" cy="12" r=".5" fill="#1a1a1a"/>
+        <ellipse cx="7" cy="3.5" rx="2.5" ry="2" fill="#1a1a1a"/>
+        <path d="M5 2c-1-1-1.5-2-1-2.5M9 2c1-1 1.5-2 1-2.5" stroke="#1a1a1a" stroke-width=".4" fill="none"/>
+      </svg>
+    </div>
+    <div class="ladybug ladybug-2">
+      <svg viewBox="0 0 14 14" fill="none">
+        <ellipse cx="7" cy="8" rx="5" ry="5.5" fill="#CC3333"/><path d="M7 3v11" stroke="#1a1a1a" stroke-width=".6"/>
+        <circle cx="5" cy="7" r=".8" fill="#1a1a1a"/><circle cx="9" cy="7" r=".8" fill="#1a1a1a"/>
+        <circle cx="5.5" cy="10" r=".6" fill="#1a1a1a"/><circle cx="8.5" cy="10" r=".6" fill="#1a1a1a"/>
+        <ellipse cx="7" cy="3.5" rx="2.5" ry="2" fill="#1a1a1a"/>
+        <path d="M5 2c-1-1-1.5-2-1-2.5M9 2c1-1 1.5-2 1-2.5" stroke="#1a1a1a" stroke-width=".4" fill="none"/>
+      </svg>
+    </div>
+    <div class="ladybug ladybug-3">
+      <svg viewBox="0 0 14 14" fill="none">
+        <ellipse cx="7" cy="8" rx="4.5" ry="5" fill="#CC3333"/><path d="M7 3.5v10" stroke="#1a1a1a" stroke-width=".5"/>
+        <circle cx="5.5" cy="7" r=".7" fill="#1a1a1a"/><circle cx="8.5" cy="7" r=".7" fill="#1a1a1a"/>
+        <circle cx="5" cy="10" r=".5" fill="#1a1a1a"/><circle cx="9" cy="10" r=".5" fill="#1a1a1a"/>
+        <ellipse cx="7" cy="3.8" rx="2.2" ry="1.8" fill="#1a1a1a"/>
+        <path d="M5.3 2.3c-.8-1-1.2-1.8-.8-2.2M8.7 2.3c.8-1 1.2-1.8.8-2.2" stroke="#1a1a1a" stroke-width=".4" fill="none"/>
+      </svg>
+    </div>
+
+    <!-- Honey Bee -->
+    <div class="bee">
+      <svg viewBox="0 0 22 20" fill="none">
+        <g class="bee-wing"><path d="M11 8c-3-4-7-5-8-3 1 0 4 2 6 4" fill="rgba(255,255,255,.45)"/></g>
+        <g class="bee-wing" style="animation-delay:-.03s"><path d="M13 8c3-4 7-5 8-3-1 0-4 2-6 4" fill="rgba(255,255,255,.45)"/></g>
+        <ellipse cx="12" cy="12" rx="5" ry="4.5" fill="#E8B832"/>
+        <path d="M9 10h6M9 12.5h6M9 15h5" stroke="#1a1a1a" stroke-width=".8"/>
+        <ellipse cx="12" cy="7.5" rx="3" ry="2.5" fill="#2a2a2a"/>
+        <circle cx="10.5" cy="7" r=".6" fill="#fff" opacity=".45"/><circle cx="13.5" cy="7" r=".6" fill="#fff" opacity=".45"/>
+        <path d="M10.5 5.5c-.5-1.5-1-2.5-.5-3M13.5 5.5c.5-1.5 1-2.5.5-3" stroke="#2a2a2a" stroke-width=".4" fill="none"/>
+      </svg>
+    </div>
+
+    <!-- California Scrub-Jay -->
+    <div class="scrub-jay">
+      <svg viewBox="0 0 38 32" fill="none">
+        <path d="M14 22c-2 2-6 5-8 8-1 1 0 2 1 1 3-2 6-4 8-6" fill="#4A7FB5" opacity=".65"/>
+        <path d="M16 22c-1 2-3 6-2 9 0 1 1 1 1 0 1-3 2-6 2-8" fill="#4A7FB5" opacity=".55"/>
+        <path d="M10 18c4 2 10 6 18 4 3-1 5-3 5-6-1-4-4-6-8-6-3 0-5 1-7 2-3 1-6 3-8 6z" fill="#4A7FB5" opacity=".82"/>
+        <path d="M22 12c2-3 3-5 2-7-1-1-3-1-4 1-1 1-1 3 0 5" fill="#5588BB" opacity=".75"/>
+        <g class="jay-head">
+          <path d="M25 10c4-2 8-3 10-2 1 1 0 2-2 3-2 .5-5 .5-7 0" fill="#4A7FB5" opacity=".85"/>
+          <circle cx="28" cy="10" r="1.2" fill="#1a1a1a"/><circle cx="28.3" cy="9.7" r=".4" fill="#fff"/>
+          <path d="M31 11c1-.3 3-.5 4.5-.2" stroke="#333" stroke-width="1" stroke-linecap="round" fill="none"/>
+        </g>
+        <path d="M12 16c3-1 6-1 8 0" fill="#AABBCC" opacity=".45"/>
+        <path d="M14 20c2-.5 5-.5 6 0" fill="#ddd" opacity=".35"/>
+      </svg>
+    </div>
+
+    <!-- Dragonfly -->
+    <div class="dragonfly">
+      <svg viewBox="0 0 34 24" fill="none">
+        <g class="df-wing"><path d="M17 10c-6-3-14-4-15-1 0 2 6 4 12 4" fill="rgba(150,180,200,.28)" stroke="rgba(100,140,170,.35)" stroke-width=".3"/></g>
+        <g class="df-wing" style="animation-delay:-.05s"><path d="M17 10c6-3 14-4 15-1 0 2-6 4-12 4" fill="rgba(150,180,200,.28)" stroke="rgba(100,140,170,.35)" stroke-width=".3"/></g>
+        <g class="df-wing" style="animation-delay:-.03s"><path d="M17 13c-5-1-12-1-13 1.5 0 1.5 5 3 10 2.5" fill="rgba(150,180,200,.22)" stroke="rgba(100,140,170,.28)" stroke-width=".3"/></g>
+        <g class="df-wing" style="animation-delay:-.07s"><path d="M17 13c5-1 12-1 13 1.5 0 1.5-5 3-10 2.5" fill="rgba(150,180,200,.22)" stroke="rgba(100,140,170,.28)" stroke-width=".3"/></g>
+        <ellipse cx="17" cy="12" rx="1.8" ry="5" fill="#3A7A6A" opacity=".75"/>
+        <circle cx="15.5" cy="7.5" r="2.5" fill="#3A7A6A" opacity=".65"/>
+        <circle cx="14.5" cy="7" r="1" fill="#446"/><circle cx="16.5" cy="7" r="1" fill="#446"/>
+        <circle cx="14.7" cy="6.8" r=".35" fill="#fff" opacity=".55"/><circle cx="16.7" cy="6.8" r=".35" fill="#fff" opacity=".55"/>
+      </svg>
+    </div>
+
+    <!-- ====== BOTANICAL ILLUSTRATIONS ====== -->
+    <svg style="position:absolute;top:3%;left:1%;width:75px;opacity:.17;pointer-events:none" viewBox="0 0 80 120" fill="none" aria-hidden="true">
+      <path d="M40 100V50" stroke="#5A6B4A" stroke-width="1.2"/>
+      <path d="M40 50c-5-15-20-25-15-30 3-2 10 2 15 10 5-8 12-12 15-10 5 5-10 15-15 30z" fill="#E8720C" opacity=".45"/>
+      <path d="M35 85c-10-7-15-15-10-20" stroke="#5A6B4A" stroke-width="1" fill="none"/>
+      <path d="M25 65c-3-5 0-10 5-7 5 4-2 10-5 7z" fill="#5A6B4A" opacity=".28"/>
+    </svg>
+    <svg style="position:absolute;top:18%;right:2%;width:65px;opacity:.14;pointer-events:none" viewBox="0 0 70 100" fill="none" aria-hidden="true">
+      <path d="M35 95c0-25-5-45-10-60-3-7-7-15-5-20" stroke="#8B4513" stroke-width="1.4" fill="none" opacity=".55"/>
+      <path d="M25 35c5-5 13-7 15-13" stroke="#8B4513" stroke-width="1" fill="none" opacity=".45"/>
+      <ellipse cx="18" cy="14" rx="6" ry="4" fill="#5A6B4A" opacity=".3" transform="rotate(-15 18 14)"/>
+      <ellipse cx="42" cy="20" rx="5" ry="3.5" fill="#5A6B4A" opacity=".25" transform="rotate(10 42 20)"/>
+      <ellipse cx="22" cy="28" rx="5.5" ry="3.8" fill="#5A6B4A" opacity=".25" transform="rotate(-5 22 28)"/>
+    </svg>
+    <svg style="position:absolute;top:38%;left:.5%;width:55px;opacity:.13;pointer-events:none" viewBox="0 0 60 100" fill="none" aria-hidden="true">
+      <path d="M30 90V40" stroke="#5A6B4A" stroke-width="1"/>
+      <path d="M30 40c-5-5-12-2-15-5s6-12 10-10c-2-5 0-12 4-12s6 7 4 12c4-2 13 4 10 10s-10 0-13 5z" fill="#5A6B4A" opacity=".3"/>
+      <path d="M30 50l-8 5" stroke="#5A6B4A" stroke-width=".8" fill="none"/>
+    </svg>
+    <svg style="position:absolute;top:55%;right:1.5%;width:45px;opacity:.15;pointer-events:none" viewBox="0 0 50 110" fill="none" aria-hidden="true">
+      <path d="M25 105V10" stroke="#5A6B4A" stroke-width="1.2"/>
+      <path d="M25 20l-10 5M25 20l10 5M25 32l-13 6M25 32l13 6M25 44l-15 8M25 44l15 8M25 56l-12 8M25 56l12 8M25 68l-14 10M25 68l14 10M25 80l-11 8M25 80l11 8" stroke="#5A6B4A" stroke-width=".7"/>
+    </svg>
+    <svg style="position:absolute;top:70%;left:2%;width:60px;opacity:.12;pointer-events:none" viewBox="0 0 65 100" fill="none" aria-hidden="true">
+      <path d="M32 95c0-15-2-35-2-55 0-15 2-25 5-32" stroke="#5A6B4A" stroke-width="1.2" fill="none"/>
+      <path d="M35 15c-5 3-13 1-15-3M34 22c3 2 9 0 11-4M33 30c-5 3-13 1-15-3M32 38c3 2 9 0 11-4M31 48c-5 2-12 0-14-4M31 58c3 2 9 0 11-4M31 68c-5 2-11 0-13-4M32 78c3 2 8 0 9-4" stroke="#5A6B4A" stroke-width=".7" fill="none"/>
+    </svg>
+    <svg style="position:absolute;top:88%;right:3%;width:50px;opacity:.14;pointer-events:none" viewBox="0 0 55 80" fill="none" aria-hidden="true">
+      <path d="M28 75V35" stroke="#5A6B4A" stroke-width="1"/>
+      <path d="M28 35l-8-10M28 35l8-7M28 40l-10-3M28 45l10-7" stroke="#5A6B4A" stroke-width=".8" fill="none"/>
+      <ellipse cx="20" cy="22" rx="5" ry="3" fill="#5A6B4A" opacity=".22" transform="rotate(-15 20 22)"/>
+      <ellipse cx="36" cy="25" rx="5" ry="3" fill="#5A6B4A" opacity=".2" transform="rotate(10 36 25)"/>
+      <ellipse cx="17" cy="30" rx="4" ry="2.5" fill="#5A6B4A" opacity=".18" transform="rotate(-10 17 30)"/>
+      <ellipse cx="39" cy="35" rx="4.5" ry="2.5" fill="#5A6B4A" opacity=".18" transform="rotate(5 39 35)"/>
+    </svg>
+
+    <!-- ====== SHARED SVG DEFS ====== -->
+    <svg style="position:absolute;width:0;height:0" aria-hidden="true">
+      <defs>
+        <pattern id="stoneGrain" patternUnits="userSpaceOnUse" width="5" height="5">
+          <rect width="5" height="5" fill="transparent"/>
+          <circle cx="1" cy="1" r=".3" fill="#b0a898" opacity=".25"/>
+          <circle cx="3.5" cy="3" r=".2" fill="#c4b8a8" opacity=".2"/>
+          <circle cx=".8" cy="3.8" r=".15" fill="#9a8e80" opacity=".2"/>
+          <circle cx="4" cy="1.2" r=".22" fill="#bbb0a0" opacity=".18"/>
+          <circle cx="2.2" cy="4.5" r=".18" fill="#a89880" opacity=".15"/>
+        </pattern>
+        <filter id="stoneInner">
+          <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+          <feOffset dx="1" dy="2" result="off"/>
+          <feComposite in="off" in2="SourceAlpha" operator="in" result="inner"/>
+          <feFlood flood-color="#000" flood-opacity=".07" result="col"/>
+          <feComposite in="col" in2="inner" operator="in" result="shadow"/>
+          <feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="shadow"/></feMerge>
+        </filter>
+      </defs>
+    </svg>
+
+    <!-- ====== 12 STEPPING STONES ====== -->
+    <div class="principle" data-idx="1">
+      <div class="stone-wrap" onclick="toggleStone(this)">
+        <svg class="stone-svg" viewBox="0 0 340 150" preserveAspectRatio="none"><path d="M25 12C60 5 100 2 160 8c60 6 120-2 155 7 15 15 20 40 15 65-5 25-15 50-35 58-50 10-95 7-135 4-50-4-90 6-130-4C13 128 5 100 8 72c2-30 5-48 17-60z" fill="#e8e0d5" filter="url(#stoneInner)"/><path d="M25 12C60 5 100 2 160 8c60 6 120-2 155 7 15 15 20 40 15 65-5 25-15 50-35 58-50 10-95 7-135 4-50-4-90 6-130-4C13 128 5 100 8 72c2-30 5-48 17-60z" fill="url(#stoneGrain)" opacity=".35"/></svg>
+        <div class="stone-number">01</div>
+        <div class="stone-title">Observe before you act</div>
+        <div class="stone-desc">We spend time on your land before drawing a single line. Sun patterns, wind, water flow, soil biology — the site tells us what it wants to become.</div>
       </div>
     </div>
 
-    <div class="path-stone" data-index="2">
-      <div class="path-circle"><span class="path-number">02</span></div>
-      <div class="path-content">
-        <h3 class="path-title">Capture and store energy</h3>
-        <p class="path-desc">Sunlight, rainfall, organic matter — we design systems that catch these resources when they're abundant and bank them for later.</p>
+    <div class="principle" data-idx="2">
+      <div class="stone-wrap" onclick="toggleStone(this)">
+        <svg class="stone-svg" viewBox="0 0 340 150" preserveAspectRatio="none"><path d="M30 18C70 8 130 5 180 10c60 6 115-2 138 10 14 15 10 45 7 70-3 25-20 45-45 50-50 10-110 8-150 3-50-5-90 5-108-5C36 126 5 88 10 58c4-25 8-33 20-40z" fill="#e8e0d5" filter="url(#stoneInner)"/><path d="M30 18C70 8 130 5 180 10c60 6 115-2 138 10 14 15 10 45 7 70-3 25-20 45-45 50-50 10-110 8-150 3-50-5-90 5-108-5C36 126 5 88 10 58c4-25 8-33 20-40z" fill="url(#stoneGrain)" opacity=".3"/></svg>
+        <div class="stone-number">02</div>
+        <div class="stone-title">Capture and store energy</div>
+        <div class="stone-desc">Sunlight, rainfall, organic matter — we design systems that catch these resources when they're abundant and bank them for later.</div>
       </div>
     </div>
 
-    <div class="path-stone" data-index="3">
-      <div class="path-circle"><span class="path-number">03</span></div>
-      <div class="path-content">
-        <h3 class="path-title">Every element produces</h3>
-        <p class="path-desc">A tree that only looks good is underperforming. Every element serves multiple purposes — food, shade, habitat, beauty, mulch.</p>
+    <div class="principle" data-idx="3">
+      <div class="stone-wrap" onclick="toggleStone(this)">
+        <svg class="stone-svg" viewBox="0 0 340 150" preserveAspectRatio="none"><path d="M20 15C55 3 120 6 170 10c60 5 120-5 150 8 15 14 10 44 8 70-3 24-18 44-40 52-48 10-108 6-148 2-50-4-95 6-115-4-16-11-22-41-20-68 2-28 6-46 15-55z" fill="#e8e0d5" filter="url(#stoneInner)"/><path d="M20 15C55 3 120 6 170 10c60 5 120-5 150 8 15 14 10 44 8 70-3 24-18 44-40 52-48 10-108 6-148 2-50-4-95 6-115-4-16-11-22-41-20-68 2-28 6-46 15-55z" fill="url(#stoneGrain)" opacity=".3"/></svg>
+        <div class="stone-number">03</div>
+        <div class="stone-title">Every element produces</div>
+        <div class="stone-desc">A tree that only looks good is underperforming. Every element serves multiple purposes — food, shade, habitat, beauty, mulch.</div>
       </div>
     </div>
 
-    <div class="path-stone" data-index="4">
-      <div class="path-circle"><span class="path-number">04</span></div>
-      <div class="path-content">
-        <h3 class="path-title">Let the system self-correct</h3>
-        <p class="path-desc">Companion planting reduces pests. Ground cover suppresses weeds. We design intelligence into the landscape so it requires less intervention.</p>
+    <div class="principle" data-idx="4">
+      <div class="stone-wrap" onclick="toggleStone(this)">
+        <svg class="stone-svg" viewBox="0 0 340 150" preserveAspectRatio="none"><path d="M28 10C65 2 115 8 165 12c60 5 115-8 147 4 16 12 20 46 15 73-5 25-18 48-40 56-45 10-100 4-145 0-50-5-95 8-137-2-16-12-22-42-20-70 2-28 8-50 20-63z" fill="#e8e0d5" filter="url(#stoneInner)"/><path d="M28 10C65 2 115 8 165 12c60 5 115-8 147 4 16 12 20 46 15 73-5 25-18 48-40 56-45 10-100 4-145 0-50-5-95 8-137-2-16-12-22-42-20-70 2-28 8-50 20-63z" fill="url(#stoneGrain)" opacity=".3"/></svg>
+        <div class="stone-number">04</div>
+        <div class="stone-title">Let the system self-correct</div>
+        <div class="stone-desc">Companion planting reduces pests. Ground cover suppresses weeds. We design intelligence into the landscape so it requires less intervention.</div>
       </div>
     </div>
 
-    <div class="path-stone" data-index="5">
-      <div class="path-circle"><span class="path-number">05</span></div>
-      <div class="path-content">
-        <h3 class="path-title">Favor what renews</h3>
-        <p class="path-desc">Compost over synthetic fertilizer. Mulch over herbicide. Living ground covers over landscape fabric. Systems that regenerate themselves.</p>
+    <!-- Photo after 04 -->
+    <div class="path-photo">
+      <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1200&q=80" alt="Aerial view of lush California forest and coastline" loading="lazy">
+    </div>
+
+    <div class="principle" data-idx="5">
+      <div class="stone-wrap" onclick="toggleStone(this)">
+        <svg class="stone-svg" viewBox="0 0 340 150" preserveAspectRatio="none"><path d="M22 14C58 4 110 7 162 11c62 5 123-5 154 6 14 13 14 43 10 69-4 26-18 47-43 55-47 10-97 6-146 2-50-5-96 7-118-4-14-11-20-41-18-68 2-28 5-45 13-57z" fill="#e8e0d5" filter="url(#stoneInner)"/><path d="M22 14C58 4 110 7 162 11c62 5 123-5 154 6 14 13 14 43 10 69-4 26-18 47-43 55-47 10-97 6-146 2-50-5-96 7-118-4-14-11-20-41-18-68 2-28 5-45 13-57z" fill="url(#stoneGrain)" opacity=".3"/></svg>
+        <div class="stone-number">05</div>
+        <div class="stone-title">Favor what renews</div>
+        <div class="stone-desc">Compost over synthetic fertilizer. Mulch over herbicide. Living ground covers over landscape fabric. Systems that regenerate themselves.</div>
       </div>
     </div>
 
-    <div class="path-stone" data-index="6">
-      <div class="path-circle"><span class="path-number">06</span></div>
-      <div class="path-content">
-        <h3 class="path-title">Nothing leaves the system</h3>
-        <p class="path-desc">Pruning becomes mulch. Kitchen scraps become compost. Greywater feeds fruit trees. Every output is an input somewhere else.</p>
+    <div class="principle" data-idx="6">
+      <div class="stone-wrap" onclick="toggleStone(this)">
+        <svg class="stone-svg" viewBox="0 0 340 150" preserveAspectRatio="none"><path d="M26 16C62 6 122 4 172 9c56 5 116 2 142 9 16 14 18 44 14 70-4 26-18 46-42 54-44 10-97 7-146 3-50-5-100 6-120-4-16-10-22-40-19-68 3-28 7-46 19-57z" fill="#e8e0d5" filter="url(#stoneInner)"/><path d="M26 16C62 6 122 4 172 9c56 5 116 2 142 9 16 14 18 44 14 70-4 26-18 46-42 54-44 10-97 7-146 3-50-5-100 6-120-4-16-10-22-40-19-68 3-28 7-46 19-57z" fill="url(#stoneGrain)" opacity=".3"/></svg>
+        <div class="stone-number">06</div>
+        <div class="stone-title">Nothing leaves the system</div>
+        <div class="stone-desc">Pruning becomes mulch. Kitchen scraps become compost. Greywater feeds fruit trees. Every output is an input somewhere else.</div>
       </div>
     </div>
 
-    <div class="path-stone" data-index="7">
-      <div class="path-circle"><span class="path-number">07</span></div>
-      <div class="path-content">
-        <h3 class="path-title">See the big picture first</h3>
-        <p class="path-desc">Before choosing a single plant, we map the macro patterns — sun arcs, drainage corridors, wind channels, foot traffic.</p>
+    <div class="principle" data-idx="7">
+      <div class="stone-wrap" onclick="toggleStone(this)">
+        <svg class="stone-svg" viewBox="0 0 340 150" preserveAspectRatio="none"><path d="M24 12C60 3 108 6 158 10c60 5 118-5 152 6 14 12 14 44 11 70-3 26-16 44-38 52-46 10-104 7-146 3-50-5-96 6-116-4-16-10-22-40-19-68 3-28 6-46 18-57z" fill="#e8e0d5" filter="url(#stoneInner)"/><path d="M24 12C60 3 108 6 158 10c60 5 118-5 152 6 14 12 14 44 11 70-3 26-16 44-38 52-46 10-104 7-146 3-50-5-96 6-116-4-16-10-22-40-19-68 3-28 6-46 18-57z" fill="url(#stoneGrain)" opacity=".3"/></svg>
+        <div class="stone-number">07</div>
+        <div class="stone-title">See the big picture first</div>
+        <div class="stone-desc">Before choosing a single plant, we map the macro patterns — sun arcs, drainage corridors, wind channels, foot traffic.</div>
       </div>
     </div>
 
-    <div class="path-stone" data-index="8">
-      <div class="path-circle"><span class="path-number">08</span></div>
-      <div class="path-content">
-        <h3 class="path-title">Connect, don't separate</h3>
-        <p class="path-desc">A fruit tree shades a seating area, drops mulch for understory plants, and feeds beneficial insects. One element, four functions.</p>
+    <div class="principle" data-idx="8">
+      <div class="stone-wrap" onclick="toggleStone(this)">
+        <svg class="stone-svg" viewBox="0 0 340 150" preserveAspectRatio="none"><path d="M20 16C56 5 112 3 168 9c62 7 118-3 148 9 14 14 16 44 12 70-4 26-18 48-40 56-48 10-102 6-146 2-50-5-98 8-120-4-14-12-20-42-18-68 2-28 6-46 16-58z" fill="#e8e0d5" filter="url(#stoneInner)"/><path d="M20 16C56 5 112 3 168 9c62 7 118-3 148 9 14 14 16 44 12 70-4 26-18 48-40 56-48 10-102 6-146 2-50-5-98 8-120-4-14-12-20-42-18-68 2-28 6-46 16-58z" fill="url(#stoneGrain)" opacity=".3"/></svg>
+        <div class="stone-number">08</div>
+        <div class="stone-title">Connect, don't separate</div>
+        <div class="stone-desc">A fruit tree shades a seating area, drops mulch for understory plants, and feeds beneficial insects. One element, four functions.</div>
       </div>
     </div>
 
-    <div class="path-stone" data-index="9">
-      <div class="path-circle"><span class="path-number">09</span></div>
-      <div class="path-content">
-        <h3 class="path-title">Start small, build slow</h3>
-        <p class="path-desc">Small systems are easier to maintain and more resilient. We phase projects so the landscape can establish itself naturally.</p>
+    <!-- Photo after 08 -->
+    <div class="path-photo">
+      <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&q=80" alt="Sunlight filtering through California forest canopy" loading="lazy">
+    </div>
+
+    <div class="principle" data-idx="9">
+      <div class="stone-wrap" onclick="toggleStone(this)">
+        <svg class="stone-svg" viewBox="0 0 340 150" preserveAspectRatio="none"><path d="M28 14C64 4 118 7 168 11c58 5 114-6 144 5 14 11 18 45 14 71s-16 46-38 54c-44 10-100 6-146 2-50-5-96 7-116-3-16-10-24-42-22-70 2-28 8-44 20-56z" fill="#e8e0d5" filter="url(#stoneInner)"/><path d="M28 14C64 4 118 7 168 11c58 5 114-6 144 5 14 11 18 45 14 71s-16 46-38 54c-44 10-100 6-146 2-50-5-96 7-116-3-16-10-24-42-22-70 2-28 8-44 20-56z" fill="url(#stoneGrain)" opacity=".3"/></svg>
+        <div class="stone-number">09</div>
+        <div class="stone-title">Start small, build slow</div>
+        <div class="stone-desc">Small systems are easier to maintain and more resilient. We phase projects so the landscape can establish itself naturally.</div>
       </div>
     </div>
 
-    <div class="path-stone" data-index="10">
-      <div class="path-circle"><span class="path-number">10</span></div>
-      <div class="path-content">
-        <h3 class="path-title">Diversity is resilience</h3>
-        <p class="path-desc">Monocultures fail. Polycultures thrive. Dozens of species filling different ecological niches — a landscape that only gets stronger.</p>
+    <div class="principle" data-idx="10">
+      <div class="stone-wrap" onclick="toggleStone(this)">
+        <svg class="stone-svg" viewBox="0 0 340 150" preserveAspectRatio="none"><path d="M22 12C58 2 116 6 166 10c58 5 118-6 148 5 16 12 17 44 14 70s-16 44-38 52c-46 10-102 7-146 3-50-5-96 6-119-4-14-10-20-40-17-68 3-28 6-46 14-56z" fill="#e8e0d5" filter="url(#stoneInner)"/><path d="M22 12C58 2 116 6 166 10c58 5 118-6 148 5 16 12 17 44 14 70s-16 44-38 52c-46 10-102 7-146 3-50-5-96 6-119-4-14-10-20-40-17-68 3-28 6-46 14-56z" fill="url(#stoneGrain)" opacity=".3"/></svg>
+        <div class="stone-number">10</div>
+        <div class="stone-title">Diversity is resilience</div>
+        <div class="stone-desc">Monocultures fail. Polycultures thrive. Dozens of species filling different ecological niches — a landscape that only gets stronger.</div>
       </div>
     </div>
 
-    <div class="path-stone" data-index="11">
-      <div class="path-circle"><span class="path-number">11</span></div>
-      <div class="path-content">
-        <h3 class="path-title">Design the edges</h3>
-        <p class="path-desc">The boundary between two systems is where life concentrates. We design these transitions deliberately, creating the richest zones.</p>
+    <div class="principle" data-idx="11">
+      <div class="stone-wrap" onclick="toggleStone(this)">
+        <svg class="stone-svg" viewBox="0 0 340 150" preserveAspectRatio="none"><path d="M26 14C62 4 120 5 170 10c58 6 114-4 144 7 14 13 14 46 10 72s-18 42-40 50c-44 10-100 6-146 2-50-5-96 7-116-3-16-10-22-42-19-70 3-28 9-42 17-54z" fill="#e8e0d5" filter="url(#stoneInner)"/><path d="M26 14C62 4 120 5 170 10c58 6 114-4 144 7 14 13 14 46 10 72s-18 42-40 50c-44 10-100 6-146 2-50-5-96 7-116-3-16-10-22-42-19-70 3-28 9-42 17-54z" fill="url(#stoneGrain)" opacity=".3"/></svg>
+        <div class="stone-number">11</div>
+        <div class="stone-title">Design the edges</div>
+        <div class="stone-desc">The boundary between two systems is where life concentrates. We design these transitions deliberately, creating the richest zones.</div>
       </div>
     </div>
 
-    <div class="path-stone" data-index="12">
-      <div class="path-circle"><span class="path-number">12</span></div>
-      <div class="path-content">
-        <h3 class="path-title">Design for change</h3>
-        <p class="path-desc">Landscapes evolve. We design for succession — plantings that mature, shift, and improve over decades, not a static snapshot.</p>
+    <div class="principle" data-idx="12">
+      <div class="stone-wrap" onclick="toggleStone(this)">
+        <svg class="stone-svg" viewBox="0 0 340 150" preserveAspectRatio="none"><path d="M24 16C60 5 114 4 164 9c60 6 118-3 148 9 14 14 14 48 10 74-4 26-16 40-38 48-46 10-102 6-146 2-50-5-98 8-120-4-14-12-20-42-18-68 2-28 6-44 18-54z" fill="#e8e0d5" filter="url(#stoneInner)"/><path d="M24 16C60 5 114 4 164 9c60 6 118-3 148 9 14 14 14 48 10 74-4 26-16 40-38 48-46 10-102 6-146 2-50-5-98 8-120-4-14-12-20-42-18-68 2-28 6-44 18-54z" fill="url(#stoneGrain)" opacity=".3"/></svg>
+        <div class="stone-number">12</div>
+        <div class="stone-title">Design for change</div>
+        <div class="stone-desc">Landscapes evolve. We design for succession — plantings that mature, shift, and improve over decades, not a static snapshot.</div>
       </div>
     </div>
 
   </div>
 </section>
 
-<script>
-(function() {
-  'use strict';
-
-  /* ── Botanical SVG shapes ── */
-  const botanicals = {
-    leaf: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M8 28C8 28 4 18 10 10C16 2 28 4 28 4C28 4 30 16 24 22C18 28 8 28 8 28Z" stroke="#5A6B4A" stroke-opacity="0.22" stroke-width="1" fill="none"/><path d="M8 28C14 20 22 12 28 4" stroke="#5A6B4A" stroke-opacity="0.15" stroke-width="0.75" fill="none"/></svg>`,
-    sprig: `<svg width="28" height="40" viewBox="0 0 28 40" fill="none"><path d="M14 38V8" stroke="#5A6B4A" stroke-opacity="0.18" stroke-width="0.75"/><path d="M14 28C10 26 6 22 6 18" stroke="#5A6B4A" stroke-opacity="0.2" stroke-width="0.75" fill="none"/><path d="M14 22C18 20 22 16 22 12" stroke="#5A6B4A" stroke-opacity="0.2" stroke-width="0.75" fill="none"/><path d="M14 14C10 12 8 8 8 4" stroke="#5A6B4A" stroke-opacity="0.2" stroke-width="0.75" fill="none"/><circle cx="6" cy="18" r="1.5" fill="#5A6B4A" fill-opacity="0.12"/><circle cx="22" cy="12" r="1.5" fill="#5A6B4A" fill-opacity="0.12"/><circle cx="8" cy="4" r="1.5" fill="#5A6B4A" fill-opacity="0.12"/></svg>`,
-    drop: `<svg width="20" height="28" viewBox="0 0 20 28" fill="none"><path d="M10 2C10 2 2 12 2 18C2 22.4183 5.58172 26 10 26C14.4183 26 18 22.4183 18 18C18 12 10 2 10 2Z" stroke="#5A6B4A" stroke-opacity="0.18" stroke-width="0.75" fill="#5A6B4A" fill-opacity="0.04"/></svg>`,
-    root: `<svg width="36" height="32" viewBox="0 0 36 32" fill="none"><path d="M18 2V14" stroke="#5A6B4A" stroke-opacity="0.2" stroke-width="0.75"/><path d="M18 14C14 18 8 24 4 30" stroke="#5A6B4A" stroke-opacity="0.15" stroke-width="0.75"/><path d="M18 14C22 18 26 24 32 28" stroke="#5A6B4A" stroke-opacity="0.15" stroke-width="0.75"/><path d="M18 14C18 20 16 26 18 30" stroke="#5A6B4A" stroke-opacity="0.15" stroke-width="0.75"/></svg>`,
-    seed: `<svg width="18" height="24" viewBox="0 0 18 24" fill="none"><ellipse cx="9" cy="10" rx="6" ry="8" stroke="#5A6B4A" stroke-opacity="0.2" stroke-width="0.75" fill="#5A6B4A" fill-opacity="0.04"/><path d="M9 18V22" stroke="#5A6B4A" stroke-opacity="0.15" stroke-width="0.75"/><path d="M9 18C7 20 5 21 4 22" stroke="#5A6B4A" stroke-opacity="0.12" stroke-width="0.75"/></svg>`,
-    fern: `<svg width="30" height="36" viewBox="0 0 30 36" fill="none"><path d="M15 34C15 34 15 4 15 2" stroke="#5A6B4A" stroke-opacity="0.18" stroke-width="0.75"/><path d="M15 8C12 6 8 6 6 8" stroke="#5A6B4A" stroke-opacity="0.15" stroke-width="0.75"/><path d="M15 8C18 6 22 6 24 8" stroke="#5A6B4A" stroke-opacity="0.15" stroke-width="0.75"/><path d="M15 14C12 12 7 12 4 14" stroke="#5A6B4A" stroke-opacity="0.15" stroke-width="0.75"/><path d="M15 14C18 12 23 12 26 14" stroke="#5A6B4A" stroke-opacity="0.15" stroke-width="0.75"/><path d="M15 20C12 18 8 18 6 20" stroke="#5A6B4A" stroke-opacity="0.15" stroke-width="0.75"/><path d="M15 20C18 18 22 18 24 20" stroke="#5A6B4A" stroke-opacity="0.15" stroke-width="0.75"/><path d="M15 26C13 24 10 24 8 26" stroke="#5A6B4A" stroke-opacity="0.15" stroke-width="0.75"/><path d="M15 26C17 24 20 24 22 26" stroke="#5A6B4A" stroke-opacity="0.15" stroke-width="0.75"/></svg>`,
-    sun: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="5" stroke="#5A6B4A" stroke-opacity="0.18" stroke-width="0.75" fill="#5A6B4A" fill-opacity="0.04"/><line x1="14" y1="2" x2="14" y2="6" stroke="#5A6B4A" stroke-opacity="0.14" stroke-width="0.75"/><line x1="14" y1="22" x2="14" y2="26" stroke="#5A6B4A" stroke-opacity="0.14" stroke-width="0.75"/><line x1="2" y1="14" x2="6" y2="14" stroke="#5A6B4A" stroke-opacity="0.14" stroke-width="0.75"/><line x1="22" y1="14" x2="26" y2="14" stroke="#5A6B4A" stroke-opacity="0.14" stroke-width="0.75"/><line x1="5.5" y1="5.5" x2="8.3" y2="8.3" stroke="#5A6B4A" stroke-opacity="0.1" stroke-width="0.75"/><line x1="19.7" y1="19.7" x2="22.5" y2="22.5" stroke="#5A6B4A" stroke-opacity="0.1" stroke-width="0.75"/><line x1="22.5" y1="5.5" x2="19.7" y2="8.3" stroke="#5A6B4A" stroke-opacity="0.1" stroke-width="0.75"/><line x1="8.3" y1="19.7" x2="5.5" y2="22.5" stroke="#5A6B4A" stroke-opacity="0.1" stroke-width="0.75"/></svg>`,
-    moss: `<svg width="40" height="16" viewBox="0 0 40 16" fill="none"><circle cx="6" cy="10" r="3" fill="#5A6B4A" fill-opacity="0.06"/><circle cx="14" cy="8" r="4" fill="#5A6B4A" fill-opacity="0.05"/><circle cx="24" cy="10" r="3.5" fill="#5A6B4A" fill-opacity="0.06"/><circle cx="34" cy="9" r="3" fill="#5A6B4A" fill-opacity="0.05"/></svg>`
-  };
-
-  const botanicalKeys = Object.keys(botanicals);
-
-  /* ── Place botanical accents between stones ── */
-  function placeBotanicals() {
-    const container = document.querySelector('.path-botanicals');
-    if (!container || window.innerWidth < 720) return;
-
-    container.innerHTML = '';
-    const stones = document.querySelectorAll('.path-stone');
-
-    stones.forEach(function(stone, i) {
-      if (i >= stones.length - 1) return;
-
-      var midY = stone.offsetTop + (stones[i + 1].offsetTop - stone.offsetTop) * 0.5;
-
-      var isOdd = i % 2 === 0;
-      var xPercent = isOdd ? 65 + Math.random() * 15 : 15 + Math.random() * 15;
-
-      var el = document.createElement('div');
-      el.className = 'path-botanical';
-      el.style.position = 'absolute';
-      el.style.top = midY + 'px';
-      el.style.left = xPercent + '%';
-      el.style.transform = 'rotate(' + (Math.random() * 60 - 30) + 'deg)';
-
-      var key = botanicalKeys[(i * 3 + 1) % botanicalKeys.length];
-      el.innerHTML = botanicals[key];
-
-      container.appendChild(el);
-    });
-  }
-
-  /* ── Build SVG winding path ── */
-  function buildPath() {
-    var svg = document.querySelector('.path-canvas');
-    var trail = document.querySelector('.path-trail');
-    if (!svg || !trail || window.innerWidth < 720) {
-      if (trail) trail.setAttribute('d', '');
-      return;
-    }
-
-    var section = document.querySelector('.path-section');
-    var stones = document.querySelectorAll('.path-stone');
-    if (stones.length === 0) return;
-
-    var sectionRect = section.getBoundingClientRect();
-    svg.setAttribute('viewBox', '0 0 ' + section.offsetWidth + ' ' + section.offsetHeight);
-
-    var points = [];
-    stones.forEach(function(stone) {
-      var circle = stone.querySelector('.path-circle');
-      var circleRect = circle.getBoundingClientRect();
-      var x = circleRect.left - sectionRect.left + circleRect.width / 2;
-      var y = stone.offsetTop + circleRect.height / 2 + (parseFloat(getComputedStyle(stone).paddingTop) || 0);
-      points.push({ x: x, y: y });
-    });
-
-    if (points.length < 2) return;
-
-    /* Build smooth curve through all stone centers */
-    var d = 'M ' + points[0].x + ' ' + points[0].y;
-
-    for (var i = 0; i < points.length - 1; i++) {
-      var p0 = points[Math.max(0, i - 1)];
-      var p1 = points[i];
-      var p2 = points[i + 1];
-      var p3 = points[Math.min(points.length - 1, i + 2)];
-
-      /* Catmull-Rom to cubic bezier */
-      var tension = 0.35;
-      var cp1x = p1.x + (p2.x - p0.x) * tension;
-      var cp1y = p1.y + (p2.y - p0.y) * tension;
-      var cp2x = p2.x - (p3.x - p1.x) * tension;
-      var cp2y = p2.y - (p3.y - p1.y) * tension;
-
-      d += ' C ' + cp1x + ' ' + cp1y + ', ' + cp2x + ' ' + cp2y + ', ' + p2.x + ' ' + p2.y;
-    }
-
-    trail.setAttribute('d', d);
-  }
-
-  /* ── Intersection Observer for scroll reveal ── */
-  function setupObserver() {
-    var stones = document.querySelectorAll('.path-stone');
-    var accents = document.querySelectorAll('.path-botanical');
-
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          var delay = 0;
-          var idx = entry.target.getAttribute('data-index');
-          if (idx) delay = 60;
-          setTimeout(function() {
-            entry.target.classList.add('path-visible');
-          }, delay);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.15,
-      rootMargin: '0px 0px -60px 0px'
-    });
-
-    stones.forEach(function(stone) {
-      observer.observe(stone);
-    });
-
-    /* Observe botanical accents too */
-    var accentObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('path-visible');
-          accentObserver.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.3,
-      rootMargin: '0px 0px -40px 0px'
-    });
-
-    accents.forEach(function(accent) {
-      accentObserver.observe(accent);
-    });
-  }
-
-  /* ── Stagger reveal delays for organic feel ── */
-  function staggerDelays() {
-    var stones = document.querySelectorAll('.path-stone');
-    stones.forEach(function(stone, i) {
-      stone.style.transitionDelay = (i * 0.04) + 's';
-    });
-  }
-
-  /* ── Init ── */
-  function init() {
-    staggerDelays();
-    buildPath();
-    placeBotanicals();
-    setupObserver();
-  }
-
-  /* Rebuild on resize */
-  var resizeTimer;
-  window.addEventListener('resize', function() {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(function() {
-      buildPath();
-      placeBotanicals();
-    }, 200);
-  });
-
-  /* Run on DOM ready */
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    /* Small delay to ensure layout is settled */
-    setTimeout(init, 50);
-  }
-})();
-</script>
-
-
-<!-- CLOSING -->
+<!-- ======================== CLOSING ======================== -->
 <section class="closing">
-  <blockquote>"The best landscapes don't fight the land — they listen to it."</blockquote>
-  <a href="/#contact" class="btn">Start Your Project</a>
+  <blockquote class="reveal">"The best landscapes don't fight the land — they listen to it."</blockquote>
+  <a href="/#contact" class="cta-btn reveal reveal-d1">Start a Conversation</a>
 </section>
 
+<!-- ======================== FOOTER ======================== -->
 <footer>
   <div class="foot-brand">Living Ground Studio<span>Santa Cruz &middot; Scotts Valley &middot; Silicon Valley</span></div>
   <div class="foot-links">
@@ -704,5 +623,124 @@ footer{padding:3rem 6%;display:flex;justify-content:space-between;align-items:ce
   </div>
 </footer>
 
+<script>
+(function(){
+  'use strict';
+
+  /* ── Nav scroll shadow ── */
+  window.addEventListener('scroll',function(){
+    document.querySelector('nav').classList.toggle('scrolled',window.scrollY>40);
+  },{passive:true});
+
+  /* ── IntersectionObserver for scroll reveal ── */
+  var revealObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target)}
+    });
+  },{threshold:.12,rootMargin:'0px 0px -50px 0px'});
+  document.querySelectorAll('.reveal,.principle,.path-photo').forEach(function(el){revealObs.observe(el)});
+
+  /* ── Stone expand/collapse (desktop only) ── */
+  window.toggleStone=function(stone){
+    if(window.innerWidth<=768)return;
+    stone.classList.toggle('expanded');
+  };
+
+  /* ── Draw the winding SVG path ── */
+  function drawPath(){
+    var container=document.getElementById('pathContainer');
+    var svgEl=document.getElementById('pathSvg');
+    if(!container||!svgEl)return;
+
+    var stones=container.querySelectorAll('.stone-wrap');
+    if(stones.length===0)return;
+
+    var cRect=container.getBoundingClientRect();
+    var W=cRect.width;
+    var H=container.scrollHeight;
+
+    // Collect center points of all stones and photo breaks in DOM order
+    var allItems=container.querySelectorAll('.principle,.path-photo');
+    var pts=[];
+    allItems.forEach(function(item){
+      var target=item.querySelector('.stone-wrap')||item;
+      var r=target.getBoundingClientRect();
+      pts.push({
+        x:r.left-cRect.left+r.width/2,
+        y:r.top-cRect.top+r.height/2
+      });
+    });
+    if(pts.length<2)return;
+
+    svgEl.setAttribute('viewBox','0 0 '+W+' '+H);
+    svgEl.style.width=W+'px';
+    svgEl.style.height=H+'px';
+
+    // Build smooth S-curve through all points
+    var d='M '+pts[0].x+' '+pts[0].y;
+    for(var i=1;i<pts.length;i++){
+      var p=pts[i-1],c=pts[i],my=(p.y+c.y)/2;
+      d+=' C '+p.x+' '+my+', '+c.x+' '+my+', '+c.x+' '+c.y;
+    }
+
+    var ns='http://www.w3.org/2000/svg';
+    svgEl.innerHTML='';
+
+    // Soft shadow path
+    var sh=document.createElementNS(ns,'path');
+    sh.setAttribute('d',d);sh.setAttribute('fill','none');
+    sh.setAttribute('stroke','rgba(180,170,155,.12)');
+    sh.setAttribute('stroke-width','14');
+    sh.setAttribute('stroke-linecap','round');
+    sh.setAttribute('stroke-linejoin','round');
+    svgEl.appendChild(sh);
+
+    // Main dashed trail (decomposed granite)
+    var main=document.createElementNS(ns,'path');
+    main.setAttribute('d',d);main.setAttribute('fill','none');
+    main.setAttribute('stroke','#c9bfb0');
+    main.setAttribute('stroke-width','4');
+    main.setAttribute('stroke-linecap','round');
+    main.setAttribute('stroke-dasharray','14 7');
+    main.setAttribute('opacity','.55');
+    svgEl.appendChild(main);
+
+    // Fine scattered dots along edges
+    var edge=document.createElementNS(ns,'path');
+    edge.setAttribute('d',d);edge.setAttribute('fill','none');
+    edge.setAttribute('stroke','rgba(160,150,135,.1)');
+    edge.setAttribute('stroke-width','9');
+    edge.setAttribute('stroke-dasharray','2 12');
+    edge.setAttribute('stroke-linecap','round');
+    svgEl.appendChild(edge);
+  }
+
+  // Draw after layout settles
+  window.addEventListener('load',function(){
+    setTimeout(drawPath,200);
+    setTimeout(drawPath,800);
+  });
+  var rt;
+  window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(drawPath,200)});
+
+  /* ── Gentle parallax for wildlife on scroll ── */
+  var wildlife=document.querySelectorAll('.monarch,.painted-lady,.hummingbird,.scrub-jay,.dragonfly,.bee');
+  var pathSec=document.querySelector('.path-section');
+  var ticking=false;
+  window.addEventListener('scroll',function(){
+    if(!ticking){requestAnimationFrame(function(){
+      if(!pathSec)return;
+      var r=pathSec.getBoundingClientRect();
+      var prog=Math.max(0,Math.min(1,-r.top/(r.height-window.innerHeight)));
+      wildlife.forEach(function(el,i){
+        var spd=.015+(i*.006);
+        el.style.marginTop=(-prog*spd*r.height)+'px';
+      });
+      ticking=false;
+    });ticking=true}
+  },{passive:true});
+
+})();
+</script>
 </body>
 </html>
