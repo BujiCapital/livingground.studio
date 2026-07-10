@@ -269,8 +269,16 @@ footer{padding:3rem 6%;display:flex;justify-content:space-between;align-items:ce
       <label class="chip"><input type="checkbox" name="f" value="Children's Play Area"><div class="chip-inner"><svg viewBox="0 0 24 24"><path d="M12 2v8"/><path d="M8 4h8"/><path d="M6 10c0 0 2 4 6 4s6-4 6-4"/><path d="M8 14v6"/><path d="M16 14v6"/><path d="M4 20h16"/></svg><span>Play Area</span></div></label>
     </div>
 
-    <label for="email">Your Email</label>
-    <input type="email" id="email" name="email" placeholder="you@example.com" required>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+      </div>
+      <div>
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" placeholder="(831) 555-0123" style="width:100%;padding:.85rem 1rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:3px;color:#fff;font-size:.9rem;font-family:var(--sans);outline:none;transition:border-color .3s;margin-bottom:1.5rem" autocomplete="tel">
+      </div>
+    </div>
 
     <button type="submit">Start Your Project</button>
     <div class="form-success" id="success"><p>Thank you. We'll be in touch within 24 hours.</p></div>
@@ -315,18 +323,35 @@ window.addEventListener('scroll',function(){document.getElementById('nav').class
   });
 })();
 
-// Form
+// Form — submits to Google Sheets via Apps Script
+var FORM_URL='https://script.google.com/macros/s/AKfycbw10VO4mdPinsEzpzChYBm50oH4V0YPVcDsVc5teq8n6ulVxyRNNkt1Ca0tLN3_W9PU/exec';
 window.submitForm=function(e){
   e.preventDefault();
+  var btn=document.querySelector('.form button');
   var addr=document.getElementById('addr').value;
   var email=document.getElementById('email').value;
+  var phone=document.getElementById('phone')?document.getElementById('phone').value:'';
   var checks=document.querySelectorAll('input[name="f"]:checked');
   var feats=[];checks.forEach(function(c){feats.push(c.value)});
-  var subj=encodeURIComponent('New Inquiry — '+addr);
-  var body=encodeURIComponent('Address: '+addr+'\nEmail: '+email+'\n\nInterested in:\n'+feats.map(function(f){return'• '+f}).join('\n')+'\n\nFrom livingground.studio');
-  window.location.href='mailto:hello@livingground.studio?subject='+subj+'&body='+body;
-  document.getElementById('success').style.display='block';
-  document.querySelector('.form button').style.display='none';
+
+  btn.textContent='Sending...';btn.disabled=true;
+
+  fetch(FORM_URL,{
+    method:'POST',
+    mode:'no-cors',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({address:addr,email:email,phone:phone,features:feats,source:'livingground.studio'})
+  }).then(function(){
+    document.getElementById('success').style.display='block';
+    btn.style.display='none';
+  }).catch(function(){
+    // Fallback to mailto
+    var subj=encodeURIComponent('New Inquiry — '+addr);
+    var body=encodeURIComponent('Address: '+addr+'\nEmail: '+email+'\nPhone: '+phone+'\n\nInterested in:\n'+feats.map(function(f){return'• '+f}).join('\n'));
+    window.location.href='mailto:hello@livingground.studio?subject='+subj+'&body='+body;
+    document.getElementById('success').style.display='block';
+    btn.style.display='none';
+  });
 };
 
 // Google Places
