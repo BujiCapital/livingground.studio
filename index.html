@@ -131,6 +131,21 @@ nav.scrolled{background:rgba(17,17,17,.95);backdrop-filter:blur(20px);padding:1r
 .contact-alt{margin-top:2rem;font-size:.78rem;color:rgba(255,255,255,.25)}
 .contact-alt a{color:rgba(255,255,255,.4);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.15)}
 
+/* ── PAIN SECTION ── */
+.pain{padding:5rem 6%;background:var(--black);color:#fff}
+.pain-header{text-align:center;margin-bottom:3.5rem}
+.pain-header h2{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:400;color:#fff;margin-bottom:.5rem}
+.pain-header p{font-size:.88rem;color:rgba(255,255,255,.4);font-weight:300}
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:1000px;margin:0 auto}
+.pain-card{border:1px solid rgba(255,255,255,.06);border-radius:8px;overflow:hidden;transition:border-color .3s}
+.pain-card:hover{border-color:rgba(255,255,255,.15)}
+.pain-card img{width:100%;aspect-ratio:4/3;object-fit:cover;filter:saturate(.7) contrast(1.1)}
+.pain-card-body{padding:1.5rem}
+.pain-card h3{font-family:var(--serif);font-size:1.15rem;font-weight:400;color:#fff;margin-bottom:.5rem;line-height:1.3}
+.pain-card p{font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.65}
+.pain-card .stat{font-family:var(--serif);font-size:1.8rem;color:var(--clay);line-height:1;margin-bottom:.5rem;display:block}
+@media(max-width:768px){.pain-grid{grid-template-columns:1fr;max-width:440px;margin:0 auto}}
+
 /* ── FOOTER ── */
 footer{padding:3rem 6%;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--light-gray);flex-wrap:wrap;gap:1rem}
 .foot-brand{font-family:var(--serif);font-size:1rem;color:var(--black)}
@@ -163,7 +178,38 @@ footer{padding:3rem 6%;display:flex;justify-content:space-between;align-items:ce
 </section>
 
 <section class="intro">
-  <p>You spent months choosing the right home. The kitchen is perfect. The floors are beautiful. But outside? <em>Nothing.</em> We fix that — and we make it extraordinary.</p>
+  <p>You close on the house. You walk to the back window. And you see <em>dirt.</em> Just bare, compacted fill. No shade. No life. No place to sit. You tell yourself you'll deal with it later. Then the first rain comes.</p>
+</section>
+
+<!-- THE REAL COST OF WAITING -->
+<section class="pain">
+  <div class="pain-header">
+    <h2>What happens when you wait</h2>
+    <p>Three things every new homeowner learns the hard way</p>
+  </div>
+  <div class="pain-grid">
+    <div class="pain-card">
+      <img src="https://pub.hyperagent.com/api/published/pbf01KX4HY35S_HZ7RTP5E9WM68NS5/IMG_4275.jpg" alt="Standing water flooding a bare backyard after rain">
+      <div class="pain-card-body">
+        <h3>The first rain floods your foundation</h3>
+        <p>Bare soil has no structure, no roots, no absorption. The first winter storm turns your yard into a river — water pools against the foundation, saturates the slab, and creates drainage problems that cost ten times what proper grading would have. This photo is from a Scotts Valley new build. It didn't have to happen.</p>
+      </div>
+    </div>
+    <div class="pain-card">
+      <img src="https://pub.hyperagent.com/api/published/pbf01KX4HY4VJ_XCD8CQP36FMKXCWK/IMG_4346.jpg" alt="Water pooled against HVAC unit and foundation">
+      <div class="pain-card-body">
+        <h3>The concrete trap</h3>
+        <p>Your neighbor poured a concrete pad and called it done. It's 130&deg;F in summer, sends all runoff into the street, kills the soil underneath, and looks worse every year. The cheapest solution is the most expensive mistake. Hardscape without living systems is a dead end — literally.</p>
+      </div>
+    </div>
+    <div class="pain-card">
+      <div class="pain-card-body" style="padding-top:2rem">
+        <span class="stat">15&ndash;20%</span>
+        <h3>What a living landscape adds to your home's value</h3>
+        <p>Studies consistently show quality landscaping returns 15&ndash;20% in property value — the highest ROI of any home improvement. But it goes deeper: a regenerative landscape captures thousands of gallons of rainwater per year, sequesters carbon in living soil, and produces food for your family. Your backyard isn't a cost center. It's the most productive half-acre you own.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ACT 2: THE PROOF -->
