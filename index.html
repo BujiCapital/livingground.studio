@@ -78,16 +78,14 @@ nav.scrolled{background:rgba(17,17,17,.95);backdrop-filter:blur(20px);padding:1r
 .process-step h3{font-family:var(--serif);font-size:1.3rem;font-weight:400;margin:.5rem 0 .4rem}
 .process-step p{font-size:.82rem;color:var(--gray);line-height:1.6}
 
-/* ── SANDRAYA OFFER ── */
-.offer{margin:0 6% 5rem;background:var(--sage);border-radius:8px;padding:3.5rem;display:flex;align-items:center;justify-content:space-between;gap:3rem;flex-wrap:wrap}
-.offer-text{max-width:480px}
-.offer-text h3{font-family:var(--serif);font-size:clamp(1.4rem,2.2vw,1.8rem);color:#fff;margin-bottom:.6rem;line-height:1.25}
-.offer-text p{font-size:.88rem;color:rgba(255,255,255,.6);line-height:1.7}
-.offer-right{text-align:center;flex-shrink:0}
-.offer-amount{font-family:var(--serif);font-size:3rem;color:#fff;line-height:1}
-.offer-label{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:.3rem}
-.offer-deadline{display:inline-block;margin-top:1rem;padding:.4rem 1rem;background:rgba(255,255,255,.12);border-radius:3px;font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.7)}
-@media(max-width:768px){.offer{flex-direction:column;text-align:center}.offer-text{max-width:100%}}
+/* ── SANDRAYA BANNER ── */
+.sandraya-banner{display:flex;align-items:center;gap:1rem;max-width:580px;margin:0 auto 2.5rem;padding:1rem 1.5rem;background:rgba(90,107,74,.1);border:1px solid rgba(90,107,74,.2);border-radius:6px;text-decoration:none;transition:all .3s;cursor:pointer}
+.sandraya-banner:hover{background:rgba(90,107,74,.18);border-color:rgba(90,107,74,.35);transform:translateY(-1px)}
+.sb-badge{flex-shrink:0;font-size:.6rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--sage);background:rgba(90,107,74,.15);padding:.3rem .6rem;border-radius:3px}
+.sb-text{font-size:.82rem;color:rgba(255,255,255,.6);line-height:1.4}
+.sb-text strong{color:rgba(255,255,255,.85)}
+.sb-arrow{font-size:1.2rem;color:var(--sage);flex-shrink:0;transition:transform .3s}
+.sandraya-banner:hover .sb-arrow{transform:translateX(3px)}
 
 /* ── FORM ── */
 .contact{background:var(--black);padding:6rem 6%;text-align:center}
@@ -100,12 +98,18 @@ nav.scrolled{background:rgba(17,17,17,.95);backdrop-filter:blur(20px);padding:1r
 .form input:focus{border-color:var(--clay)}
 .form-hint{font-size:.72rem;color:rgba(255,255,255,.3);margin-bottom:1rem;margin-top:-.5rem}
 .chip-label{font-family:var(--serif);font-size:1rem;color:rgba(255,255,255,.5);margin-bottom:.8rem;padding-bottom:.5rem;border-bottom:1px solid rgba(255,255,255,.06)}
-.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.5rem}
-.chip{cursor:pointer;margin:0}
+.chips{display:grid;grid-template-columns:repeat(5,1fr);gap:.5rem;margin-bottom:2rem}
+@media(max-width:768px){.chips{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:480px){.chips{grid-template-columns:repeat(2,1fr)}}
+.chip{cursor:pointer;margin:0;display:block}
 .chip input{display:none}
-.chip span{display:inline-block;padding:.45rem .9rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:100px;font-size:.75rem;color:rgba(255,255,255,.45);transition:all .2s;user-select:none}
-.chip span:hover{border-color:rgba(255,255,255,.2);color:rgba(255,255,255,.65)}
-.chip input:checked+span{background:var(--sage);border-color:var(--sage);color:#fff;font-weight:500}
+.chip-inner{display:flex;flex-direction:column;align-items:center;gap:.4rem;padding:.8rem .5rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:6px;transition:all .25s;user-select:none;text-align:center}
+.chip-inner:hover{border-color:rgba(255,255,255,.18);background:rgba(255,255,255,.06)}
+.chip input:checked+.chip-inner{background:rgba(90,107,74,.15);border-color:var(--sage)}
+.chip-inner svg{width:24px;height:24px;stroke:rgba(255,255,255,.35);stroke-width:1.2;fill:none;transition:stroke .25s}
+.chip input:checked+.chip-inner svg{stroke:var(--sage)}
+.chip-inner span{font-size:.65rem;color:rgba(255,255,255,.4);line-height:1.2;transition:color .25s}
+.chip input:checked+.chip-inner span{color:rgba(255,255,255,.85);font-weight:500}
 .form button{width:100%;padding:.95rem;background:var(--clay);color:#fff;border:none;border-radius:3px;font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:var(--sans);transition:opacity .3s;margin-top:.5rem}
 .form button:hover{opacity:.9}
 .form-success{display:none;margin-top:1.5rem;padding:1.2rem;background:rgba(90,107,74,.15);border:1px solid rgba(90,107,74,.3);border-radius:4px;text-align:center}
@@ -129,8 +133,6 @@ footer{padding:3rem 6%;display:flex;justify-content:space-between;align-items:ce
   <a href="#" class="nav-brand">Living Ground<span>Studio</span></a>
   <div class="nav-right">
     <a href="#slider">Work</a>
-    <a href="polo-ranch.html">Polo Ranch</a>
-    <a href="sandraya.html">Sandraya Heights</a>
     <a href="#contact" class="nav-cta">Get Started</a>
   </div>
 </nav>
@@ -207,56 +209,49 @@ footer{padding:3rem 6%;display:flex;justify-content:space-between;align-items:ce
   </div>
 </section>
 
-<!-- SANDRAYA OFFER -->
-<div class="offer">
-  <div class="offer-text">
-    <h3>Sandraya Heights homeowners — we'll start before you move in</h3>
-    <p>Your half-acre lot has extraordinary potential. We're offering Sandraya buyers an exclusive landscape credit and early-start program so your backyard is alive on day one.</p>
-  </div>
-  <div class="offer-right">
-    <div class="offer-amount">$10K</div>
-    <div class="offer-label">Landscape Credit</div>
-    <div class="offer-deadline">Before Jan 2027</div>
-  </div>
-</div>
-
 <!-- ACT 3: THE ACTION -->
 <section class="contact" id="contact">
   <h2>Let's start with your address</h2>
   <p>Tell us where and what you're dreaming of.</p>
 
+  <a href="sandraya.html" class="sandraya-banner">
+    <span class="sb-badge">Special Offer</span>
+    <span class="sb-text"><strong>Sandraya Heights</strong> homeowners &mdash; click here for an exclusive package for your new home in Scotts Valley</span>
+    <span class="sb-arrow">&rarr;</span>
+  </a>
+
   <form class="form" id="intakeForm" onsubmit="submitForm(event)">
     <label for="addr">Property Address</label>
-    <input type="text" id="addr" name="address" placeholder="Start typing your address..." required autocomplete="off">
+    <input type="text" id="addr" name="address" placeholder="Start typing your address..." required autocomplete="new-password">
 
     <label>What interests you?</label>
     <p class="form-hint">Select all that apply</p>
 
     <h4 class="chip-label">Living Systems</h4>
     <div class="chips">
-      <label class="chip"><input type="checkbox" name="f" value="Food Forest"><span>Food Forest</span></label>
-      <label class="chip"><input type="checkbox" name="f" value="Edible Gardens"><span>Edible Gardens</span></label>
-      <label class="chip"><input type="checkbox" name="f" value="Native Habitat"><span>Native Habitat</span></label>
-      <label class="chip"><input type="checkbox" name="f" value="Pollinator Garden"><span>Pollinator Garden</span></label>
-      <label class="chip"><input type="checkbox" name="f" value="Rainwater Harvesting"><span>Rainwater Harvesting</span></label>
-      <label class="chip"><input type="checkbox" name="f" value="Swales & Drainage"><span>Swales &amp; Drainage</span></label>
-      <label class="chip"><input type="checkbox" name="f" value="Greywater Recycling"><span>Greywater Recycling</span></label>
-      <label class="chip"><input type="checkbox" name="f" value="Drought-Tolerant Natives"><span>Drought-Tolerant Natives</span></label>
-      <label class="chip"><input type="checkbox" name="f" value="Fruit & Nut Trees"><span>Fruit &amp; Nut Trees</span></label>
-      <label class="chip"><input type="checkbox" name="f" value="Soil Restoration"><span>Soil Restoration</span></label>
+      <label class="chip"><input type="checkbox" name="f" value="Food Forest"><div class="chip-inner"><svg viewBox="0 0 24 24"><path d="M12 22V10"/><path d="M12 10c-2-4-6-6-9-4 3-1 6 0 9 4z"/><path d="M12 10c2-4 6-6 9-4-3-1-6 0-9 4z"/><path d="M12 15c-1.5-3-4-4-6-3 2-.5 4 0 6 3z"/><path d="M12 15c1.5-3 4-4 6-3-2-.5-4 0-6 3z"/><circle cx="8" cy="6" r="1.5"/><circle cx="16" cy="7" r="1"/></svg><span>Food Forest</span></div></label>
+      <label class="chip"><input type="checkbox" name="f" value="Edible Gardens"><div class="chip-inner"><svg viewBox="0 0 24 24"><rect x="3" y="14" width="18" height="5" rx="1"/><path d="M7 14V9"/><path d="M7 9c-1-2-3-3-4-2 1.5-.5 3 0 4 2z"/><path d="M7 9c1-2 3-3 4-2-1.5-.5-3 0-4 2z"/><path d="M12 14V8"/><path d="M12 8c-1.5-2.5-3-3-4.5-2 2-.5 3.5 0 4.5 2z"/><path d="M12 8c1.5-2.5 3-3 4.5-2-2-.5-3.5 0-4.5 2z"/><path d="M17 14V10"/><path d="M17 10c-1-1.5-2-2-3-1.5 1.2-.3 2 0 3 1.5z"/><path d="M17 10c1-1.5 2-2 3-1.5-1.2-.3-2 0-3 1.5z"/></svg><span>Edible Gardens</span></div></label>
+      <label class="chip"><input type="checkbox" name="f" value="Native Habitat"><div class="chip-inner"><svg viewBox="0 0 24 24"><path d="M4 18c2-1 4-4 4-7s2-5 4-6"/><path d="M12 5c2 1 4 3 4 6s2 6 4 7"/><path d="M9 10l-1-2 2 .5"/><circle cx="8.5" cy="9" r=".5" fill="currentColor"/><path d="M3 20h18"/></svg><span>Native Habitat</span></div></label>
+      <label class="chip"><input type="checkbox" name="f" value="Pollinator Garden"><div class="chip-inner"><svg viewBox="0 0 24 24"><circle cx="12" cy="10" r="2"/><ellipse cx="12" cy="6" rx="1.5" ry="2.5"/><ellipse cx="12" cy="14" rx="1.5" ry="2.5"/><ellipse cx="8.5" cy="8.5" rx="1.5" ry="2.5" transform="rotate(60 8.5 8.5)"/><ellipse cx="15.5" cy="11.5" rx="1.5" ry="2.5" transform="rotate(60 15.5 11.5)"/><ellipse cx="8.5" cy="11.5" rx="1.5" ry="2.5" transform="rotate(-60 8.5 11.5)"/><ellipse cx="15.5" cy="8.5" rx="1.5" ry="2.5" transform="rotate(-60 15.5 8.5)"/><path d="M12 17v5"/></svg><span>Pollinator Garden</span></div></label>
+      <label class="chip"><input type="checkbox" name="f" value="Rainwater Harvesting"><div class="chip-inner"><svg viewBox="0 0 24 24"><path d="M12 2c0 0-4 5-4 8a4 4 0 0 0 8 0c0-3-4-8-4-8z"/><rect x="8" y="15" width="8" height="6" rx="1"/><path d="M12 14v1"/><path d="M5 21h14"/></svg><span>Rainwater Harvesting</span></div></label>
+      <label class="chip"><input type="checkbox" name="f" value="Swales & Drainage"><div class="chip-inner"><svg viewBox="0 0 24 24"><path d="M2 16c4-3 6 0 10-3s6 0 10-3"/><path d="M2 20c4-3 6 0 10-3s6 0 10-3"/><path d="M8 12V8"/><path d="M8 8c-1-2-2.5-3-4-2 1.5-.5 3 0 4 2z"/><path d="M8 8c1-2 2.5-3 4-2-1.5-.5-3 0-4 2z"/><path d="M16 10V6"/><path d="M16 6c-1-2-2-2.5-3-2 1-.3 2 0 3 2z"/><path d="M16 6c1-2 2-2.5 3-2-1-.3-2 0-3 2z"/></svg><span>Swales &amp; Drainage</span></div></label>
+      <label class="chip"><input type="checkbox" name="f" value="Greywater Recycling"><div class="chip-inner"><svg viewBox="0 0 24 24"><path d="M12 4v4"/><path d="M12 8c-3 0-5 2-5 5v3h10v-3c0-3-2-5-5-5z"/><path d="M7 16c0 2 2 4 5 4s5-2 5-4"/><path d="M9 12l2 2 2-2"/></svg><span>Greywater Recycling</span></div></label>
+      <label class="chip"><input type="checkbox" name="f" value="Drought-Tolerant Natives"><div class="chip-inner"><svg viewBox="0 0 24 24"><path d="M12 22V12"/><path d="M12 12c0-4-2-7-5-9 1 3 1.5 6 1 9"/><path d="M12 12c0-4 2-7 5-9-1 3-1.5 6-1 9"/><path d="M12 17c-1-2-3-3-5-2.5 2-.3 3.5.5 5 2.5z"/><path d="M12 17c1-2 3-3 5-2.5-2-.3-3.5.5-5 2.5z"/></svg><span>Drought-Tolerant</span></div></label>
+      <label class="chip"><input type="checkbox" name="f" value="Fruit & Nut Trees"><div class="chip-inner"><svg viewBox="0 0 24 24"><path d="M12 22V12"/><path d="M8 12c0-3 1.5-6 4-8 2.5 2 4 5 4 8"/><path d="M6 14c0-2.5 2.5-5 6-7 3.5 2 6 4.5 6 7"/><circle cx="9" cy="10" r="1"/><circle cx="15" cy="11" r="1"/><circle cx="12" cy="8" r="1"/></svg><span>Fruit &amp; Nut Trees</span></div></label>
+      <label class="chip"><input type="checkbox" name="f" value="Soil Restoration"><div class="chip-inner"><svg viewBox="0 0 24 24"><path d="M3 14h18"/><path d="M3 18h18"/><path d="M3 22h18"/><path d="M8 14V9"/><path d="M8 9c-1.5-2-3-2.5-4-2 1.5-.3 3 .2 4 2z"/><path d="M8 9c1.5-2 3-2.5 4-2-1.5-.3-3 .2-4 2z"/><path d="M16 14V11"/><path d="M16 11c-1-1.5-2-2-3-1.5 1-.3 2 0 3 1.5z"/><path d="M16 11c1-1.5 2-2 3-1.5-1-.3-2 0-3 1.5z"/><path d="M6 16c.5-.5 1-1 2-.5"/><path d="M14 20c.5-.3 1.5-.5 2 0"/></svg><span>Soil Restoration</span></div></label>
     </div>
 
     <h4 class="chip-label">Hardscape &amp; Structures</h4>
     <div class="chips">
-      <label class="chip"><input type="checkbox" name="f" value="Outdoor Kitchen"><span>Outdoor Kitchen</span></label>
-      <label class="chip"><input type="checkbox" name="f" value="Fire Pit"><span>Fire Pit</span></label>
-      <label class="chip"><input type="checkbox" name="f" value="Hot Tub"><span>Hot Tub</span></label>
-      <label class="chip"><input type="checkbox" name="f" value="Pergola"><span>Pergola</span></label>
-      <label class="chip"><input type="checkbox" name="f" value="Stone Pathways"><span>Stone Pathways</span></label>
-      <label class="chip"><input type="checkbox" name="f" value="Outdoor Lighting"><span>Outdoor Lighting</span></label>
-      <label class="chip"><input type="checkbox" name="f" value="Water Feature"><span>Water Feature</span></label>
-      <label class="chip"><input type="checkbox" name="f" value="Seating Areas"><span>Seating Areas</span></label>
-      <label class="chip"><input type="checkbox" name="f" value="Children's Play Area"><span>Play Area</span></label>
+      <label class="chip"><input type="checkbox" name="f" value="Outdoor Kitchen"><div class="chip-inner"><svg viewBox="0 0 24 24"><rect x="3" y="12" width="18" height="8" rx="1"/><path d="M3 16h18"/><path d="M8 12V9"/><path d="M8 9c0-1 .5-2 1-2.5"/><path d="M12 12V8"/><path d="M12 8c0-1.5 .5-2.5 1-3"/><path d="M16 12V10"/><path d="M16 10c0-.8.3-1.5.7-2"/></svg><span>Outdoor Kitchen</span></div></label>
+      <label class="chip"><input type="checkbox" name="f" value="Fire Pit"><div class="chip-inner"><svg viewBox="0 0 24 24"><path d="M12 22c-4 0-7-3-7-6 0-4 3-6 4-9 1 2 1.5 3 3 3s2.5-2 3-3c1 3 4 5 4 9 0 3-3 6-7 6z"/><path d="M12 22c-2 0-3.5-1.5-3.5-3 0-2 1.5-3 2-4.5.5 1 1 1.5 1.5 1.5s1-1 1.5-1.5c.5 1.5 2 2.5 2 4.5 0 1.5-1.5 3-3.5 3z"/></svg><span>Fire Pit</span></div></label>
+      <label class="chip"><input type="checkbox" name="f" value="Hot Tub"><div class="chip-inner"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="14" rx="8" ry="4"/><path d="M4 14v3c0 2 3.5 4 8 4s8-2 8-4v-3"/><path d="M7 9c.5-1.5 1-2 .5-3.5"/><path d="M12 9c.5-1.5 1-2 .5-3.5"/><path d="M17 9c.5-1.5 1-2 .5-3.5"/></svg><span>Hot Tub</span></div></label>
+      <label class="chip"><input type="checkbox" name="f" value="Pergola"><div class="chip-inner"><svg viewBox="0 0 24 24"><path d="M4 8v12"/><path d="M20 8v12"/><path d="M2 8h20"/><path d="M4 8l8-4 8 4"/><path d="M6 8v2"/><path d="M10 8v2"/><path d="M14 8v2"/><path d="M18 8v2"/></svg><span>Pergola</span></div></label>
+      <label class="chip"><input type="checkbox" name="f" value="Stone Pathways"><div class="chip-inner"><svg viewBox="0 0 24 24"><ellipse cx="10" cy="4" rx="3" ry="1.5"/><ellipse cx="14" cy="8.5" rx="3.5" ry="1.5"/><ellipse cx="10" cy="13" rx="3" ry="1.5"/><ellipse cx="14" cy="17.5" rx="3.5" ry="1.5"/><ellipse cx="10" cy="22" rx="3" ry="1.5"/></svg><span>Stone Pathways</span></div></label>
+      <label class="chip"><input type="checkbox" name="f" value="Outdoor Lighting"><div class="chip-inner"><svg viewBox="0 0 24 24"><path d="M12 2v1"/><path d="M12 21v1"/><path d="M4.22 4.22l.7.7"/><path d="M19.07 4.22l-.7.7"/><path d="M2 12h1"/><path d="M21 12h1"/><circle cx="12" cy="12" r="4"/><path d="M12 8c-2.2 0-4 1.8-4 4"/></svg><span>Outdoor Lighting</span></div></label>
+      <label class="chip"><input type="checkbox" name="f" value="Water Feature"><div class="chip-inner"><svg viewBox="0 0 24 24"><path d="M12 3c0 0-3 4-3 6a3 3 0 0 0 6 0c0-2-3-6-3-6z"/><path d="M5 14c3-1 5 1 7 0s4 1 7 0"/><path d="M5 18c3-1 5 1 7 0s4 1 7 0"/></svg><span>Water Feature</span></div></label>
+      <label class="chip"><input type="checkbox" name="f" value="Seating Areas"><div class="chip-inner"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M5 12V8c0-1 1-2 2-2h0"/><path d="M19 12V8c0-1-1-2-2-2h0"/><path d="M5 12v4"/><path d="M19 12v4"/><path d="M5 16h14"/><path d="M7 16v4"/><path d="M17 16v4"/></svg><span>Seating Areas</span></div></label>
+      <label class="chip"><input type="checkbox" name="f" value="Children's Play Area"><div class="chip-inner"><svg viewBox="0 0 24 24"><path d="M12 2v8"/><path d="M8 4h8"/><path d="M6 10c0 0 2 4 6 4s6-4 6-4"/><path d="M8 14v6"/><path d="M16 14v6"/><path d="M4 20h16"/></svg><span>Play Area</span></div></label>
     </div>
 
     <label for="email">Your Email</label>
@@ -271,9 +266,9 @@ footer{padding:3rem 6%;display:flex;justify-content:space-between;align-items:ce
 <footer>
   <div class="foot-brand">Living Ground Studio<span>Santa Cruz &middot; Scotts Valley &middot; Silicon Valley</span></div>
   <div class="foot-links">
-    <a href="polo-ranch.html">Polo Ranch</a>
-    <a href="sandraya.html">Sandraya Heights</a>
-    <a href="mailto:hello@livingground.studio">Contact</a>
+    <a href="#slider">Work</a>
+    <a href="#contact">Contact</a>
+    <a href="mailto:hello@livingground.studio">hello@livingground.studio</a>
   </div>
 </footer>
 
@@ -321,10 +316,16 @@ window.submitForm=function(e){
 
 // Google Places
 window.initAutocomplete=function(){
-  var input=document.getElementById('addr');
-  if(!window.google||!google.maps||!google.maps.places)return;
-  new google.maps.places.Autocomplete(input,{types:['address'],componentRestrictions:{country:'us'},fields:['formatted_address']});
+  try{
+    var input=document.getElementById('addr');
+    if(!input||!window.google||!google.maps||!google.maps.places)return;
+    var ac=new google.maps.places.Autocomplete(input,{types:['address'],componentRestrictions:{country:'us'},fields:['formatted_address']});
+    ac.addListener('place_changed',function(){var p=ac.getPlace();if(p&&p.formatted_address)input.value=p.formatted_address});
+    // Prevent form submit on Enter when selecting from dropdown
+    input.addEventListener('keydown',function(e){if(e.key==='Enter'){var pac=document.querySelector('.pac-container');if(pac&&pac.style.display!=='none')e.preventDefault()}});
+  }catch(e){console.log('Places API not available, using plain input')}
 };
+window.gm_authFailure=function(){console.log('Google Maps auth failed — check API key restrictions')};
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCZdCYhQcL_rhcNPyIH-XGF1FFjpnEUL4&libraries=places&callback=initAutocomplete"></script>
 <style>.pac-container{background:#1a1a1a;border:1px solid rgba(255,255,255,.1);border-radius:3px;box-shadow:0 8px 30px rgba(0,0,0,.4);font-family:var(--sans);margin-top:4px}.pac-item{padding:.65rem 1rem;color:rgba(255,255,255,.6);border-top:1px solid rgba(255,255,255,.05);cursor:pointer;font-size:.85rem}.pac-item:first-child{border:0}.pac-item:hover,.pac-item-selected{background:rgba(90,107,74,.2)}.pac-item-query{color:#fff;font-weight:500}.pac-icon{display:none}.pac-matched{color:#fff;font-weight:600}</style>
