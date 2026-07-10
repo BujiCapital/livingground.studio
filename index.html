@@ -83,11 +83,14 @@ nav.scrolled{background:rgba(17,17,17,.95);backdrop-filter:blur(20px);padding:1r
 .slider-caption a{color:var(--clay);text-decoration:underline;text-underline-offset:3px}
 
 /* ── PROCESS ── */
-.process{padding:6rem 6%;display:flex;gap:3rem;justify-content:center;flex-wrap:wrap;border-top:1px solid var(--light-gray)}
-.process-step{text-align:center;flex:1;min-width:200px;max-width:280px}
+.process{padding:6rem 6%;border-top:1px solid var(--light-gray)}
+.process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;max-width:1000px;margin:0 auto}
+.process-step{text-align:center}
+.process-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px;margin-bottom:1.5rem}
 .process-num{font-family:var(--serif);font-size:2.5rem;color:var(--clay);line-height:1}
 .process-step h3{font-family:var(--serif);font-size:1.3rem;font-weight:400;margin:.5rem 0 .4rem}
 .process-step p{font-size:.82rem;color:var(--gray);line-height:1.6}
+@media(max-width:768px){.process-grid{grid-template-columns:1fr;max-width:400px;margin:0 auto}}
 
 /* ── SANDRAYA BANNER ── */
 .sandraya-banner{display:flex;align-items:center;gap:1rem;max-width:580px;margin:0 auto 2.5rem;padding:1rem 1.5rem;background:rgba(90,107,74,.1);border:1px solid rgba(90,107,74,.2);border-radius:6px;text-decoration:none;transition:all .3s;cursor:pointer}
@@ -143,8 +146,7 @@ footer{padding:3rem 6%;display:flex;justify-content:space-between;align-items:ce
 <nav id="nav">
   <a href="#" class="nav-brand">Living Ground<span>Studio</span></a>
   <div class="nav-right">
-    <a href="polo-ranch.html">Work</a>
-    <a href="philosophy.html">Philosophy</a>
+    <a href="philosophy.html">About</a>
     <a href="#contact" class="nav-cta">Get Started</a>
   </div>
 </nav>
@@ -207,20 +209,25 @@ footer{padding:3rem 6%;display:flex;justify-content:space-between;align-items:ce
 
 <!-- PROCESS (minimal) -->
 <section class="process">
-  <div class="process-step">
-    <div class="process-num">01</div>
-    <h3>Design</h3>
-    <p>We study your land and design a landscape that works with it — food, beauty, habitat, and outdoor living.</p>
-  </div>
-  <div class="process-step">
-    <div class="process-num">02</div>
-    <h3>Build</h3>
-    <p>Our crews shape the ground, place every stone, restore the soil, and plant. Typically 6–10 weeks.</p>
-  </div>
-  <div class="process-step">
-    <div class="process-num">03</div>
-    <h3>Steward</h3>
-    <p>Living landscapes evolve. We stay with your garden season after season, helping it mature and thrive.</p>
+  <div class="process-grid">
+    <div class="process-step">
+      <img class="process-img" src="https://pub.hyperagent.com/api/published/pbf01KX5D0C06_BW9Q16D0EQQK14YE/376f173d-3adc-4a7b-b30e-ab0a389145b8.png" alt="Watercolor landscape design plan sketch">
+      <div class="process-num">01</div>
+      <h3>Design</h3>
+      <p>We study your land and design a landscape that works with it — food, beauty, habitat, and outdoor living.</p>
+    </div>
+    <div class="process-step">
+      <img class="process-img" src="https://pub.hyperagent.com/api/published/pbf01KX5D0D5N_KTV8GKG054WJCZRR/733a15d8-2d15-44d7-9116-abc5e38181e0.png" alt="Watercolor stone pathway being placed in garden">
+      <div class="process-num">02</div>
+      <h3>Build</h3>
+      <p>Our crews shape the ground, place every stone, restore the soil, and plant. Typically 6–10 weeks.</p>
+    </div>
+    <div class="process-step">
+      <img class="process-img" src="https://pub.hyperagent.com/api/published/pbf01KX5D0ES2_9T77K7JV0KE6B66G/31cca082-4d15-41f5-a8e9-5310b78c42ac.png" alt="Watercolor mature California garden with hummingbird">
+      <div class="process-num">03</div>
+      <h3>Steward</h3>
+      <p>Living landscapes evolve. We stay with your garden season after season, helping it mature and thrive.</p>
+    </div>
   </div>
 </section>
 
@@ -289,8 +296,8 @@ footer{padding:3rem 6%;display:flex;justify-content:space-between;align-items:ce
 <footer>
   <div class="foot-brand">Living Ground Studio<span>Santa Cruz &middot; Scotts Valley &middot; Silicon Valley</span></div>
   <div class="foot-links">
-    <a href="polo-ranch.html">Work</a>
-    <a href="philosophy.html">Philosophy</a>
+    <a href="philosophy.html">About</a>
+    <a href="polo-ranch.html">Polo Ranch</a>
     <a href="#contact">Contact</a>
   </div>
 </footer>
