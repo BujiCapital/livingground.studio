@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Philosophy — Living Ground Studio</title>
+<meta name="description" content="The design principles behind every Living Ground Studio landscape — twelve commitments that guide how we read the land and build for generations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --serif:'Instrument Serif',Georgia,serif;
+  --sans:'Inter',-apple-system,sans-serif;
+  --black:#111;--white:#faf8f5;--sage:#5A6B4A;--clay:#B8634D;
+  --gray:#888;--light-gray:#e8e5e0;
+}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:var(--sans);color:var(--black);background:var(--white);line-height:1.6}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.5rem 6%;background:rgba(250,248,245,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,.04)}
+.nav-brand{font-family:var(--serif);font-size:1.3rem;color:var(--black);text-decoration:none}
+.nav-brand span{font-family:var(--sans);font-size:.55rem;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--gray);display:block;margin-top:1px}
+.nav-right{display:flex;gap:2rem;align-items:center}
+.nav-right a{font-size:.75rem;font-weight:500;color:var(--gray);text-decoration:none;letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
+.nav-right a:hover{color:var(--black)}
+.nav-cta{background:var(--clay)!important;color:#fff!important;padding:.5rem 1.2rem!important;border-radius:3px}
+@media(max-width:768px){.nav-right a:not(.nav-cta){display:none}}
+
+/* ── HERO ── */
+.page-hero{padding:10rem 6% 5rem;max-width:800px}
+.page-hero h1{font-family:var(--serif);font-size:clamp(2.5rem,5vw,4rem);font-weight:400;line-height:1.1;margin-bottom:1.5rem}
+.page-hero h1 em{font-style:italic;color:var(--sage)}
+.page-hero p{font-size:1rem;color:var(--gray);max-width:560px;line-height:1.8;font-weight:300}
+
+/* ── ETHICS ── */
+.ethics{padding:5rem 6%;background:var(--black);color:#fff}
+.ethics-header{text-align:center;margin-bottom:4rem}
+.ethics-header h2{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:400;margin-bottom:.5rem}
+.ethics-header p{font-size:.85rem;color:rgba(255,255,255,.4);font-weight:300}
+.ethics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.06);max-width:960px;margin:0 auto}
+.ethic{background:var(--black);padding:3rem 2.5rem;text-align:center}
+.ethic-icon{font-size:1.6rem;margin-bottom:1.2rem;color:var(--sage);display:block}
+.ethic h3{font-family:var(--serif);font-size:1.4rem;font-weight:400;margin-bottom:.6rem}
+.ethic p{font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.7}
+@media(max-width:768px){.ethics-grid{grid-template-columns:1fr}}
+
+/* ── PRINCIPLES ── */
+.principles{padding:6rem 6%}
+.principles-header{text-align:center;margin-bottom:1rem}
+.principles-header h2{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:400;margin-bottom:.5rem}
+.principles-header p{font-size:.85rem;color:var(--gray);max-width:520px;margin:0 auto;font-weight:300;line-height:1.7}
+
+.principle-list{max-width:900px;margin:4rem auto 0;counter-reset:principle}
+.principle{display:grid;grid-template-columns:80px 1fr;gap:2rem;padding:2.5rem 0;border-bottom:1px solid var(--light-gray);align-items:start}
+.principle:first-child{border-top:1px solid var(--light-gray)}
+.p-num{font-family:var(--serif);font-size:2.5rem;color:var(--clay);line-height:1;text-align:right;padding-top:.2rem}
+.p-content h3{font-family:var(--serif);font-size:1.3rem;font-weight:400;margin-bottom:.4rem;line-height:1.3}
+.p-content p{font-size:.88rem;color:var(--gray);line-height:1.75;max-width:600px}
+
+@media(max-width:600px){
+  .principle{grid-template-columns:50px 1fr;gap:1rem}
+  .p-num{font-size:2rem}
+}
+
+/* ── QUOTE ── */
+.closing{padding:6rem 6%;background:var(--black);text-align:center}
+.closing blockquote{font-family:var(--serif);font-size:clamp(1.3rem,2.5vw,1.8rem);font-style:italic;color:rgba(255,255,255,.6);max-width:600px;margin:0 auto 2rem;line-height:1.5}
+.closing .btn{display:inline-block;padding:.85rem 2rem;font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:3px;background:var(--clay);color:#fff;font-family:var(--sans);transition:opacity .3s}
+.closing .btn:hover{opacity:.9}
+
+/* ── FOOTER ── */
+footer{padding:3rem 6%;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--light-gray);flex-wrap:wrap;gap:1rem}
+.foot-brand{font-family:var(--serif);font-size:1rem;color:var(--black)}
+.foot-brand span{display:block;font-family:var(--sans);font-size:.7rem;color:var(--gray);font-weight:300;margin-top:.2rem}
+.foot-links{display:flex;gap:1.5rem}
+.foot-links a{font-size:.7rem;color:var(--gray);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
+.foot-links a:hover{color:var(--sage)}
+@media(max-width:600px){footer{flex-direction:column;text-align:center}.foot-links{flex-wrap:wrap;justify-content:center}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-brand">Living Ground<span>Studio</span></a>
+  <div class="nav-right">
+    <a href="polo-ranch.html">Work</a>
+    <a href="philosophy.html" style="color:var(--black)">Philosophy</a>
+    <a href="/#contact" class="nav-cta">Get Started</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <h1>We design landscapes the way <em>nature designs ecosystems</em></h1>
+  <p>Every Living Ground project is guided by twelve design principles — a framework for creating landscapes that are beautiful, productive, and built to last generations. Not rules. Intelligence.</p>
+</div>
+
+<!-- THREE ETHICS -->
+<section class="ethics">
+  <div class="ethics-header">
+    <h2>Three commitments before we draw a single line</h2>
+    <p>These aren't slogans. They're the foundation of every design decision we make.</p>
+  </div>
+  <div class="ethics-grid">
+    <div class="ethic">
+      <span class="ethic-icon">&#9826;</span>
+      <h3>Care for the land</h3>
+      <p>Every landscape we build improves the soil, conserves water, and creates habitat. Your backyard becomes part of the living ecosystem — not separate from it.</p>
+    </div>
+    <div class="ethic">
+      <span class="ethic-icon">&#9825;</span>
+      <h3>Care for the people</h3>
+      <p>A landscape should nourish the family that lives in it — fresh food, outdoor living, beauty, and a place to gather. We design for how you actually live.</p>
+    </div>
+    <div class="ethic">
+      <span class="ethic-icon">&#8734;</span>
+      <h3>Share the abundance</h3>
+      <p>A well-designed landscape produces more than any family needs. Share the harvest, return surplus to the soil, and let the system sustain itself.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 12 PRINCIPLES -->
+<section class="principles">
+  <div class="principles-header">
+    <h2>Twelve principles that guide our work</h2>
+    <p>Developed over decades of ecological research and refined through real-world practice. This is the operating system behind every Living Ground landscape.</p>
+  </div>
+
+  <div class="principle-list">
+    <div class="principle">
+      <div class="p-num">01</div>
+      <div class="p-content">
+        <h3>Observe before you act</h3>
+        <p>We spend time on your land before drawing a single line. Sun patterns, wind, water flow, soil biology — the site tells us what it wants to become. Every great design starts with listening.</p>
+      </div>
+    </div>
+
+    <div class="principle">
+      <div class="p-num">02</div>
+      <div class="p-content">
+        <h3>Capture and store energy</h3>
+        <p>Sunlight, rainfall, organic matter — we design systems that catch these resources when they're abundant and bank them for later. Rain gardens, thermal mass, canopy layers that moderate temperature year-round.</p>
+      </div>
+    </div>
+
+    <div class="principle">
+      <div class="p-num">03</div>
+      <div class="p-content">
+        <h3>Every element produces</h3>
+        <p>A tree that only looks good is underperforming. In our designs, every element serves multiple purposes — food, shade, habitat, beauty, mulch. A landscape that works as hard as it looks.</p>
+      </div>
+    </div>
+
+    <div class="principle">
+      <div class="p-num">04</div>
+      <div class="p-content">
+        <h3>Let the system self-correct</h3>
+        <p>Companion planting reduces pests. Ground cover suppresses weeds. Mycorrhizal networks feed the trees. We design intelligence into the landscape so it requires less intervention, not more.</p>
+      </div>
+    </div>
+
+    <div class="principle">
+      <div class="p-num">05</div>
+      <div class="p-content">
+        <h3>Favor what renews</h3>
+        <p>Compost over synthetic fertilizer. Mulch over herbicide. Living ground covers over landscape fabric. We build with biological systems that regenerate themselves season after season.</p>
+      </div>
+    </div>
+
+    <div class="principle">
+      <div class="p-num">06</div>
+      <div class="p-content">
+        <h3>Nothing leaves the system</h3>
+        <p>Pruning becomes mulch. Kitchen scraps become compost. Greywater feeds fruit trees. In a well-designed landscape, every output is an input somewhere else. Waste is a design failure.</p>
+      </div>
+    </div>
+
+    <div class="principle">
+      <div class="p-num">07</div>
+      <div class="p-content">
+        <h3>See the big picture first</h3>
+        <p>Before choosing a single plant, we map the macro patterns — sun arcs, drainage corridors, wind channels, foot traffic. The details fill themselves in once the underlying structure is right.</p>
+      </div>
+    </div>
+
+    <div class="principle">
+      <div class="p-num">08</div>
+      <div class="p-content">
+        <h3>Connect, don't separate</h3>
+        <p>A fruit tree shades a seating area, drops mulch for understory plants, and feeds beneficial insects. We place elements so they support each other — one element, four functions.</p>
+      </div>
+    </div>
+
+    <div class="principle">
+      <div class="p-num">09</div>
+      <div class="p-content">
+        <h3>Start small, build slow</h3>
+        <p>Small systems are easier to maintain and more resilient than large ones. We phase projects so the landscape can establish itself naturally — roots first, then canopy, then abundance.</p>
+      </div>
+    </div>
+
+    <div class="principle">
+      <div class="p-num">10</div>
+      <div class="p-content">
+        <h3>Diversity is resilience</h3>
+        <p>Monocultures fail. Polycultures thrive. We plant dozens of species that fill different ecological niches — so when one struggles, others compensate. The result is a landscape that only gets stronger.</p>
+      </div>
+    </div>
+
+    <div class="principle">
+      <div class="p-num">11</div>
+      <div class="p-content">
+        <h3>Design the edges</h3>
+        <p>The boundary between two systems — sun and shade, wet and dry, garden and wild — is where life concentrates. We design these transitions deliberately, creating the richest zones in your landscape.</p>
+      </div>
+    </div>
+
+    <div class="principle">
+      <div class="p-num">12</div>
+      <div class="p-content">
+        <h3>Design for change</h3>
+        <p>Landscapes evolve. We design for succession — plantings that mature, shift, and improve over decades. Not a static snapshot that degrades, but a living system that compounds in beauty and value.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="closing">
+  <blockquote>"The best landscapes don't fight the land — they listen to it."</blockquote>
+  <a href="/#contact" class="btn">Start Your Project</a>
+</section>
+
+<footer>
+  <div class="foot-brand">Living Ground Studio<span>Santa Cruz &middot; Scotts Valley &middot; Silicon Valley</span></div>
+  <div class="foot-links">
+    <a href="/">Home</a>
+    <a href="polo-ranch.html">Work</a>
+    <a href="philosophy.html">Philosophy</a>
+    <a href="/#contact">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>
