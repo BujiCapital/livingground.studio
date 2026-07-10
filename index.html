@@ -66,9 +66,9 @@ nav.scrolled{background:rgba(17,17,17,.95);backdrop-filter:blur(20px);padding:1r
 .slider-header h2{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.5rem);font-weight:400;margin-bottom:.5rem}
 .slider-header p{font-size:.9rem;color:rgba(255,255,255,.4);font-weight:300}
 
-.slider-row{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;max-width:1200px;margin:0 auto;padding:0 2rem}
-.slider-wrap{position:relative;aspect-ratio:3/4;overflow:hidden;cursor:col-resize;user-select:none;-webkit-user-select:none;border-radius:4px}
-@media(max-width:900px){.slider-row{grid-template-columns:1fr;max-width:500px;gap:1.5rem}}
+.slider-row{display:flex;flex-direction:column;gap:2rem;max-width:1000px;margin:0 auto;padding:0 2rem}
+.slider-wrap{position:relative;aspect-ratio:16/10;overflow:hidden;cursor:col-resize;user-select:none;-webkit-user-select:none;border-radius:4px}
+.slider-side-label{font-family:var(--serif);font-size:.85rem;color:rgba(255,255,255,.35);text-align:center;margin-top:.5rem;font-style:italic}
 .slider-wrap img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
 .slider-before{z-index:1}
 .slider-after{z-index:2;clip-path:inset(0 0 0 50%)}
@@ -179,6 +179,7 @@ footer{padding:3rem 6%;display:flex;justify-content:space-between;align-items:ce
       <span class="slider-label label-before">Before</span>
       <span class="slider-label label-after">After</span>
     </div>
+    <p class="slider-side-label">Side garden &mdash; from bare dirt to lush pathway</p>
 
     <div class="slider-wrap" data-slider>
       <img class="slider-before" src="https://pub.hyperagent.com/api/published/pbf01KX52W8ZK_E6R8YXMHFQ19ZTBV/IMG_2106.jpg" alt="Back of house — before">
@@ -187,6 +188,7 @@ footer{padding:3rem 6%;display:flex;justify-content:space-between;align-items:ce
       <span class="slider-label label-before">Before</span>
       <span class="slider-label label-after">After</span>
     </div>
+    <p class="slider-side-label">Back yard &mdash; raised beds, trellised vines, banana plants</p>
 
     <div class="slider-wrap" data-slider>
       <img class="slider-before" src="https://pub.hyperagent.com/api/published/pbf01KX4HC0K6_BV7504JYDX3R4CGN/IMG_2105.jpg" alt="Fence gate side — before">
@@ -195,6 +197,7 @@ footer{padding:3rem 6%;display:flex;justify-content:space-between;align-items:ce
       <span class="slider-label label-before">Before</span>
       <span class="slider-label label-after">After</span>
     </div>
+    <p class="slider-side-label">Fence side &mdash; fruit trees and wood chip pathways</p>
   </div>
 
   <div class="slider-caption">
