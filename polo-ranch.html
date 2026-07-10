@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polo Ranch — Living Ground Studio</title>
+  <meta name="description" content="From blank canvas to living ecosystem. A landscape design-build case study by Living Ground Studio in Scotts Valley, CA.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ========================================
+       CSS CUSTOM PROPERTIES
+       ======================================== */
+    :root {
+      --charcoal: #1a1a1a;
+      --off-white: #f5f3f0;
+      --warm-white: #faf8f5;
+      --sage: #5A6B4A;
+      --clay: #B8634D;
+      --text-secondary: #555;
+      --text-tertiary: #888;
+      --content-max: 1200px;
+      --section-pad: clamp(4rem, 8vw, 8rem);
+    }
+
+    /* ========================================
+       RESET & BASE
+       ======================================== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--charcoal);
+      background: var(--warm-white);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.3s ease, opacity 0.3s ease;
+    }
+
+    a:hover {
+      opacity: 0.75;
+    }
+
+    /* ========================================
+       TYPOGRAPHY
+       ======================================== */
+    .heading-display {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-weight: 400;
+      line-height: 1.1;
+    }
+
+    .hero-heading {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+    }
+
+    .section-heading {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 1.5rem;
+    }
+
+    .section-tag--light {
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ========================================
+       NAVIGATION
+       ======================================== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.4s ease, padding 0.4s ease;
+    }
+
+    .nav.scrolled {
+      background: rgba(20, 20, 20, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 1rem 2rem;
+    }
+
+    .nav__logo {
+      display: flex;
+      flex-direction: column;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .nav__logo-main {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+    }
+
+    .nav__logo-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-top: 2px;
+      font-variant: small-caps;
+    }
+
+    .nav__links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav__links a {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      transition: color 0.3s ease;
+    }
+
+    .nav__links a:hover {
+      color: #fff;
+      opacity: 1;
+    }
+
+    .nav__links a.active {
+      color: #fff;
+    }
+
+    /* Hamburger */
+    .nav__toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      z-index: 1001;
+    }
+
+    .nav__toggle span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: #fff;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .nav__toggle span:nth-child(1) { margin-bottom: 6px; }
+    .nav__toggle span:nth-child(3) { margin-top: 6px; }
+
+    .nav__toggle.open span:nth-child(1) {
+      transform: translateY(7.5px) rotate(45deg);
+    }
+    .nav__toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .nav__toggle.open span:nth-child(3) {
+      transform: translateY(-7.5px) rotate(-45deg);
+    }
+
+    /* Mobile nav overlay */
+    .nav__mobile-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(10, 10, 10, 0.96);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .nav__mobile-overlay.visible {
+      display: flex;
+      opacity: 1;
+    }
+
+    .nav__mobile-overlay a {
+      color: #fff;
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 2rem;
+      transition: opacity 0.3s ease;
+    }
+
+    .nav__mobile-overlay a:hover {
+      opacity: 0.6;
+    }
+
+    @media (max-width: 768px) {
+      .nav__links { display: none; }
+      .nav__toggle { display: flex; }
+    }
+
+    /* ========================================
+       CONTENT CONTAINERS
+       ======================================== */
+    .content-wrap {
+      max-width: var(--content-max);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section-warm {
+      background: var(--warm-white);
+      padding: var(--section-pad) 0;
+    }
+
+    .section-dark {
+      background: var(--charcoal);
+      padding: var(--section-pad) 0;
+      color: var(--off-white);
+    }
+
+    /* ========================================
+       HERO
+       ======================================== */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 600px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .hero__image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero__overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.7) 0%,
+        rgba(0, 0, 0, 0.3) 40%,
+        rgba(0, 0, 0, 0.15) 100%
+      );
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 2;
+      padding: 4rem 2rem 5rem;
+      max-width: var(--content-max);
+      margin: 0 auto;
+      width: 100%;
+      color: #fff;
+    }
+
+    .hero__location {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      opacity: 0.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero__title {
+      margin-bottom: 1rem;
+    }
+
+    .hero__subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-weight: 300;
+      opacity: 0.8;
+      max-width: 500px;
+    }
+
+    /* ========================================
+       BEFORE SECTION
+       ======================================== */
+    .before-section .section-body {
+      max-width: 720px;
+      margin-bottom: 3rem;
+    }
+
+    .before-section .section-body p {
+      color: var(--text-secondary);
+    }
+
+    .before-section .section-heading {
+      margin-bottom: 1.5rem;
+    }
+
+    .img-full {
+      width: 100%;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
+
+    .img-full img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .img-before {
+      filter: saturate(0.85) contrast(1.05);
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .grid-3 .gallery-item {
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .grid-3 .gallery-item img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+    }
+
+    .matterport-wrap {
+      margin-top: 1rem;
+    }
+
+    .matterport-label {
+      font-size: 0.85rem;
+      color: var(--text-tertiary);
+      font-style: italic;
+      margin-bottom: 0.75rem;
+    }
+
+    .matterport-embed {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 6px;
+      overflow: hidden;
+      background: #e5e5e5;
+    }
+
+    .matterport-embed iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      border-radius: 6px;
+    }
+
+    /* ========================================
+       DAMAGE SECTION
+       ======================================== */
+    .damage-section .section-heading {
+      margin-bottom: 1.5rem;
+    }
+
+    .damage-section .section-body {
+      max-width: 720px;
+      margin-bottom: 3rem;
+    }
+
+    .damage-section .section-body p {
+      color: rgba(255,255,255,0.75);
+    }
+
+    .grid-3-dark .gallery-item {
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .grid-3-dark .gallery-item img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+    }
+
+    /* ========================================
+       DESIGN SECTION
+       ======================================== */
+    .design-section .section-heading {
+      margin-bottom: 1.5rem;
+    }
+
+    .design-section .section-body {
+      max-width: 720px;
+      margin-bottom: 3rem;
+    }
+
+    .design-section .section-body p {
+      color: var(--text-secondary);
+      margin-bottom: 1.25rem;
+    }
+
+    .design-section .section-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .design-image {
+      width: 100%;
+      max-height: 60vh;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    .img-caption {
+      font-size: 0.85rem;
+      color: var(--text-tertiary);
+      font-style: italic;
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    .img-caption--light {
+      color: rgba(255,255,255,0.45);
+    }
+
+    /* ========================================
+       BUILD SECTION
+       ======================================== */
+    .build-section .section-heading {
+      margin-bottom: 1.5rem;
+    }
+
+    .build-section .section-body {
+      max-width: 720px;
+      margin-bottom: 3rem;
+    }
+
+    .build-section .section-body p {
+      color: rgba(255,255,255,0.75);
+    }
+
+    .build-image {
+      width: 100%;
+      max-height: 70vh;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    /* ========================================
+       RESULT SECTION
+       ======================================== */
+    .result-section .section-heading {
+      margin-bottom: 1.5rem;
+    }
+
+    .result-section .section-body {
+      max-width: 720px;
+      margin-bottom: 3rem;
+    }
+
+    .result-section .section-body p {
+      color: var(--text-secondary);
+    }
+
+    .grid-2x2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .grid-2x2 .gallery-item {
+      border-radius: 6px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .grid-2x2 .gallery-item img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .grid-2x2 .gallery-item:hover img {
+      transform: scale(1.02);
+    }
+
+    .tour-note {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-tertiary);
+      font-style: italic;
+      margin-top: 1rem;
+    }
+
+    /* ========================================
+       LISTING SECTION
+       ======================================== */
+    .listing-section {
+      background: var(--sage);
+      padding: var(--section-pad) 0;
+    }
+
+    .listing-card {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+      color: #fff;
+    }
+
+    .listing-card .section-heading {
+      margin-bottom: 1.5rem;
+    }
+
+    .listing-card p {
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 2rem;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .listing-link {
+      display: inline-block;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #fff;
+      border-bottom: 1px solid rgba(255,255,255,0.4);
+      padding-bottom: 2px;
+      transition: border-color 0.3s ease, opacity 0.3s ease;
+    }
+
+    .listing-link:hover {
+      border-color: #fff;
+      opacity: 1;
+    }
+
+    /* ========================================
+       CTA SECTION
+       ======================================== */
+    .cta-section {
+      padding: var(--section-pad) 0;
+      background: var(--charcoal);
+      text-align: center;
+    }
+
+    .cta-section .section-heading {
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    .cta-section .cta-subtext {
+      color: var(--off-white);
+      font-size: 1.1rem;
+      font-weight: 300;
+      margin-bottom: 2.5rem;
+      opacity: 0.8;
+    }
+
+    .btn-clay {
+      display: inline-block;
+      background: var(--clay);
+      color: #fff;
+      padding: 1rem 2.5rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-clay:hover {
+      background: #a5573f;
+      opacity: 1;
+      transform: translateY(-1px);
+    }
+
+    /* ========================================
+       FOOTER
+       ======================================== */
+    .footer {
+      background: var(--charcoal);
+      color: var(--off-white);
+      padding: 5rem 0 3rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer__inner {
+      max-width: var(--content-max);
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .footer__logo-main {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 1.35rem;
+      margin-bottom: 2px;
+    }
+
+    .footer__logo-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      font-variant: small-caps;
+      opacity: 0.6;
+    }
+
+    .footer__contact {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .footer__contact a {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer__contact a:hover {
+      color: #fff;
+      opacity: 1;
+    }
+
+    .footer__contact span {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.85rem;
+    }
+
+    .footer__nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .footer__nav a {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer__nav a:hover {
+      color: #fff;
+      opacity: 1;
+    }
+
+    .footer__bottom {
+      max-width: var(--content-max);
+      margin: 0 auto;
+      padding: 3rem 2rem 0;
+      margin-top: 3rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      text-align: center;
+    }
+
+    .footer__copy {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* ========================================
+       RESPONSIVE
+       ======================================== */
+    @media (max-width: 1024px) {
+      .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .grid-3 .gallery-item:last-child {
+        grid-column: span 2;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero__content {
+        padding: 3rem 1.5rem 4rem;
+      }
+
+      .content-wrap {
+        padding: 0 1.5rem;
+      }
+
+      .grid-3,
+      .grid-3-dark {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-3 .gallery-item:last-child {
+        grid-column: span 1;
+      }
+
+      .grid-2x2 {
+        grid-template-columns: 1fr;
+      }
+
+      .footer__inner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .nav {
+        padding: 1.25rem 1.5rem;
+      }
+
+      .nav.scrolled {
+        padding: 0.85rem 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero__content {
+        padding: 2.5rem 1.25rem 3.5rem;
+      }
+
+      .content-wrap {
+        padding: 0 1.25rem;
+      }
+
+      body {
+        font-size: 1rem;
+      }
+    }
+
+    /* ========================================
+       GRID - dark variant (reuses same structure)
+       ======================================== */
+    .grid-3-dark {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 1024px) {
+      .grid-3-dark {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .grid-3-dark .gallery-item:last-child {
+        grid-column: span 2;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .grid-3-dark .gallery-item:last-child {
+        grid-column: span 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================
+       NAVIGATION
+       ============================================ -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav__logo">
+      <span class="nav__logo-main">Living Ground</span>
+      <span class="nav__logo-sub">Studio</span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="polo-ranch.html" class="active">Work</a></li>
+      <li><a href="index.html#process">Process</a></li>
+      <li><a href="sandraya.html">Sandraya Heights</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <div class="nav__mobile-overlay" id="mobileNav">
+    <a href="polo-ranch.html">Work</a>
+    <a href="index.html#process">Process</a>
+    <a href="sandraya.html">Sandraya Heights</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+
+  <!-- ============================================
+       HERO
+       ============================================ -->
+  <section class="hero">
+    <img
+      class="hero__image"
+      src="https://pub.hyperagent.com/api/published/pbf01KX4JKJHM_908QKDHSA76AEB4A/IMG_2025.jpg"
+      alt="Polo Ranch landscape — lush arbor pathway with mature plantings"
+    >
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <p class="hero__location">300 Village Lane, Scotts Valley</p>
+      <h1 class="heading-display hero-heading hero__title">Polo Ranch</h1>
+      <p class="hero__subtitle">From Blank Canvas to Living Ecosystem</p>
+    </div>
+  </section>
+
+  <!-- ============================================
+       THE STARTING POINT (BEFORE)
+       ============================================ -->
+  <section class="section-warm before-section">
+    <div class="content-wrap">
+      <span class="section-tag">Before</span>
+      <h2 class="heading-display section-heading">Beautiful home. No landscape.</h2>
+      <div class="section-body">
+        <p>When the owners moved in, they had a stunning modern home — and a yard of bare dirt and construction debris. No shade, no privacy, no connection between indoors and out. The landscape was an afterthought.</p>
+      </div>
+
+      <div class="img-full">
+        <img
+          class="img-before"
+          src="https://pub.hyperagent.com/api/published/pbf01KX4HBY8P_G2C696VFVHHN7NER/IMG_3263.jpg"
+          alt="Polo Ranch before — bare dirt yard with no landscaping"
+        >
+      </div>
+
+      <div class="grid-3">
+        <div class="gallery-item">
+          <img
+            class="img-before"
+            src="https://pub.hyperagent.com/api/published/pbf01KX4HBZ5X_67BC2FEBSQ5GPCZS/IMG_2103.jpg"
+            alt="Before — empty lot from another angle"
+          >
+        </div>
+        <div class="gallery-item">
+          <img
+            class="img-before"
+            src="https://pub.hyperagent.com/api/published/pbf01KX4HC0K6_BV7504JYDX3R4CGN/IMG_2105.jpg"
+            alt="Before — construction debris and bare soil"
+          >
+        </div>
+        <div class="gallery-item">
+          <img
+            class="img-before"
+            src="https://pub.hyperagent.com/api/published/pbf01KX4HC2AT_279Q95K05DE5269Q/IMG_3279.jpg"
+            alt="Before — unfinished exterior with no plantings"
+          >
+        </div>
+      </div>
+
+      <div class="matterport-wrap">
+        <p class="matterport-label">Walk through the property — before</p>
+        <div class="matterport-embed">
+          <iframe
+            src="https://my.matterport.com/show/?m=iRyG9i38wvv"
+            allowfullscreen
+            loading="lazy"
+            title="Polo Ranch Matterport 3D Tour — Before"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       WHAT HAPPENS WHEN YOU WAIT (DAMAGE)
+       ============================================ -->
+  <section class="section-dark damage-section">
+    <div class="content-wrap">
+      <span class="section-tag section-tag--light">The Cost of Waiting</span>
+      <h2 class="heading-display section-heading" style="color: #fff;">The first rain turns neglect into damage.</h2>
+      <div class="section-body">
+        <p>Without proper drainage, grading, and ground cover, bare soil erodes. Water pools against foundations. What starts as an empty yard becomes an active problem.</p>
+      </div>
+
+      <div class="grid-3-dark">
+        <div class="gallery-item">
+          <img
+            class="img-before"
+            src="https://pub.hyperagent.com/api/published/pbf01KX4HY35S_HZ7RTP5E9WM68NS5/IMG_4275.jpg"
+            alt="Water damage — flooding around property"
+          >
+        </div>
+        <div class="gallery-item">
+          <img
+            class="img-before"
+            src="https://pub.hyperagent.com/api/published/pbf01KX4HY3WF_1BYQBW3MC44T05PN/IMG_4315.jpg"
+            alt="Erosion and water pooling near foundation"
+          >
+        </div>
+        <div class="gallery-item">
+          <img
+            class="img-before"
+            src="https://pub.hyperagent.com/api/published/pbf01KX4HY4VJ_XCD8CQP36FMKXCWK/IMG_4346.jpg"
+            alt="Soil erosion from uncontrolled water runoff"
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       THE DESIGN
+       ============================================ -->
+  <section class="section-warm design-section">
+    <div class="content-wrap">
+      <span class="section-tag">Design</span>
+      <h2 class="heading-display section-heading">Reading the land, imagining what it could become.</h2>
+      <div class="section-body">
+        <p>Every landscape begins with listening — to the slope of the land, the path of the sun, the way water moves through the site. At Polo Ranch, we designed a system of interconnected outdoor rooms: a productive food forest, stone pathways threading through native plantings, an arbor-covered walkway creating a transition from the modern architecture to the wild garden beyond.</p>
+        <p>The design balances beauty with function — rainwater is captured and directed, every plant serves a purpose, and the hardscape creates structure that will look better with age.</p>
+      </div>
+
+      <img
+        class="design-image"
+        src="https://www.contemporist.com/wp-content/uploads/2023/07/modern-landscaping-dining-outdoor-living-room-240723-1143-01.jpg"
+        alt="Design inspiration — modern outdoor living room with integrated landscape"
+      >
+      <p class="img-caption">Design inspiration — blending indoor and outdoor living.</p>
+    </div>
+  </section>
+
+  <!-- ============================================
+       THE BUILD
+       ============================================ -->
+  <section class="section-dark build-section">
+    <div class="content-wrap">
+      <span class="section-tag section-tag--light">Build</span>
+      <h2 class="heading-display section-heading" style="color: #fff;">Craft in every detail.</h2>
+      <div class="section-body">
+        <p>Building a landscape like this is physical, precise work. Every stone is placed by hand. Irrigation lines are mapped to plant water needs. Soil is amended and restored before a single plant goes in. The build phase at Polo Ranch took several months of intensive, hands-on craft.</p>
+      </div>
+
+      <img
+        class="build-image"
+        src="https://pub.hyperagent.com/api/published/pbf01KX4TRHKD_7YBYNYWEK7SH83A5/IMG_1965.jpg"
+        alt="Laying stone pathways by hand during the build phase"
+      >
+      <p class="img-caption img-caption--light">Laying stone pathways by hand.</p>
+    </div>
+  </section>
+
+  <!-- ============================================
+       THE RESULT (AFTER)
+       ============================================ -->
+  <section class="section-warm result-section">
+    <div class="content-wrap">
+      <span class="section-tag">After</span>
+      <h2 class="heading-display section-heading">A landscape that lives.</h2>
+      <div class="section-body">
+        <p>Two years later, the Polo Ranch landscape has matured into a thriving ecosystem. Passionfruit drapes over the arbor. Native plants attract pollinators. Stone pathways wind through dense, productive plantings. The bare lot is unrecognizable.</p>
+      </div>
+
+      <div class="grid-2x2">
+        <div class="gallery-item">
+          <img
+            src="https://pub.hyperagent.com/api/published/pbf01KX4JKJHM_908QKDHSA76AEB4A/IMG_2025.jpg"
+            alt="After — arbor pathway covered in passionfruit"
+          >
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://pub.hyperagent.com/api/published/pbf01KX4JKKEV_97H6TY4TSQK0F3EP/IMG_1621.jpg"
+            alt="After — dense flowering plantings"
+          >
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://pub.hyperagent.com/api/published/pbf01KX4JKP5Y_320VBTWGQXDNYZEF/IMG_1728.jpg"
+            alt="After — passionfruit growing on arbor"
+          >
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://pub.hyperagent.com/api/published/pbf01KX4JKQEF_D4W8JJ6C76HK9GNT/IMG_1643.jpg"
+            alt="After — close-up of fresh fruit from the garden"
+          >
+        </div>
+      </div>
+
+      <p class="tour-note">360&deg; after tour coming soon</p>
+    </div>
+  </section>
+
+  <!-- ============================================
+       NOW LISTED FOR SALE
+       ============================================ -->
+  <section class="listing-section">
+    <div class="content-wrap">
+      <div class="listing-card">
+        <h2 class="heading-display section-heading">Now listed for sale.</h2>
+        <p>This property is now listed for sale — a testament to how the right landscape transforms not just a home, but its value. The landscape we built here isn't just beautiful; it's a feature that elevates the entire property.</p>
+        <a href="https://sites.lenstate.com/300-Village-Ln-2/idx" target="_blank" rel="noopener noreferrer" class="listing-link">View the listing &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       CTA
+       ============================================ -->
+  <section class="cta-section">
+    <div class="content-wrap">
+      <h2 class="heading-display section-heading cta-heading">Ready to transform your backyard?</h2>
+      <p class="cta-subtext">Every project starts with a conversation.</p>
+      <a href="index.html#contact" class="btn-clay">Start your project</a>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <div class="footer__logo-main">Living Ground</div>
+        <div class="footer__logo-sub">Studio</div>
+      </div>
+      <div class="footer__contact">
+        <a href="mailto:hello@livingground.studio">hello@livingground.studio</a>
+        <span>Santa Cruz &middot; Scotts Valley &middot; Silicon Valley</span>
+      </div>
+      <div class="footer__nav">
+        <a href="index.html">Home</a>
+        <a href="polo-ranch.html">Polo Ranch</a>
+        <a href="sandraya.html">Sandraya Heights</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2026 Living Ground Studio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ============================================
+       SCRIPTS
+       ============================================ -->
+  <script>
+    // Nav scroll effect
+    const nav = document.getElementById('nav');
+    let lastScroll = 0;
+
+    function handleNavScroll() {
+      const scrollY = window.scrollY;
+      if (scrollY > 60) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+      lastScroll = scrollY;
+    }
+
+    window.addEventListener('scroll', handleNavScroll, { passive: true });
+    handleNavScroll();
+
+    // Mobile menu toggle
+    const navToggle = document.getElementById('navToggle');
+    const mobileNav = document.getElementById('mobileNav');
+
+    navToggle.addEventListener('click', function () {
+      this.classList.toggle('open');
+      mobileNav.classList.toggle('visible');
+      document.body.style.overflow = mobileNav.classList.contains('visible') ? 'hidden' : '';
+    });
+
+    // Close mobile nav when a link is clicked
+    mobileNav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        navToggle.classList.remove('open');
+        mobileNav.classList.remove('visible');
+        document.body.style.overflow = '';
+      });
+    });
+  </script>
+
+</body>
+</html>
