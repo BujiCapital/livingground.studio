@@ -124,110 +124,558 @@ footer{padding:3rem 6%;display:flex;justify-content:space-between;align-items:ce
 </section>
 
 <!-- 12 PRINCIPLES -->
-<section class="principles">
-  <div class="principles-header">
-    <h2>Twelve principles that guide our work</h2>
-    <p>Developed over decades of ecological research and refined through real-world practice. This is the operating system behind every Living Ground landscape.</p>
+<style>
+  /* ── Path Section Reset & Container ── */
+  .path-section {
+    position: relative;
+    padding: 6rem 1.5rem 8rem;
+    background: #faf8f5;
+    overflow: hidden;
+  }
+
+  .path-header {
+    text-align: center;
+    max-width: 620px;
+    margin: 0 auto 5rem;
+  }
+
+  .path-header h2 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    color: #111;
+    font-weight: 400;
+    margin: 0 0 1rem;
+    letter-spacing: -0.01em;
+  }
+
+  .path-header p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: #888;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* ── SVG Path Canvas ── */
+  .path-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .path-trail {
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-dasharray: 8 4;
+  }
+
+  /* ── Stones Container ── */
+  .path-stones {
+    position: relative;
+    z-index: 1;
+    max-width: 880px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  /* ── Individual Stone ── */
+  .path-stone {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1),
+                transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+    padding: 1.25rem 0;
+  }
+
+  .path-stone.path-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Alternating alignment — wider offset creates the winding S-curve */
+  .path-stone:nth-child(odd) {
+    margin-right: auto;
+    padding-left: 6%;
+  }
+
+  .path-stone:nth-child(even) {
+    margin-left: auto;
+    padding-right: 6%;
+    flex-direction: row-reverse;
+    text-align: right;
+  }
+
+  /* ── Circle / Stepping Stone ── */
+  .path-circle {
+    flex-shrink: 0;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid #e0ddd8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.03);
+    transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+    cursor: default;
+    position: relative;
+  }
+
+  .path-stone:hover .path-circle,
+  .path-stone.path-active .path-circle {
+    border-color: #5A6B4A;
+    box-shadow: 0 0 0 4px rgba(90, 107, 74, 0.08), 0 4px 20px rgba(90, 107, 74, 0.1);
+    transform: scale(1.05);
+  }
+
+  .path-number {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.8rem;
+    color: #B8634D;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  /* ── Text Content ── */
+  .path-content {
+    padding-top: 0.35rem;
+    max-width: 400px;
+  }
+
+  .path-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.1rem;
+    color: #111;
+    margin: 0 0 0.45rem;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+    line-height: 1.3;
+  }
+
+  .path-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    color: #888;
+    line-height: 1.65;
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+                opacity 0.4s ease,
+                margin 0.4s ease;
+  }
+
+  .path-stone:hover .path-desc,
+  .path-stone.path-active .path-desc {
+    max-height: 120px;
+    opacity: 1;
+    margin-top: 0.1rem;
+  }
+
+  /* ── Botanical Accents ── */
+  .path-botanical {
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.8s ease 0.2s;
+  }
+
+  .path-botanical.path-visible {
+    opacity: 1;
+  }
+
+  .path-botanical svg {
+    display: block;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 720px) {
+    .path-section {
+      padding: 4rem 1.25rem 5rem;
+    }
+
+    .path-header {
+      margin-bottom: 3rem;
+    }
+
+    .path-stones {
+      gap: 0.25rem;
+    }
+
+    .path-stone:nth-child(odd),
+    .path-stone:nth-child(even) {
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 0;
+      padding-right: 0;
+      flex-direction: row;
+      text-align: left;
+    }
+
+    .path-stone {
+      gap: 1.1rem;
+      padding: 1rem 0;
+    }
+
+    .path-circle {
+      width: 58px;
+      height: 58px;
+    }
+
+    .path-number {
+      font-size: 1.5rem;
+    }
+
+    .path-content {
+      max-width: none;
+    }
+
+    .path-title {
+      font-size: 1rem;
+    }
+
+    .path-desc {
+      font-size: 0.8rem;
+    }
+
+    .path-canvas {
+      display: none;
+    }
+
+    /* On mobile, show descriptions by default */
+    .path-desc {
+      max-height: 120px;
+      opacity: 1;
+      margin-top: 0.1rem;
+      color: #999;
+    }
+  }
+
+  /* ── Fine-tune for mid-range ── */
+  @media (min-width: 721px) and (max-width: 1024px) {
+    .path-stone:nth-child(odd) {
+      padding-left: 2%;
+    }
+    .path-stone:nth-child(even) {
+      padding-right: 2%;
+    }
+    .path-content {
+      max-width: 340px;
+    }
+  }
+</style>
+
+<section class="path-section">
+  <div class="path-header">
+    <h2>Twelve Principles for Living Ground</h2>
+    <p>Each project begins with the same foundation — a set of principles drawn from decades of observing how natural systems build resilience, beauty, and abundance.</p>
   </div>
 
-  <div class="principle-list">
-    <div class="principle">
-      <div class="p-num">01</div>
-      <div class="p-content">
-        <h3>Observe before you act</h3>
-        <p>We spend time on your land before drawing a single line. Sun patterns, wind, water flow, soil biology — the site tells us what it wants to become. Every great design starts with listening.</p>
+  <!-- SVG winding path -->
+  <svg class="path-canvas" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="pathGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#e8e5e0" />
+        <stop offset="100%" stop-color="#5A6B4A" stop-opacity="0.5" />
+      </linearGradient>
+    </defs>
+    <path class="path-trail" stroke="url(#pathGrad)" d="" />
+  </svg>
+
+  <!-- Botanical accents container -->
+  <div class="path-botanicals" aria-hidden="true"></div>
+
+  <div class="path-stones">
+
+    <div class="path-stone" data-index="1">
+      <div class="path-circle"><span class="path-number">01</span></div>
+      <div class="path-content">
+        <h3 class="path-title">Observe before you act</h3>
+        <p class="path-desc">We spend time on your land before drawing a single line. Sun patterns, wind, water flow, soil biology — the site tells us what it wants to become.</p>
       </div>
     </div>
 
-    <div class="principle">
-      <div class="p-num">02</div>
-      <div class="p-content">
-        <h3>Capture and store energy</h3>
-        <p>Sunlight, rainfall, organic matter — we design systems that catch these resources when they're abundant and bank them for later. Rain gardens, thermal mass, canopy layers that moderate temperature year-round.</p>
+    <div class="path-stone" data-index="2">
+      <div class="path-circle"><span class="path-number">02</span></div>
+      <div class="path-content">
+        <h3 class="path-title">Capture and store energy</h3>
+        <p class="path-desc">Sunlight, rainfall, organic matter — we design systems that catch these resources when they're abundant and bank them for later.</p>
       </div>
     </div>
 
-    <div class="principle">
-      <div class="p-num">03</div>
-      <div class="p-content">
-        <h3>Every element produces</h3>
-        <p>A tree that only looks good is underperforming. In our designs, every element serves multiple purposes — food, shade, habitat, beauty, mulch. A landscape that works as hard as it looks.</p>
+    <div class="path-stone" data-index="3">
+      <div class="path-circle"><span class="path-number">03</span></div>
+      <div class="path-content">
+        <h3 class="path-title">Every element produces</h3>
+        <p class="path-desc">A tree that only looks good is underperforming. Every element serves multiple purposes — food, shade, habitat, beauty, mulch.</p>
       </div>
     </div>
 
-    <div class="principle">
-      <div class="p-num">04</div>
-      <div class="p-content">
-        <h3>Let the system self-correct</h3>
-        <p>Companion planting reduces pests. Ground cover suppresses weeds. Mycorrhizal networks feed the trees. We design intelligence into the landscape so it requires less intervention, not more.</p>
+    <div class="path-stone" data-index="4">
+      <div class="path-circle"><span class="path-number">04</span></div>
+      <div class="path-content">
+        <h3 class="path-title">Let the system self-correct</h3>
+        <p class="path-desc">Companion planting reduces pests. Ground cover suppresses weeds. We design intelligence into the landscape so it requires less intervention.</p>
       </div>
     </div>
 
-    <div class="principle">
-      <div class="p-num">05</div>
-      <div class="p-content">
-        <h3>Favor what renews</h3>
-        <p>Compost over synthetic fertilizer. Mulch over herbicide. Living ground covers over landscape fabric. We build with biological systems that regenerate themselves season after season.</p>
+    <div class="path-stone" data-index="5">
+      <div class="path-circle"><span class="path-number">05</span></div>
+      <div class="path-content">
+        <h3 class="path-title">Favor what renews</h3>
+        <p class="path-desc">Compost over synthetic fertilizer. Mulch over herbicide. Living ground covers over landscape fabric. Systems that regenerate themselves.</p>
       </div>
     </div>
 
-    <div class="principle">
-      <div class="p-num">06</div>
-      <div class="p-content">
-        <h3>Nothing leaves the system</h3>
-        <p>Pruning becomes mulch. Kitchen scraps become compost. Greywater feeds fruit trees. In a well-designed landscape, every output is an input somewhere else. Waste is a design failure.</p>
+    <div class="path-stone" data-index="6">
+      <div class="path-circle"><span class="path-number">06</span></div>
+      <div class="path-content">
+        <h3 class="path-title">Nothing leaves the system</h3>
+        <p class="path-desc">Pruning becomes mulch. Kitchen scraps become compost. Greywater feeds fruit trees. Every output is an input somewhere else.</p>
       </div>
     </div>
 
-    <div class="principle">
-      <div class="p-num">07</div>
-      <div class="p-content">
-        <h3>See the big picture first</h3>
-        <p>Before choosing a single plant, we map the macro patterns — sun arcs, drainage corridors, wind channels, foot traffic. The details fill themselves in once the underlying structure is right.</p>
+    <div class="path-stone" data-index="7">
+      <div class="path-circle"><span class="path-number">07</span></div>
+      <div class="path-content">
+        <h3 class="path-title">See the big picture first</h3>
+        <p class="path-desc">Before choosing a single plant, we map the macro patterns — sun arcs, drainage corridors, wind channels, foot traffic.</p>
       </div>
     </div>
 
-    <div class="principle">
-      <div class="p-num">08</div>
-      <div class="p-content">
-        <h3>Connect, don't separate</h3>
-        <p>A fruit tree shades a seating area, drops mulch for understory plants, and feeds beneficial insects. We place elements so they support each other — one element, four functions.</p>
+    <div class="path-stone" data-index="8">
+      <div class="path-circle"><span class="path-number">08</span></div>
+      <div class="path-content">
+        <h3 class="path-title">Connect, don't separate</h3>
+        <p class="path-desc">A fruit tree shades a seating area, drops mulch for understory plants, and feeds beneficial insects. One element, four functions.</p>
       </div>
     </div>
 
-    <div class="principle">
-      <div class="p-num">09</div>
-      <div class="p-content">
-        <h3>Start small, build slow</h3>
-        <p>Small systems are easier to maintain and more resilient than large ones. We phase projects so the landscape can establish itself naturally — roots first, then canopy, then abundance.</p>
+    <div class="path-stone" data-index="9">
+      <div class="path-circle"><span class="path-number">09</span></div>
+      <div class="path-content">
+        <h3 class="path-title">Start small, build slow</h3>
+        <p class="path-desc">Small systems are easier to maintain and more resilient. We phase projects so the landscape can establish itself naturally.</p>
       </div>
     </div>
 
-    <div class="principle">
-      <div class="p-num">10</div>
-      <div class="p-content">
-        <h3>Diversity is resilience</h3>
-        <p>Monocultures fail. Polycultures thrive. We plant dozens of species that fill different ecological niches — so when one struggles, others compensate. The result is a landscape that only gets stronger.</p>
+    <div class="path-stone" data-index="10">
+      <div class="path-circle"><span class="path-number">10</span></div>
+      <div class="path-content">
+        <h3 class="path-title">Diversity is resilience</h3>
+        <p class="path-desc">Monocultures fail. Polycultures thrive. Dozens of species filling different ecological niches — a landscape that only gets stronger.</p>
       </div>
     </div>
 
-    <div class="principle">
-      <div class="p-num">11</div>
-      <div class="p-content">
-        <h3>Design the edges</h3>
-        <p>The boundary between two systems — sun and shade, wet and dry, garden and wild — is where life concentrates. We design these transitions deliberately, creating the richest zones in your landscape.</p>
+    <div class="path-stone" data-index="11">
+      <div class="path-circle"><span class="path-number">11</span></div>
+      <div class="path-content">
+        <h3 class="path-title">Design the edges</h3>
+        <p class="path-desc">The boundary between two systems is where life concentrates. We design these transitions deliberately, creating the richest zones.</p>
       </div>
     </div>
 
-    <div class="principle">
-      <div class="p-num">12</div>
-      <div class="p-content">
-        <h3>Design for change</h3>
-        <p>Landscapes evolve. We design for succession — plantings that mature, shift, and improve over decades. Not a static snapshot that degrades, but a living system that compounds in beauty and value.</p>
+    <div class="path-stone" data-index="12">
+      <div class="path-circle"><span class="path-number">12</span></div>
+      <div class="path-content">
+        <h3 class="path-title">Design for change</h3>
+        <p class="path-desc">Landscapes evolve. We design for succession — plantings that mature, shift, and improve over decades, not a static snapshot.</p>
       </div>
     </div>
+
   </div>
 </section>
+
+<script>
+(function() {
+  'use strict';
+
+  /* ── Botanical SVG shapes ── */
+  const botanicals = {
+    leaf: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M8 28C8 28 4 18 10 10C16 2 28 4 28 4C28 4 30 16 24 22C18 28 8 28 8 28Z" stroke="#5A6B4A" stroke-opacity="0.22" stroke-width="1" fill="none"/><path d="M8 28C14 20 22 12 28 4" stroke="#5A6B4A" stroke-opacity="0.15" stroke-width="0.75" fill="none"/></svg>`,
+    sprig: `<svg width="28" height="40" viewBox="0 0 28 40" fill="none"><path d="M14 38V8" stroke="#5A6B4A" stroke-opacity="0.18" stroke-width="0.75"/><path d="M14 28C10 26 6 22 6 18" stroke="#5A6B4A" stroke-opacity="0.2" stroke-width="0.75" fill="none"/><path d="M14 22C18 20 22 16 22 12" stroke="#5A6B4A" stroke-opacity="0.2" stroke-width="0.75" fill="none"/><path d="M14 14C10 12 8 8 8 4" stroke="#5A6B4A" stroke-opacity="0.2" stroke-width="0.75" fill="none"/><circle cx="6" cy="18" r="1.5" fill="#5A6B4A" fill-opacity="0.12"/><circle cx="22" cy="12" r="1.5" fill="#5A6B4A" fill-opacity="0.12"/><circle cx="8" cy="4" r="1.5" fill="#5A6B4A" fill-opacity="0.12"/></svg>`,
+    drop: `<svg width="20" height="28" viewBox="0 0 20 28" fill="none"><path d="M10 2C10 2 2 12 2 18C2 22.4183 5.58172 26 10 26C14.4183 26 18 22.4183 18 18C18 12 10 2 10 2Z" stroke="#5A6B4A" stroke-opacity="0.18" stroke-width="0.75" fill="#5A6B4A" fill-opacity="0.04"/></svg>`,
+    root: `<svg width="36" height="32" viewBox="0 0 36 32" fill="none"><path d="M18 2V14" stroke="#5A6B4A" stroke-opacity="0.2" stroke-width="0.75"/><path d="M18 14C14 18 8 24 4 30" stroke="#5A6B4A" stroke-opacity="0.15" stroke-width="0.75"/><path d="M18 14C22 18 26 24 32 28" stroke="#5A6B4A" stroke-opacity="0.15" stroke-width="0.75"/><path d="M18 14C18 20 16 26 18 30" stroke="#5A6B4A" stroke-opacity="0.15" stroke-width="0.75"/></svg>`,
+    seed: `<svg width="18" height="24" viewBox="0 0 18 24" fill="none"><ellipse cx="9" cy="10" rx="6" ry="8" stroke="#5A6B4A" stroke-opacity="0.2" stroke-width="0.75" fill="#5A6B4A" fill-opacity="0.04"/><path d="M9 18V22" stroke="#5A6B4A" stroke-opacity="0.15" stroke-width="0.75"/><path d="M9 18C7 20 5 21 4 22" stroke="#5A6B4A" stroke-opacity="0.12" stroke-width="0.75"/></svg>`,
+    fern: `<svg width="30" height="36" viewBox="0 0 30 36" fill="none"><path d="M15 34C15 34 15 4 15 2" stroke="#5A6B4A" stroke-opacity="0.18" stroke-width="0.75"/><path d="M15 8C12 6 8 6 6 8" stroke="#5A6B4A" stroke-opacity="0.15" stroke-width="0.75"/><path d="M15 8C18 6 22 6 24 8" stroke="#5A6B4A" stroke-opacity="0.15" stroke-width="0.75"/><path d="M15 14C12 12 7 12 4 14" stroke="#5A6B4A" stroke-opacity="0.15" stroke-width="0.75"/><path d="M15 14C18 12 23 12 26 14" stroke="#5A6B4A" stroke-opacity="0.15" stroke-width="0.75"/><path d="M15 20C12 18 8 18 6 20" stroke="#5A6B4A" stroke-opacity="0.15" stroke-width="0.75"/><path d="M15 20C18 18 22 18 24 20" stroke="#5A6B4A" stroke-opacity="0.15" stroke-width="0.75"/><path d="M15 26C13 24 10 24 8 26" stroke="#5A6B4A" stroke-opacity="0.15" stroke-width="0.75"/><path d="M15 26C17 24 20 24 22 26" stroke="#5A6B4A" stroke-opacity="0.15" stroke-width="0.75"/></svg>`,
+    sun: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="5" stroke="#5A6B4A" stroke-opacity="0.18" stroke-width="0.75" fill="#5A6B4A" fill-opacity="0.04"/><line x1="14" y1="2" x2="14" y2="6" stroke="#5A6B4A" stroke-opacity="0.14" stroke-width="0.75"/><line x1="14" y1="22" x2="14" y2="26" stroke="#5A6B4A" stroke-opacity="0.14" stroke-width="0.75"/><line x1="2" y1="14" x2="6" y2="14" stroke="#5A6B4A" stroke-opacity="0.14" stroke-width="0.75"/><line x1="22" y1="14" x2="26" y2="14" stroke="#5A6B4A" stroke-opacity="0.14" stroke-width="0.75"/><line x1="5.5" y1="5.5" x2="8.3" y2="8.3" stroke="#5A6B4A" stroke-opacity="0.1" stroke-width="0.75"/><line x1="19.7" y1="19.7" x2="22.5" y2="22.5" stroke="#5A6B4A" stroke-opacity="0.1" stroke-width="0.75"/><line x1="22.5" y1="5.5" x2="19.7" y2="8.3" stroke="#5A6B4A" stroke-opacity="0.1" stroke-width="0.75"/><line x1="8.3" y1="19.7" x2="5.5" y2="22.5" stroke="#5A6B4A" stroke-opacity="0.1" stroke-width="0.75"/></svg>`,
+    moss: `<svg width="40" height="16" viewBox="0 0 40 16" fill="none"><circle cx="6" cy="10" r="3" fill="#5A6B4A" fill-opacity="0.06"/><circle cx="14" cy="8" r="4" fill="#5A6B4A" fill-opacity="0.05"/><circle cx="24" cy="10" r="3.5" fill="#5A6B4A" fill-opacity="0.06"/><circle cx="34" cy="9" r="3" fill="#5A6B4A" fill-opacity="0.05"/></svg>`
+  };
+
+  const botanicalKeys = Object.keys(botanicals);
+
+  /* ── Place botanical accents between stones ── */
+  function placeBotanicals() {
+    const container = document.querySelector('.path-botanicals');
+    if (!container || window.innerWidth < 720) return;
+
+    container.innerHTML = '';
+    const stones = document.querySelectorAll('.path-stone');
+
+    stones.forEach(function(stone, i) {
+      if (i >= stones.length - 1) return;
+
+      var midY = stone.offsetTop + (stones[i + 1].offsetTop - stone.offsetTop) * 0.5;
+
+      var isOdd = i % 2 === 0;
+      var xPercent = isOdd ? 65 + Math.random() * 15 : 15 + Math.random() * 15;
+
+      var el = document.createElement('div');
+      el.className = 'path-botanical';
+      el.style.position = 'absolute';
+      el.style.top = midY + 'px';
+      el.style.left = xPercent + '%';
+      el.style.transform = 'rotate(' + (Math.random() * 60 - 30) + 'deg)';
+
+      var key = botanicalKeys[(i * 3 + 1) % botanicalKeys.length];
+      el.innerHTML = botanicals[key];
+
+      container.appendChild(el);
+    });
+  }
+
+  /* ── Build SVG winding path ── */
+  function buildPath() {
+    var svg = document.querySelector('.path-canvas');
+    var trail = document.querySelector('.path-trail');
+    if (!svg || !trail || window.innerWidth < 720) {
+      if (trail) trail.setAttribute('d', '');
+      return;
+    }
+
+    var section = document.querySelector('.path-section');
+    var stones = document.querySelectorAll('.path-stone');
+    if (stones.length === 0) return;
+
+    var sectionRect = section.getBoundingClientRect();
+    svg.setAttribute('viewBox', '0 0 ' + section.offsetWidth + ' ' + section.offsetHeight);
+
+    var points = [];
+    stones.forEach(function(stone) {
+      var circle = stone.querySelector('.path-circle');
+      var circleRect = circle.getBoundingClientRect();
+      var x = circleRect.left - sectionRect.left + circleRect.width / 2;
+      var y = stone.offsetTop + circleRect.height / 2 + (parseFloat(getComputedStyle(stone).paddingTop) || 0);
+      points.push({ x: x, y: y });
+    });
+
+    if (points.length < 2) return;
+
+    /* Build smooth curve through all stone centers */
+    var d = 'M ' + points[0].x + ' ' + points[0].y;
+
+    for (var i = 0; i < points.length - 1; i++) {
+      var p0 = points[Math.max(0, i - 1)];
+      var p1 = points[i];
+      var p2 = points[i + 1];
+      var p3 = points[Math.min(points.length - 1, i + 2)];
+
+      /* Catmull-Rom to cubic bezier */
+      var tension = 0.35;
+      var cp1x = p1.x + (p2.x - p0.x) * tension;
+      var cp1y = p1.y + (p2.y - p0.y) * tension;
+      var cp2x = p2.x - (p3.x - p1.x) * tension;
+      var cp2y = p2.y - (p3.y - p1.y) * tension;
+
+      d += ' C ' + cp1x + ' ' + cp1y + ', ' + cp2x + ' ' + cp2y + ', ' + p2.x + ' ' + p2.y;
+    }
+
+    trail.setAttribute('d', d);
+  }
+
+  /* ── Intersection Observer for scroll reveal ── */
+  function setupObserver() {
+    var stones = document.querySelectorAll('.path-stone');
+    var accents = document.querySelectorAll('.path-botanical');
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var delay = 0;
+          var idx = entry.target.getAttribute('data-index');
+          if (idx) delay = 60;
+          setTimeout(function() {
+            entry.target.classList.add('path-visible');
+          }, delay);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: '0px 0px -60px 0px'
+    });
+
+    stones.forEach(function(stone) {
+      observer.observe(stone);
+    });
+
+    /* Observe botanical accents too */
+    var accentObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('path-visible');
+          accentObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.3,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    accents.forEach(function(accent) {
+      accentObserver.observe(accent);
+    });
+  }
+
+  /* ── Stagger reveal delays for organic feel ── */
+  function staggerDelays() {
+    var stones = document.querySelectorAll('.path-stone');
+    stones.forEach(function(stone, i) {
+      stone.style.transitionDelay = (i * 0.04) + 's';
+    });
+  }
+
+  /* ── Init ── */
+  function init() {
+    staggerDelays();
+    buildPath();
+    placeBotanicals();
+    setupObserver();
+  }
+
+  /* Rebuild on resize */
+  var resizeTimer;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() {
+      buildPath();
+      placeBotanicals();
+    }, 200);
+  });
+
+  /* Run on DOM ready */
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    /* Small delay to ensure layout is settled */
+    setTimeout(init, 50);
+  }
+})();
+</script>
+
 
 <!-- CLOSING -->
 <section class="closing">
